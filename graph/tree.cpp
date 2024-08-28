@@ -9,9 +9,10 @@ using namespace std;
 typedef int IT;
 
 /**
- * @brief Suitable for two operations:
+ * @brief Support for two operations:
  *        1. Update a[i] = k in O(logN)
  *        2. Query information in [x, y] (information: min, max, sum) in O(logN)
+ * @note: Index run from 1->N
  */
 class SegmentTree {
     private:
@@ -63,7 +64,7 @@ class SegmentTree {
 };
 
 /**
- * @brief Suitable for three operations:
+ * @brief Support for three operations:
  *        1. Update a[i] = k in O(logN)
  *        2. Query information in [x, y] (information: min, max, sum) in O(logN)
  *        3. Update a[u->v] += k in O(logN)   
@@ -160,6 +161,63 @@ class LazySegmentTree {
         }         
 };
 
-class FenwichTree {
+/**
+ * @brief Support for three operations:
+ *        1. Update a[i] = k in O(logN)
+ *        2. Update a[i] += k in O(logN)
+ *        3. Update a[u->v] += k in O(logN)
+ *        4. Query sum[l, r] in O(logN)
+ * @note: Index run from 1->N
+ */
+struct FenwickTreeSum {
+    private:
+        vector<IT> bitA;  // binary indexed tree
+        vector<IT> bitB;  // binary indexed tree
+        int n;
 
+    private:
+        IT sum(vector<int>& bits, int idx) {
+            IT ret = 0;
+            while (idx > 0){
+                ret += bits[idx];
+                idx -= idx & -idx;
+            }
+            return ret;
+        }
+
+        // a[idx] += delta
+        void add(vector<int>& bits, int idx, IT delta) {
+            while (idx <= n){
+                bits[idx] += delta;
+                idx += idx & -idx;
+            }
+        }
+
+    public:
+        FenwickTreeSum(int m) : n(m+1){
+            bitA.assign(n, 0);
+            bitB.assign(n, 0);
+        }
+
+        IT sum(int idx) {
+            // std::cout << "idx = " << idx << ", sum(bitA, idx) = " << sum(bitA, idx) << "\n";
+            return (sum(bitA, idx) * idx) - sum(bitB, idx);
+        }
+
+        IT sum(int l, int r) {
+            if (l > r) return 0;
+            return sum(r) - sum(l - 1);
+        }
+
+        void update(int l, int r, IT delta) {
+            add(bitA, l, delta);
+            add(bitA, r + 1, -delta);
+            add(bitB, l, delta * (l - 1));
+            add(bitB, r + 1, -delta * r);
+        }
+
+        void update(int idx, IT k){
+            IT cur_val = sum(idx, idx);
+            update(idx, idx, k - cur_val);
+        }
 };
