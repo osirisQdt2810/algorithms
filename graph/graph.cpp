@@ -508,7 +508,7 @@ class BipartiteMaximumMatching {
 
             if (trace){
                 for (int v = 1; v <= g.V2; v++){
-                    res.matching[v - 1] = (pairV[v] == NIL) ? -1 : pairV[v] - 1;
+                    res.matching.push_back((pairV[v] == NIL) ? -1 : pairV[v] - 1);
                 }
             }
 
