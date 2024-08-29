@@ -220,7 +220,7 @@ class MSTFinder {
 
             MST res;
             for (auto& edge : g.edges){
-                if (res.edges.size() == g.V - 1)
+                if (static_cast<int>(res.edges.size()) == g.V - 1)
                     break;
                 
                 int u = edge.u, v = edge.v, w = edge.w;
@@ -270,72 +270,120 @@ class MSTFinder {
         }
 };
 
-struct Searcher {
-    /**
-     * @note Using g.adj
-     */
-    static inline void bfs(const Graph& g, int start){
-        queue<int> q;
-        vector<bool> visited(g.V, false);
-        q.push(start);
-        visited[start] = true;
+class Searcher {
+    private:
+        static inline int num_low_counter = 0;
 
-        while (!q.empty()){
-            int u = q.front(); q.pop();
-            cout << "Node: " << u << " has been visited!\n";
-
+    private:
+        static inline void find_bridges(
+            const Graph& g, vector<Edge>& bridges, set<int>& cut_points,
+            vector<int>& num, vector<int>& low, int u, int p
+        ){
+            num[u] = low[u] = num_low_counter++;
+            int children = 0;
             for (const auto& [v, w] : g.adj[u]){
-                if (!visited[v]){
-                    q.push(v);
-                    visited[v] = true;
+                if (v == p) continue;
+                if (num[v] == -1){
+                    find_bridges(g, bridges, cut_points, num, low, v, u);
+                    low[u] = min(low[u], low[v]);
+                    if (low[v] >= num[u] && p != -1){
+                        cut_points.insert(u);
+                    }
+                    ++children;
                 }
+                else {
+                    low[u] = min(low[u], num[v]);
+                }
+                if (low[v] > num[u]){
+                    bridges.push_back({u, v, w});
+                }                
+            }
+
+            if (p == -1 && children > 1){
+                cut_points.insert(u);
             }
         }
-    }
 
-    /**
-     * @note Using g.adj
-     * @warning initialize `vector<bool> visited(g.V, false) first`;
-     */
-    static inline void dfs(const Graph& g, vector<bool>& visited, int u){
-        if (visited[u]) return;
+    public:
+        /**
+         * @note Using g.adj
+         */
+        static inline void bfs(const Graph& g, int start){
+            queue<int> q;
+            vector<bool> visited(g.V, false);
+            q.push(start);
+            visited[start] = true;
 
-        visited[u] = true;
-        std::cout << "Node: " << u << " has been visited!\n";
+            while (!q.empty()){
+                int u = q.front(); q.pop();
+                cout << "Node: " << u << " has been visited!\n";
 
-        for (const auto& [v, w] : g.adj[u]){
-            dfs(g, visited, v);
-        }
-    }
-
-    /**
-     * @note Using g.adj
-     */
-    static inline bool isBipartite(const Graph& g){
-        vector<int> color(g.V, -1);
-
-        for (int i = 0; i < g.V; ++i){
-            if (color[i] == -1){
-                color[i] = 0;
-                queue<int> q;
-                q.push(i);
-
-                while (!q.empty()){
-                    int u = q.front(); q.pop();
-                    for (const auto& [v, w]: g.adj[u]){
-                        if (color[v] == -1){
-                            color[v] = 1 - color[u];
-                            q.push(v);
-                        }
-                        else if (color[v] == color[u]) {
-                            return false;
-                        }
+                for (const auto& [v, w] : g.adj[u]){
+                    if (!visited[v]){
+                        q.push(v);
+                        visited[v] = true;
                     }
                 }
             }
         }
-        return true;
-    }
+
+        /**
+         * @note Using g.adj
+         * @warning initialize `vector<bool> visited(g.V, false) first`;
+         */
+        static inline void dfs(const Graph& g, vector<bool>& visited, int u){
+            if (visited[u]) return;
+
+            visited[u] = true;
+            std::cout << "Node: " << u << " has been visited!\n";
+
+            for (const auto& [v, w] : g.adj[u]){
+                dfs(g, visited, v);
+            }
+        }
+
+        /**
+         * @note Using g.adj
+         */
+        static inline bool isBipartite(const Graph& g){
+            vector<int> color(g.V, -1);
+
+            for (int i = 0; i < g.V; ++i){
+                if (color[i] == -1){
+                    color[i] = 0;
+                    queue<int> q;
+                    q.push(i);
+
+                    while (!q.empty()){
+                        int u = q.front(); q.pop();
+                        for (const auto& [v, w]: g.adj[u]){
+                            if (color[v] == -1){
+                                color[v] = 1 - color[u];
+                                q.push(v);
+                            }
+                            else if (color[v] == color[u]) {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
+        static inline pair<vector<Edge>, set<int>> tarjan(const Graph& g){
+            vector<int> num(g.V, -1);
+            vector<int> low(g.V, -1);
+            vector<Edge> bridges;
+            set<int> cut_points;
+
+            for (int u = 0; u < g.V; ++u){
+                if (num[u] == -1){
+                    find_bridges(g, bridges, cut_points, num, low, u, -1);
+                }
+            }
+            return {std::move(bridges), std::move(cut_points)};      
+        }
 };
 
 struct Topology {

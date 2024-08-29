@@ -68,6 +68,7 @@ class SegmentTree {
  *        1. Update a[i] = k in O(logN)
  *        2. Query information in [x, y] (information: min, max, sum) in O(logN)
  *        3. Update a[u->v] += k in O(logN)   
+ * @note: Index run from 1->N
  */
 class LazySegmentTree {
     private:
