@@ -64,6 +64,47 @@ struct UnionFind {
     }
 };
 
+struct AdvanceUnionFind {
+    std::vector<int> parents;
+
+    AdvanceUnionFind(int V){
+        parents.resize(V);
+        for (int i = 0; i < V; ++i)
+            parents[i] = -1;
+    }
+
+    int find_root(int u){
+        return (parents[u] < 0) ? u : (parents[u] = find_root(parents[u]));
+    }
+
+    bool in_union(int u, int v){
+        int root_u = find_root(u);
+        int root_v = find_root(v);
+        return (root_u == root_v);
+    }
+
+    bool do_union(int u, int v){
+        int root_u = find_root(u);
+        int root_v = find_root(v);
+        if (root_u == root_v) return false;
+        parents[root_u] = root_v;
+        parents[root_v] += parents[root_u];
+        return true;
+    }
+
+    int num_components(){
+        int num = 0;
+        for (auto& par : parents)
+            num += (par < 0);
+        return num;
+    }
+
+    int num_points_with_vertex(int u){
+        int root_u = find_root(u);
+        return -parents[root_u];
+    }
+};
+
 struct MST {
     vector<Edge> edges;
     Weight mst{0};
