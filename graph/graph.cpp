@@ -21,6 +21,21 @@ struct Edge {
         os << "(" << edge.u << ", " << edge.v << ", " << edge.w << ")";
         return os;
     }
+
+    bool operator==(const Edge& other) const {
+        return (
+            (u == other.u && v == other.v && w == other.w) ||
+            (u == other.v && v == other.u && w == other.w)
+        );
+    }
+};
+
+struct EdgeHash {
+    std::size_t operator()(const Edge& edge) const {
+        int min_uv = min(edge.u, edge.v);
+        int max_uv = max(edge.u, edge.v);
+        return hash<int>()(min_uv) ^ hash<int>()(max_uv);
+    }
 };
 
 struct Graph {
