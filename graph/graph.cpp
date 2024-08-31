@@ -622,3 +622,83 @@ class BipartiteMaximumMatching {
             return res;
         }        
 };
+
+class LCA {
+    private:
+        const Graph& tree;
+        int root;
+        int logFarthestAncestor; 
+        
+        vector<int> par, h;
+        vector<Weight> dist;    // dist[u] = distance from root->u
+        vector<vector<int>> up;
+
+
+    private:
+        void init(){
+            assert(tree.V > 0);
+            dist.assign(tree.V, -1); dist[root] = 0;
+            par.assign(tree.V, -1); par[root] = -1;
+            h.assign(tree.V, -1); h[root] = 0;
+            up.resize(tree.V);
+            for (int u = 0; u < tree.V; ++u) 
+                up[u].assign(logFarthestAncestor, -1);
+        }
+
+        // O(V + E)
+        void dfs(int u){
+            for (const auto& [v, w] : tree.adj[u]){
+                if (v == par[u]) continue;
+                h[v] = h[u] + 1;
+                dist[v] = dist[u] + w;
+                par[v] = u;
+                dfs(v);
+            }
+        }
+
+        // O(VlogV)
+        void preprocess(){
+            for (int u = 0; u < tree.V; ++u) up[u][0] = par[u];
+            for (int j = 1; j < logFarthestAncestor; ++j)
+                for (int u = 0; u < tree.V; ++u)
+                    up[u][j] = (up[u][j-1] == -1) ? -1 : up[up[u][j-1]][j-1];
+        }
+
+    public:
+        LCA(const Graph& tree, int root = 0) 
+            : tree(tree), root(root), logFarthestAncestor(static_cast<int>(__lg(tree.V) + 1)){
+            init();
+            dfs(root);
+            preprocess();    
+        }
+
+        // O(logN)
+        int lca(int u, int v){
+            if (h[u] != h[v]){
+                if (h[u] < h[v]) swap(u, v);    // => h[u] > h[v]
+                // jump k = h[u] - h[v] steps from u
+                int k = h[u] - h[v];
+                for (int j = 0; (1 << j) <= k; ++j){
+                    if (k >> j & 1) u = up[u][j];
+                }
+            }
+            // std::cout << "u = " << u << ", v = " << v << " - h = " << h[u] << "\n";
+            if (u == v) return u;
+
+            // jump to the farthest ancestor of (u and v), where ancestor[u] != ancestor[v]
+            int k = __lg(h[u]);
+            for (int j = k; j >= 0; --j){
+                if (up[u][j] != up[v][j]){
+                    u = up[u][j];
+                    v = up[v][j];
+                }
+            }
+            return up[u][0];
+        }
+
+        // O(logN)
+        int distance(int u, int v){
+            int ancestor = lca(u, v);
+            return dist[u] + dist[v] - 2 * dist[ancestor];
+        }
+};
