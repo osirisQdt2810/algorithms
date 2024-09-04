@@ -48,7 +48,8 @@ struct Graph {
 struct BipartiteGraph {
     int V1, V2;                 // first-part: 0...V1-1, second-part: 0...V2-1
     int E;
-    vector<vector<int>> adj;    // adj[u]: list of vertices v in V2 where edge u-v is present
+    vector<vector<VW>> adj;     // adj[u]: list of vertices v in V2 where edge u-v is present
+    WeightMatrix mat;           
 };
 
 struct UnionFind {
@@ -164,8 +165,9 @@ struct ShortestPath {
     }    
 };
 
-struct MaxBipartiteMatches {
+struct BipartiteMatches {
     int matches{0};
+    Weight cost{-1};
     vector<int> matching;  // matching[v] = u, where v is the vertex in V2, u is the vertex in V1)
 };
 //////////////////////////////////////////////////////////////////////////////////
@@ -477,10 +479,10 @@ struct Topology {
     }
 };
 
-class BipartiteMaximumMatching {
+class BipartiteMatching {
     private:
         static inline const int NIL = 0;
-        static inline const int INF = INT_MAX;
+        static inline const int INF = MAX_WEIGHT;
 
         /**
          * @brief DFS to update the augmenting path from vertex u in V1
@@ -489,7 +491,7 @@ class BipartiteMaximumMatching {
             if (visited[u]) return false;
             visited[u] = true;
 
-            for (const auto& v : g.adj[u]){
+            for (const auto& [v, w] : g.adj[u]){
                 if (mt[v] == -1 || try_kuhn(g, visited, mt, mt[v])){       // if v is a unsaturated vertex, so v is the end of 
                     mt[v] = u;
                     return true;
@@ -514,7 +516,7 @@ class BipartiteMaximumMatching {
             while (!Q.empty()){
                 int u = Q.front(); Q.pop();
                 if (dist[u] < dist[NIL]){
-                    for (const auto& v : g.adj[u - 1]){
+                    for (const auto& [v, w] : g.adj[u - 1]){
                         if (dist[pairV[v + 1]] == INF){
                             dist[pairV[v + 1]] = dist[u] + 1;
                             Q.push(pairV[v + 1]);
@@ -527,7 +529,7 @@ class BipartiteMaximumMatching {
 
         static inline bool hopcroft_dfs(const BipartiteGraph& g, int* pairU, int* pairV, int* dist, int u){
             if (u != NIL){
-                for (const auto& v : g.adj[u - 1]){
+                for (const auto& [v, w] : g.adj[u - 1]){
                     if (dist[pairV[v + 1]] == dist[u] + 1 && hopcroft_dfs(g, pairU, pairV, dist, pairV[v + 1])){
                         pairV[v + 1] = u;
                         pairU[u] = v + 1;
@@ -541,12 +543,12 @@ class BipartiteMaximumMatching {
         }
 
     public:
-        static inline MaxBipartiteMatches kuhn(const BipartiteGraph& g, bool trace = false){
+        static inline BipartiteMatches kuhn(const BipartiteGraph& g, bool trace = false){
             vector<bool> visited;
             vector<int> mt; mt.assign(g.V2, -1);
 
             // for each vertex u in V1, we tried to find the augmenting path from u
-            MaxBipartiteMatches res;
+            BipartiteMatches res;
             for (int u = 0; u < g.V1; ++u){
                 visited.assign(g.V1, false);            // reset state of visited for each vertex in V1
                 if (try_kuhn(g, visited, mt, u)){
@@ -559,14 +561,14 @@ class BipartiteMaximumMatching {
             return res;
         }
 
-        static inline MaxBipartiteMatches kuhn_heuristic(const BipartiteGraph& g, bool trace = false){
+        static inline BipartiteMatches kuhn_heuristic(const BipartiteGraph& g, bool trace = false){
             vector<bool> visited;
             vector<int> mt; mt.assign(g.V2, -1);
 
             // do the heuristic to get the easiest maximum matching
             vector<bool> hasAugmented; hasAugmented.assign(g.V1, false);
             for (int u = 0; u < g.V1; ++u){
-                for (const auto& v : g.adj[u]){
+                for (const auto& [v, w] : g.adj[u]){
                     if (mt[v] != -1){
                         mt[v] = u;
                         hasAugmented[u] = true;
@@ -576,7 +578,7 @@ class BipartiteMaximumMatching {
             }
 
             // for each vertex u in V1 (not augmented), we tried to find the augmenting path from u
-            MaxBipartiteMatches res;
+            BipartiteMatches res;
             for (int u = 0; u < g.V1; ++u){
                 if (hasAugmented[u]){
                     res.matches++;
@@ -593,7 +595,7 @@ class BipartiteMaximumMatching {
             return res;            
         }
 
-        static inline MaxBipartiteMatches hopcroft_karp(const BipartiteGraph& g, bool trace = false){       // O(sqrt(V) * E)
+        static inline BipartiteMatches hopcroft_karp(const BipartiteGraph& g, bool trace = false){       // O(sqrt(V) * E)
             int* pairU = new int[static_cast<size_t>(g.V1 + 1)];
             int* pairV = new int[static_cast<size_t>(g.V2 + 1)];
             int* dist  = new int[static_cast<size_t>(g.V1 + 1)];
@@ -601,7 +603,7 @@ class BipartiteMaximumMatching {
             for (int u = 0; u <= g.V1; ++u) pairU[u] = NIL;
             for (int v = 0; v <= g.V2; ++v) pairV[v] = NIL;
 
-            MaxBipartiteMatches res;
+            BipartiteMatches res;
             while (hopcroft_bfs(g, pairU, pairV, dist)){
                 for (int u = 1; u <= g.V1; ++u){
                     if (pairU[u] == NIL && hopcroft_dfs(g, pairU, pairV, dist, u)){
@@ -620,7 +622,50 @@ class BipartiteMaximumMatching {
             delete[] pairV;
             delete[] dist;
             return res;
-        }        
+        }   
+
+        static inline BipartiteMatches hungarian_matching(const BipartiteGraph& g){
+            WeightMatrix A = g.mat;
+            int n = g.V1, m = g.V2;
+            if (n == 0 || m == 0) return BipartiteMatches();
+            vector<int> u (n+1), v (m+1), p (m+1), way (m+1);
+            for (int i=1; i<=n; ++i) {
+                p[0] = i;
+                int j0 = 0;
+                vector<int> minv (m+1, INF);
+                vector<bool> used (m+1, false);
+                do {
+                    used[j0] = true;
+                    int i0 = p[j0],  delta = INF,  j1;
+                    for (int j=1; j<=m; ++j)
+                        if (!used[j]) {
+                            int cur = A[i0 - 1][j - 1]-u[i0]-v[j];
+                            if (cur < minv[j])
+                                minv[j] = cur,  way[j] = j0;
+                            if (minv[j] < delta)
+                                delta = minv[j],  j1 = j;
+                        }
+                    for (int j=0; j<=m; ++j)
+                        if (used[j])
+                            u[p[j]] += delta,  v[j] -= delta;
+                        else
+                            minv[j] -= delta;
+                    j0 = j1;
+                } while (p[j0] != 0);
+                do {
+                    int j1 = way[j0];
+                    p[j0] = p[j1];
+                    j0 = j1;
+                } while (j0);
+            }
+
+            BipartiteMatches res;
+            res.matches = min(m, n);
+            res.cost = -v[0];
+            for (int j = 1; j <= m; j++)
+                res.matching.push_back(p[j] - 1);
+            return res;
+        } 
 };
 
 class LCA {
@@ -697,7 +742,7 @@ class LCA {
         }
 
         // O(logN)
-        int distance(int u, int v){
+        Weight distance(int u, int v){
             int ancestor = lca(u, v);
             return dist[u] + dist[v] - 2 * dist[ancestor];
         }
