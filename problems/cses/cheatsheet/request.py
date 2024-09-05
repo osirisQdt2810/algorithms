@@ -91,12 +91,12 @@ with open(combined_readme_file, 'w') as outfile:
             # print(f"<title>{title}</title>")
             # print(f'<div class="md">{content_div}</div>')
             
-            combined_readme = "## " + title + "\n"
+            combined_readme = "## " + str(pid) + "." + title + "\n"
             combined_readme += f'<div class="md">{content_div}</div>\n\n'
             
             ind = end
             
-            data['problems'].append(title)
+            data['problems'].append(str(pid) + "." + title)
             data['descriptions'].append(content_div)
         
             outfile.write(combined_readme)

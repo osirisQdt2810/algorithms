@@ -1,4 +1,4 @@
-## CSES - Weird Algorithm
+## 1068.CSES - Weird Algorithm
 <div class="md"><div class="md"><p>Consider an algorithm that takes as input a positive integer <span class="math inline">n</span>. If <span class="math inline">n</span> is even, the algorithm divides it by two, and if <span class="math inline">n</span> is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until <span class="math inline">n</span> is one. For example, the sequence for <span class="math inline">n=3</span> is as follows:
 <span class="math display"> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1</span>
 Your task is to simulate the execution of the algorithm for a given value of <span class="math inline">n</span>.</p>
@@ -18,7 +18,7 @@ Your task is to simulate the execution of the algorithm for a given value of <sp
 <pre>3 10 5 16 8 4 2 1
 </pre></div></div>
 
-## CSES - Missing Number
+## 1083.CSES - Missing Number
 <div class="md"><div class="md"><p>You are given all numbers between <span class="math inline">1,2,...,n</span> except one. Your task is to find the missing number.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains an integer <span class="math inline">n</span>.</p>
@@ -38,7 +38,7 @@ Your task is to simulate the execution of the algorithm for a given value of <sp
 <pre>4
 </pre></div></div>
 
-## CSES - Repetitions
+## 1069.CSES - Repetitions
 <div class="md"><div class="md"><p>You are given a DNA sequence: a string consisting of characters A, C, G, and T. Your task is to find the longest repetition in the sequence. This is a maximum-length substring containing only one type of character.</p>
 <h1 id="input">Input</h1>
 <p>The only input line contains a string of <span class="math inline">n</span> characters.</p>
@@ -56,7 +56,7 @@ Your task is to simulate the execution of the algorithm for a given value of <sp
 <pre>3
 </pre></div></div>
 
-## CSES - Increasing Array
+## 1094.CSES - Increasing Array
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers. You want to modify the array so that it is increasing, i.e., every element is at least as large as the previous element.</p>
 <p>On each move, you may increase the value of any element by one. What is the minimum number of moves required?</p>
 <h1 id="input">Input</h1>
@@ -78,7 +78,7 @@ Your task is to simulate the execution of the algorithm for a given value of <sp
 <pre>5
 </pre></div></div>
 
-## CSES - Permutations
+## 1070.CSES - Permutations
 <div class="md"><div class="md"><p>A permutation of integers <span class="math inline">1,2,...,n</span> is called <em>beautiful</em> if there are no adjacent elements whose difference is <span class="math inline">1</span>.</p>
 <p>Given <span class="math inline">n</span>, construct a beautiful permutation if such a permutation exists.</p>
 <h1 id="input">Input</h1>
@@ -103,7 +103,7 @@ Your task is to simulate the execution of the algorithm for a given value of <sp
 <pre>NO SOLUTION
 </pre></div></div>
 
-## CSES - Number Spiral
+## 1071.CSES - Number Spiral
 <div class="md"><div class="md"><p>A number spiral is an infinite grid whose upper-left square has number 1. Here are the first five layers of the spiral:
 <center><img alt="" class="invertible" src="/file/bba36f2601b99c7edc15865aa2a49e680a271075f30e86aa0e4e18d00a779c21"/></center>
 Your task is to find out the number in row <span class="math inline">y</span> and column <span class="math inline">x</span>.</p>
@@ -130,7 +130,7 @@ Your task is to find out the number in row <span class="math inline">y</span> an
 15
 </pre></div></div>
 
-## CSES - Two Knights
+## 1072.CSES - Two Knights
 <div class="md"><div class="md"><p>Your task is to count for <span class="math inline">k=1,2,...,n</span> the number of ways two knights can be placed on a <span class="math inline">k x k</span> chessboard so that they do not attack each other.</p>
 <h1 id="input">Input</h1>
 <p>The only input line contains an integer <span class="math inline">n</span>.</p>
@@ -155,7 +155,7 @@ Your task is to find out the number in row <span class="math inline">y</span> an
 1848
 </pre></div></div>
 
-## CSES - Two Sets
+## 1092.CSES - Two Sets
 <div class="md"><div class="md"><p>Your task is to divide the numbers <span class="math inline">1,2,...,n</span> into two sets of equal sum.</p>
 <h1 id="input">Input</h1>
 <p>The only input line contains an integer <span class="math inline">n</span>.</p>
@@ -184,7 +184,7 @@ Your task is to find out the number in row <span class="math inline">y</span> an
 <pre>NO
 </pre></div></div>
 
-## CSES - Bit Strings
+## 1617.CSES - Bit Strings
 <div class="md"><div class="md"><p>Your task is to calculate the number of bit strings of length <span class="math inline">n</span>.</p>
 <p>For example, if <span class="math inline">n=3</span>, the correct answer is <span class="math inline">8</span>, because the possible bit strings are 000, 001, 010, 011, 100, 101, 110, and 111.</p>
 <h1 id="input">Input</h1>
@@ -203,7 +203,7 @@ Your task is to find out the number in row <span class="math inline">y</span> an
 <pre>8
 </pre></div></div>
 
-## CSES - Trailing Zeros
+## 1618.CSES - Trailing Zeros
 <div class="md"><div class="md"><p>Your task is to calculate the number of trailing zeros in the factorial <span class="math inline">n!</span>.</p>
 <p>For example, <span class="math inline">20!=2432902008176640000</span> and it has <span class="math inline">4</span> trailing zeros.</p>
 <h1 id="input">Input</h1>
@@ -222,7 +222,7 @@ Your task is to find out the number in row <span class="math inline">y</span> an
 <pre>4
 </pre></div></div>
 
-## CSES - Coin Piles
+## 1754.CSES - Coin Piles
 <div class="md"><div class="md"><p>You have two coin piles containing <span class="math inline">a</span> and <span class="math inline">b</span> coins. On each move, you can either remove one coin from the left pile and two coins from the right pile, or two coins from the left pile and one coin from the right pile.</p>
 <p>Your task is to efficiently find out if you can empty both the piles.</p>
 <h1 id="input">Input</h1>
@@ -248,7 +248,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Palindrome Reorder
+## 1755.CSES - Palindrome Reorder
 <div class="md"><div class="md"><p>Given a string, your task is to reorder its letters in such a way that it becomes a palindrome (i.e., it reads the same forwards and backwards).</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span> consisting of characters A–Z.</p>
@@ -266,7 +266,7 @@ YES
 <pre>AACABACAA
 </pre></div></div>
 
-## CSES - Gray Code
+## 2205.CSES - Gray Code
 <div class="md"><div class="md"><p>A Gray code is a list of all <span class="math inline">2^n</span> bit strings of length <span class="math inline">n</span>, where any two successive strings differ in exactly one bit (i.e., their Hamming distance is one).</p>
 <p>Your task is to create a Gray code for a given length <span class="math inline">n</span>.</p>
 <h1 id="input">Input</h1>
@@ -288,7 +288,7 @@ YES
 10
 </pre></div></div>
 
-## CSES - Tower of Hanoi
+## 2165.CSES - Tower of Hanoi
 <div class="md"><div class="md"><p>The Tower of Hanoi game consists of three stacks (left, middle and right) and <span class="math inline">n</span> round disks of different sizes. Initially, the left stack has all the disks, in increasing order of size from top to bottom. </p>
 <p>The goal is to move all the disks to the right stack using the middle stack. On each move you can move the uppermost disk from a stack to another stack. In addition, it is not allowed to place a larger disk on a smaller disk.</p>
 <p>Your task is to find a solution that minimizes the number of moves.</p>
@@ -312,7 +312,7 @@ YES
 2 3
 </pre></div></div>
 
-## CSES - Creating Strings
+## 1622.CSES - Creating Strings
 <div class="md"><div class="md"><p>Given a string, your task is to generate all different strings that can be created using its characters.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span>. Each character is between a–z.</p>
@@ -350,7 +350,7 @@ cabaa
 cbaaa
 </pre></div></div>
 
-## CSES - Apple Division
+## 1623.CSES - Apple Division
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> apples with known weights. Your task is to divide the apples into two groups so that the difference between the weights of the groups is minimal.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of apples.</p>
@@ -373,7 +373,7 @@ cbaaa
 <p>Explanation: Group 1 has weights 2, 3 and 4 (total weight 9), and group 2 has weights 1 and 7 (total weight 8).</p>
 </div></div>
 
-## CSES - Chessboard and Queens
+## 1624.CSES - Chessboard and Queens
 <div class="md"><div class="md"><p>Your task is to place eight queens on a chessboard so that no two queens are attacking each other. As an additional challenge, each square is either free or reserved, and you can only place queens on the free squares. However, the reserved squares do not prevent queens from attacking each other.</p>
 <p>How many possible ways are there to place the queens?</p>
 <h1 id="input">Input</h1>
@@ -395,7 +395,7 @@ cbaaa
 <pre>65
 </pre></div></div>
 
-## CSES - Digit Queries
+## 2431.CSES - Digit Queries
 <div class="md"><div class="md"><p>Consider an infinite string that consists of all positive integers in increasing order:</p>
 <pre>12345678910111213141516171819202122232425...
 </pre>
@@ -423,7 +423,7 @@ cbaaa
 1
 </pre></div></div>
 
-## CSES - Grid Paths
+## 1625.CSES - Grid Paths
 <div class="md"><div class="md"><p>There are <span class="math inline">88418</span> paths in a <span class="math inline">7 x 7</span> grid from the upper-left square to the lower-left square. Each path corresponds to a <span class="math inline">48</span>-character description consisting of characters <code>D</code> (down), <code>U</code> (up), <code>L</code> (left) and <code>R</code> (right).</p>
 <p>For example, the path
 <center><img alt="" class="invertible" src="/file/3624b569007eb03818b6611755f1bdbe4cdbd0a8334baf9fedc5365914bdd661"/></center>
@@ -441,7 +441,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>201
 </pre></div></div>
 
-## CSES - Distinct Numbers
+## 1621.CSES - Distinct Numbers
 <div class="md"><div class="md"><p>You are given a list of <span class="math inline">n</span> integers, and your task is to calculate the number of <em>distinct</em> values in the list.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of values.</p>
@@ -462,7 +462,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Apartments
+## 1084.CSES - Apartments
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> applicants and <span class="math inline">m</span> free apartments. Your task is to distribute the apartments so that as many applicants as possible will get an apartment.</p>
 <p>Each applicant has a desired apartment size, and they will accept any apartment whose size is close enough to the desired size.</p>
 <h1 id="input">Input</h1>
@@ -487,7 +487,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Ferris Wheel
+## 1090.CSES - Ferris Wheel
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> children who want to go to a Ferris wheel, and your task is to find a gondola for each child.</p>
 <p>Each gondola may have one or two children in it, and in addition, the total weight in a gondola may not exceed <span class="math inline">x</span>. You know the weight of every child.</p>
 <p>What is the minimum number of gondolas needed for the children?</p>
@@ -511,7 +511,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Concert Tickets
+## 1091.CSES - Concert Tickets
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> concert tickets available, each with a certain price. Then, <span class="math inline">m</span> customers arrive, one after another.</p>
 <p>Each customer announces the maximum price they are willing to pay for a ticket, and after this, they will get a ticket with the nearest possible price such that it does not exceed the maximum price.</p>
 <h1 id="input">Input</h1>
@@ -538,7 +538,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 -1
 </pre></div></div>
 
-## CSES - Restaurant Customers
+## 1619.CSES - Restaurant Customers
 <div class="md"><div class="md"><p>You are given the arrival and leaving times of <span class="math inline">n</span> customers in a restaurant.</p>
 <p>What was the maximum number of customers in the restaurant at any time?</p>
 <h1 id="input">Input</h1>
@@ -563,7 +563,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Movie Festival
+## 1629.CSES - Movie Festival
 <div class="md"><div class="md"><p>In a movie festival <span class="math inline">n</span> movies will be shown. You know the starting and ending time of each movie. What is the maximum number of movies you can watch entirely?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of movies.</p>
@@ -586,7 +586,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Sum of Two Values
+## 1640.CSES - Sum of Two Values
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers, and your task is to find two values (at distinct positions) whose sum is <span class="math inline">x</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the array size and the target sum.</p>
@@ -607,7 +607,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2 4
 </pre></div></div>
 
-## CSES - Maximum Subarray Sum
+## 1643.CSES - Maximum Subarray Sum
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to find the maximum sum of values in a contiguous, nonempty subarray.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -628,7 +628,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>9
 </pre></div></div>
 
-## CSES - Stick Lengths
+## 1074.CSES - Stick Lengths
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> sticks with some lengths. Your task is to modify the sticks so that each stick has the same length.</p>
 <p>You can either lengthen and shorten each stick. Both operations cost <span class="math inline">x</span> where <span class="math inline">x</span> is the difference between the new and original length.</p>
 <p>What is the minimum total cost?</p>
@@ -651,7 +651,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>5
 </pre></div></div>
 
-## CSES - Missing Coin Sum
+## 2183.CSES - Missing Coin Sum
 <div class="md"><div class="md"><p>You have <span class="math inline">n</span> coins with positive integer values. What is the smallest sum you cannot create using a subset of the coins?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of coins.</p>
@@ -672,7 +672,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>6
 </pre></div></div>
 
-## CSES - Collecting Numbers
+## 2216.CSES - Collecting Numbers
 <div class="md"><div class="md"><p>You are given an array that contains each number between <span class="math inline">1 \dots n</span> exactly once. Your task is to collect the numbers from <span class="math inline">1</span> to <span class="math inline">n</span> in increasing order.</p>
 <p>On each round, you go through the array from left to right and collect as many numbers as possible. What will be the total number of rounds?</p>
 <h1 id="input">Input</h1>
@@ -693,7 +693,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Collecting Numbers II
+## 2217.CSES - Collecting Numbers II
 <div class="md"><div class="md"><p>You are given an array that contains each number between <span class="math inline">1 \dots n</span> exactly once. Your task is to collect the numbers from <span class="math inline">1</span> to <span class="math inline">n</span> in increasing order.</p>
 <p>On each round, you go through the array from left to right and collect as many numbers as possible.</p>
 <p>Given <span class="math inline">m</span> operations that swap two numbers in the array, your task is to report the number of rounds after each operation.</p>
@@ -722,7 +722,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 4
 </pre></div></div>
 
-## CSES - Playlist
+## 1141.CSES - Playlist
 <div class="md"><div class="md"><p>You are given a playlist of a radio station since its establishment. The playlist has a total of <span class="math inline">n</span> songs.</p>
 <p>What is the longest sequence of successive songs where each song is unique?</p>
 <h1 id="input">Input</h1>
@@ -744,7 +744,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>5
 </pre></div></div>
 
-## CSES - Towers
+## 1073.CSES - Towers
 <div class="md"><div class="md"><p>You are given <span class="math inline">n</span> cubes in a certain order, and your task is to build towers using them. Whenever two cubes are one on top of the other, the upper cube must be smaller than the lower cube.</p>
 <p>You must process the cubes in the given order. You can always either place the cube on top of an existing tower, or begin a new tower. What is the minimum possible number of towers?</p>
 <h1 id="input">Input</h1>
@@ -766,7 +766,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Traffic Lights
+## 1163.CSES - Traffic Lights
 <div class="md"><div class="md"><p>There is a street of length <span class="math inline">x</span> whose positions are numbered <span class="math inline">0,1,...,x</span>. Initially there are no traffic lights, but <span class="math inline">n</span> sets of traffic lights are added to the street one after another.</p>
 <p>Your task is to calculate the length of the longest passage without traffic lights after each addition.</p>
 <h1 id="input">Input</h1>
@@ -789,7 +789,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>5 3 3
 </pre></div></div>
 
-## CSES - Josephus Problem I
+## 2162.CSES - Josephus Problem I
 <div class="md"><div class="md"><p>Consider a game where there are <span class="math inline">n</span> children (numbered <span class="math inline">1,2,\dots,n</span>) in a circle. During the game, every other child is removed from the circle until there are no children left. In which order will the children be removed?</p>
 <h1 id="input">Input</h1>
 <p>The only input line has an integer <span class="math inline">n</span>.</p>
@@ -807,7 +807,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2 4 6 1 5 3 7
 </pre></div></div>
 
-## CSES - Josephus Problem II
+## 2163.CSES - Josephus Problem II
 <div class="md"><div class="md"><p>Consider a game where there are <span class="math inline">n</span> children (numbered <span class="math inline">1,2,\dots,n</span>) in a circle. During the game, repeatedly <span class="math inline">k</span> children are skipped and one child is removed from the circle. In which order will the children be removed?</p>
 <h1 id="input">Input</h1>
 <p>The only input line has two integers <span class="math inline">n</span> and <span class="math inline">k</span>.</p>
@@ -826,7 +826,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3 6 2 7 5 1 4
 </pre></div></div>
 
-## CSES - Nested Ranges Check
+## 2168.CSES - Nested Ranges Check
 <div class="md"><div class="md"><p>Given <span class="math inline">n</span> ranges, your task is to determine for each range if it contains some other range and if some other range contains it.</p>
 <p>Range <span class="math inline">[a,b]</span> contains range <span class="math inline">[c,d]</span> if <span class="math inline">a <= c</span> and <span class="math inline">d <= b</span>.</p>
 <h1 id="input">Input</h1>
@@ -854,7 +854,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 0 1 0 1
 </pre></div></div>
 
-## CSES - Nested Ranges Count
+## 2169.CSES - Nested Ranges Count
 <div class="md"><div class="md"><p>Given <span class="math inline">n</span> ranges, your task is to count for each range how many other ranges it contains and how many other ranges contain it.</p>
 <p>Range <span class="math inline">[a,b]</span> contains range <span class="math inline">[c,d]</span> if <span class="math inline">a <= c</span> and <span class="math inline">d <= b</span>.</p>
 <h1 id="input">Input</h1>
@@ -882,7 +882,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 0 1 0 1
 </pre></div></div>
 
-## CSES - Room Allocation
+## 1164.CSES - Room Allocation
 <div class="md"><div class="md"><p>There is a large hotel, and <span class="math inline">n</span> customers will arrive soon. Each customer wants to have a single room.</p>
 <p>You know each customer's arrival and departure day. Two customers can stay in the same room if the departure day of the first customer is earlier than the arrival day of the second customer.</p>
 <p>What is the minimum number of rooms that are needed to accommodate all customers? And how can the rooms be allocated?</p>
@@ -909,7 +909,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 1 2 1
 </pre></div></div>
 
-## CSES - Factory Machines
+## 1620.CSES - Factory Machines
 <div class="md"><div class="md"><p>A factory has <span class="math inline">n</span> machines which can be used to make products. Your goal is to make a total of <span class="math inline">t</span> products.</p>
 <p>For each machine, you know the number of seconds it needs to make a single product. The machines can work simultaneously, and you can freely decide their schedule.</p>
 <p>What is the shortest time needed to make <span class="math inline">t</span> products?</p>
@@ -935,7 +935,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <p>Explanation: Machine 1 makes two products, machine 2 makes four products and machine 3 makes one product.</p>
 </div></div>
 
-## CSES - Tasks and Deadlines
+## 1630.CSES - Tasks and Deadlines
 <div class="md"><div class="md"><p>You have to process <span class="math inline">n</span> tasks. Each task has a duration and a deadline, and you will process the tasks in some order one after another. Your reward for a task is <span class="math inline">d-f</span> where <span class="math inline">d</span> is its deadline and <span class="math inline">f</span> is your finishing time. (The starting time is <span class="math inline">0</span>, and you have to process all tasks even if a task would yield negative reward.)</p>
 <p>What is your maximum reward if you act optimally?</p>
 <h1 id="input">Input</h1>
@@ -959,7 +959,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Reading Books
+## 1631.CSES - Reading Books
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> books, and Kotivalo and Justiina are going to read them all. For each book, you know the time it takes to read it.</p>
 <p>They both read each book from beginning to end, and they cannot read a book at the same time. What is the minimum total time required?</p>
 <h1 id="input">Input</h1>
@@ -981,7 +981,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>16
 </pre></div></div>
 
-## CSES - Sum of Three Values
+## 1641.CSES - Sum of Three Values
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers, and your task is to find three values (at distinct positions) whose sum is <span class="math inline">x</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the array size and the target sum.</p>
@@ -1002,7 +1002,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>1 3 4
 </pre></div></div>
 
-## CSES - Sum of Four Values
+## 1642.CSES - Sum of Four Values
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers, and your task is to find four values (at distinct positions) whose sum is <span class="math inline">x</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the array size and the target sum.</p>
@@ -1023,7 +1023,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2 4 6 7
 </pre></div></div>
 
-## CSES - Nearest Smaller Values
+## 1645.CSES - Nearest Smaller Values
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to find for each array position the nearest position to its left having a smaller value.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -1044,7 +1044,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>0 1 0 3 4 3 3 7
 </pre></div></div>
 
-## CSES - Subarray Sums I
+## 1660.CSES - Subarray Sums I
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> positive integers, your task is to count the number of subarrays having sum <span class="math inline">x</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the size of the array and the target sum <span class="math inline">x</span>.</p>
@@ -1065,7 +1065,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Subarray Sums II
+## 1661.CSES - Subarray Sums II
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to count the number of subarrays having sum <span class="math inline">x</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the size of the array and the target sum <span class="math inline">x</span>.</p>
@@ -1086,7 +1086,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2
 </pre></div></div>
 
-## CSES - Subarray Divisibility
+## 1662.CSES - Subarray Divisibility
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to count the number of subarrays where the sum of values is divisible by <span class="math inline">n</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -1107,7 +1107,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>1
 </pre></div></div>
 
-## CSES - Subarray Distinct Values
+## 2428.CSES - Subarray Distinct Values
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to calculate the number of subarrays that have at most <span class="math inline">k</span> distinct values.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">k</span>.</p>
@@ -1128,7 +1128,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>10
 </pre></div></div>
 
-## CSES - Array Division
+## 1085.CSES - Array Division
 <div class="md"><div class="md"><p>You are given an array containing <span class="math inline">n</span> positive integers.</p>
 <p>Your task is to divide the array into <span class="math inline">k</span> subarrays so that the maximum sum in a subarray is as small as possible.</p>
 <h1 id="input">Input</h1>
@@ -1153,7 +1153,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <p>Explanation: An optimal division is <span class="math inline">[2,4],[7],[3,5]</span> where the sums of the subarrays are <span class="math inline">6,7,8</span>. The largest sum is the last sum <span class="math inline">8</span>.</p>
 </div></div>
 
-## CSES - Sliding Window Median
+## 1076.CSES - Sliding Window Median
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers. Your task is to calculate the median of each window of <span class="math inline">k</span> elements, from left to right.</p>
 <p>The median is the middle element when the elements are sorted. If the number of elements is even, there are two possible medians and we assume that the median is the smaller of them.</p>
 <h1 id="input">Input</h1>
@@ -1175,7 +1175,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3 4 5 5 2 1
 </pre></div></div>
 
-## CSES - Sliding Window Cost
+## 1077.CSES - Sliding Window Cost
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers. Your task is to calculate for each window of <span class="math inline">k</span> elements, from left to right, the minimum total cost of making all elements equal.</p>
 <p>You can increase or decrease each element with cost <span class="math inline">x</span> where <span class="math inline">x</span> is the difference between the new and the original value. The total cost is the sum of such costs.</p>
 <h1 id="input">Input</h1>
@@ -1197,7 +1197,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>2 2 5 7 7 1
 </pre></div></div>
 
-## CSES - Movie Festival II
+## 1632.CSES - Movie Festival II
 <div class="md"><div class="md"><p>In a movie festival, <span class="math inline">n</span> movies will be shown. Syrjälä's movie club consists of <span class="math inline">k</span> members, who will be all attending the festival.</p>
 <p>You know the starting and ending time of each movie. What is the maximum total number of movies the club members can watch entirely if they act optimally?</p>
 <h1 id="input">Input</h1>
@@ -1223,7 +1223,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>4
 </pre></div></div>
 
-## CSES - Maximum Subarray Sum II
+## 1644.CSES - Maximum Subarray Sum II
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to find the maximum sum of values in a contiguous subarray with length between <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has three integers <span class="math inline">n</span>, <span class="math inline">a</span> and <span class="math inline">b</span>: the size of the array and the minimum and maximum subarray length.</p>
@@ -1245,7 +1245,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>8
 </pre></div></div>
 
-## CSES - Dice Combinations
+## 1633.CSES - Dice Combinations
 <div class="md"><div class="md"><p>Your task is to count the number of ways to construct sum <span class="math inline">n</span> by throwing a dice one or more times. Each throw produces an outcome between <span class="math inline">1</span> and  <span class="math inline">6</span>.</p>
 <p>For example, if <span class="math inline">n=3</span>, there are <span class="math inline">4</span> ways:</p>
 <ul>
@@ -1270,7 +1270,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>4
 </pre></div></div>
 
-## CSES - Minimizing Coins
+## 1634.CSES - Minimizing Coins
 <div class="md"><div class="md"><p>Consider a money system consisting of <span class="math inline">n</span> coins. Each coin has a positive integer value. Your task is to produce a sum of money <span class="math inline">x</span> using the available coins in such a way that the number of coins is minimal.</p>
 <p>For example, if the coins are <span class="math inline">\{1,5,7\}</span> and the desired sum is <span class="math inline">11</span>, an optimal solution is <span class="math inline">5+5+1</span> which requires <span class="math inline">3</span> coins.</p>
 <h1 id="input">Input</h1>
@@ -1293,7 +1293,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Coin Combinations I
+## 1635.CSES - Coin Combinations I
 <div class="md"><div class="md"><p>Consider a money system consisting of <span class="math inline">n</span> coins. Each coin has a positive integer value. Your task is to calculate the number of distinct ways you can produce a money sum <span class="math inline">x</span> using the available coins.</p>
 <p>For example, if the coins are <span class="math inline">\{2,3,5\}</span> and the desired sum is <span class="math inline">9</span>, there are <span class="math inline">8</span> ways:</p>
 <ul>
@@ -1326,7 +1326,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>8
 </pre></div></div>
 
-## CSES - Coin Combinations II
+## 1636.CSES - Coin Combinations II
 <div class="md"><div class="md"><p>Consider a money system consisting of <span class="math inline">n</span> coins. Each coin has a positive integer value. Your task is to calculate the number of distinct <em>ordered</em> ways you can produce a money sum <span class="math inline">x</span> using the available coins.</p>
 <p>For example, if the coins are <span class="math inline">\{2,3,5\}</span> and the desired sum is <span class="math inline">9</span>, there are <span class="math inline">3</span> ways:</p>
 <ul>
@@ -1354,7 +1354,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Removing Digits
+## 1637.CSES - Removing Digits
 <div class="md"><div class="md"><p>You are given an integer <span class="math inline">n</span>. On each step, you may subtract one of the digits from the number.</p>
 <p>How many steps are required to make the number equal to <span class="math inline">0</span>?</p>
 <h1 id="input">Input</h1>
@@ -1375,7 +1375,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <p>Explanation: An optimal solution is <span class="math inline">27 -> 20 -> 18 -> 10 -> 9 -> 0</span>.</p>
 </div></div>
 
-## CSES - Grid Paths
+## 1638.CSES - Grid Paths
 <div class="md"><div class="md"><p>Consider an <span class="math inline">n x n</span> grid whose squares may have traps. It is not allowed to move to a square with a trap.</p>
 <p>Your task is to calculate the number of paths from the upper-left square to the lower-right square. You can only move right or down.</p>
 <h1 id="input">Input</h1>
@@ -1399,7 +1399,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <pre>3
 </pre></div></div>
 
-## CSES - Book Shop
+## 1158.CSES - Book Shop
 <div class="md"><div class="md"><p>You are in a book shop which sells <span class="math inline">n</span> different books. You know the price and number of pages of each book.</p>
 <p>You have decided that the total price of your purchases will be at most <span class="math inline">x</span>. What is the maximum number of pages you can buy? You can buy each book at most once.</p>
 <h1 id="input">Input</h1>
@@ -1426,7 +1426,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <p>Explanation: You can buy books 1 and 3. Their price is <span class="math inline">4+5=9</span> and the number of pages is <span class="math inline">5+8=13</span>.</p>
 </div></div>
 
-## CSES - Array Description
+## 1746.CSES - Array Description
 <div class="md"><div class="md"><p>You know that an array has <span class="math inline">n</span> integers between <span class="math inline">1</span> and  <span class="math inline">m</span>, and the absolute difference between two adjacent values is at most <span class="math inline">1</span>.</p>
 <p>Given a description of the array where some values may be unknown, your task is to count the number of arrays that match the description.</p>
 <h1 id="input">Input</h1>
@@ -1451,7 +1451,7 @@ corresponds to the description <code>DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDL
 <p>Explanation: The arrays <span class="math inline">[2,1,2]</span>, <span class="math inline">[2,2,2]</span> and <span class="math inline">[2,3,2]</span> match the description.</p>
 </div></div>
 
-## CSES - Counting Towers
+## 2413.CSES - Counting Towers
 <div class="md"><div class="md"><p>Your task is to build a tower whose width is <span class="math inline">2</span> and height is <span class="math inline">n</span>. You have an unlimited supply of blocks whose width and height are integers.</p>
 <p>For example, here are some possible solutions for <span class="math inline">n=6</span>:
 <center><img alt="" class="invertible" height="" src="/file/a2fc04205fb57157bd28c9a6041601fc284681929941470fdfb15fcd4a14b4f2" width="300"/></center>
@@ -1479,7 +1479,7 @@ Given <span class="math inline">n</span>, how many different towers can you buil
 640403945
 </pre></div></div>
 
-## CSES - Edit Distance
+## 1639.CSES - Edit Distance
 <div class="md"><div class="md"><p>The <em>edit distance</em> between two strings is the minimum number of operations required to transform one string into the other.</p>
 <p>The allowed operations are:</p>
 <ul>
@@ -1507,7 +1507,7 @@ MOVIE
 <pre>2
 </pre></div></div>
 
-## CSES - Rectangle Cutting
+## 1744.CSES - Rectangle Cutting
 <div class="md"><div class="md"><p>Given an <span class="math inline">a x b</span> rectangle, your task is to cut it into squares. On each move you can select a rectangle and cut it into two rectangles in such a way that all side lengths remain integers. What is the minimum possible number of moves?</p>
 <h1 id="input">Input</h1>
 <p>The only input line has two integers <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
@@ -1525,7 +1525,7 @@ MOVIE
 <pre>3
 </pre></div></div>
 
-## CSES - Money Sums
+## 1745.CSES - Money Sums
 <div class="md"><div class="md"><p>You have <span class="math inline">n</span> coins with certain values. Your task is to find all money sums you can create using these coins.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of coins.</p>
@@ -1547,7 +1547,7 @@ MOVIE
 2 4 5 6 7 8 9 11 13
 </pre></div></div>
 
-## CSES - Removal Game
+## 1097.CSES - Removal Game
 <div class="md"><div class="md"><p>There is a list of <span class="math inline">n</span> numbers and two players who move alternately. On each move, a player removes either the first or last number from the list, and their score increases by that number. Both players try to maximize their scores.</p>
 <p>What is the maximum possible score for the first player when both players play optimally?</p>
 <h1 id="input">Input</h1>
@@ -1569,7 +1569,7 @@ MOVIE
 <pre>8
 </pre></div></div>
 
-## CSES - Two Sets II
+## 1093.CSES - Two Sets II
 <div class="md"><div class="md"><p>Your task is to count the number of ways numbers <span class="math inline">1,2,...,n</span> can be divided into two sets of equal sum.</p>
 <p>For example, if <span class="math inline">n=7</span>, there are four solutions:</p>
 <ul>
@@ -1594,7 +1594,7 @@ MOVIE
 <pre>4
 </pre></div></div>
 
-## CSES - Increasing Subsequence
+## 1145.CSES - Increasing Subsequence
 <div class="md"><div class="md"><p>You are given an array containing <span class="math inline">n</span> integers. Your task is to determine the longest increasing subsequence in the array, i.e., the longest subsequence where every element is larger than the previous one.</p>
 <p>A subsequence is a sequence that can be derived from the array by deleting some elements without changing the order of the remaining elements. </p>
 <h1 id="input">Input</h1>
@@ -1616,7 +1616,7 @@ MOVIE
 <pre>4
 </pre></div></div>
 
-## CSES - Projects
+## 1140.CSES - Projects
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> projects you can attend. For each project, you know its starting and ending days and the amount of money you would get as reward. You can only attend one project during a day.</p>
 <p>What is the maximum amount of money you can earn?</p>
 <h1 id="input">Input</h1>
@@ -1642,7 +1642,7 @@ MOVIE
 <pre>7
 </pre></div></div>
 
-## CSES - Elevator Rides
+## 1653.CSES - Elevator Rides
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> people who want to get to the top of a building which has only one elevator. You know the weight of each person and the maximum allowed weight in the elevator. What is the minimum number of elevator rides?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">x</span>: the number of people and the maximum allowed weight in the elevator.</p>
@@ -1664,7 +1664,7 @@ MOVIE
 <pre>2
 </pre></div></div>
 
-## CSES - Counting Tilings
+## 2181.CSES - Counting Tilings
 <div class="md"><div class="md"><p>Your task is to count the number of ways you can fill an <span class="math inline">n x m</span> grid using <span class="math inline">1 x 2</span> and <span class="math inline">2 x 1</span> tiles.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>.</p>
@@ -1683,7 +1683,7 @@ MOVIE
 <pre>781
 </pre></div></div>
 
-## CSES - Counting Numbers
+## 2220.CSES - Counting Numbers
 <div class="md"><div class="md"><p>Your task is to count the number of integers between <span class="math inline">a</span> and <span class="math inline">b</span> where no two adjacent digits are the same.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has two integers <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
@@ -1701,7 +1701,7 @@ MOVIE
 <pre>171
 </pre></div></div>
 
-## CSES - Counting Rooms
+## 1192.CSES - Counting Rooms
 <div class="md"><div class="md"><p>You are given a map of a building, and your task is to count the number of its rooms. The size of the map is <span class="math inline">n x m</span> squares, and each square is either floor or wall. You can walk left, right, up, and down through the floor squares.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the height and width of the map.</p>
@@ -1725,7 +1725,7 @@ MOVIE
 <pre>3
 </pre></div></div>
 
-## CSES - Labyrinth
+## 1193.CSES - Labyrinth
 <div class="md"><div class="md"><p>You are given a map of a labyrinth, and your task is to find a path from start to end. You can walk left, right, up and down.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the height and width of the map.</p>
@@ -1752,7 +1752,7 @@ MOVIE
 LDDRRRRRU
 </pre></div></div>
 
-## CSES - Building Roads
+## 1666.CSES - Building Roads
 <div class="md"><div class="md"><p>Byteland has <span class="math inline">n</span> cities, and <span class="math inline">m</span> roads between them. The goal is to construct new roads so that there is a route between any two cities.</p>
 <p>Your task is to find out the minimum number of roads required, and also determine which roads should be built.</p>
 <h1 id="input">Input</h1>
@@ -1779,7 +1779,7 @@ LDDRRRRRU
 2 3
 </pre></div></div>
 
-## CSES - Message Route
+## 1667.CSES - Message Route
 <div class="md"><div class="md"><p>Syrjälä's network has <span class="math inline">n</span> computers and <span class="math inline">m</span> connections. Your task is to find out if Uolevi can send a message to Maija, and if it is possible, what is the minimum number of computers on such a route.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of computers and connections. The computers are numbered <span class="math inline">1,2,\dots,n</span>. Uolevi's computer is <span class="math inline">1</span> and Maija's computer is <span class="math inline">n</span>.</p>
@@ -1808,7 +1808,7 @@ LDDRRRRRU
 1 4 5
 </pre></div></div>
 
-## CSES - Building Teams
+## 1668.CSES - Building Teams
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> pupils in Uolevi's class, and <span class="math inline">m</span> friendships between them. Your task is to divide the pupils into two teams in such a way that no two pupils in a team are friends. You can freely choose the sizes of the teams.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of pupils and friendships. The pupils are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -1834,7 +1834,7 @@ LDDRRRRRU
 <pre>1 2 2 1 2
 </pre></div></div>
 
-## CSES - Round Trip
+## 1669.CSES - Round Trip
 <div class="md"><div class="md"><p>Byteland has <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. Your task is to design a round trip that begins in a city, goes through two or more other cities, and finally returns to the starting city. Every intermediate city on the route has to be distinct.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and roads. The cities are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -1864,7 +1864,7 @@ LDDRRRRRU
 3 5 1 3
 </pre></div></div>
 
-## CSES - Monsters
+## 1194.CSES - Monsters
 <div class="md"><div class="md"><p>You and some monsters are in a labyrinth. When taking a step to some direction in the labyrinth, each monster may simultaneously take one as well. Your goal is to reach one of the boundary squares without ever sharing a square with a monster.</p>
 <p>Your task is to find out if your goal is possible, and if it is, print a path that you can follow. Your plan has to work in any situation; even if the monsters know your path beforehand.</p>
 <h1 id="input">Input</h1>
@@ -1892,7 +1892,7 @@ LDDRRRRRU
 RRDDR
 </pre></div></div>
 
-## CSES - Shortest Routes I
+## 1671.CSES - Shortest Routes I
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections between them. Your task is to determine the length of the shortest route from Syrjälä to every city.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and flight connections. The cities are numbered <span class="math inline">1,2,\dots,n</span>, and city <span class="math inline">1</span> is Syrjälä.</p>
@@ -1919,7 +1919,7 @@ RRDDR
 <pre>0 5 2
 </pre></div></div>
 
-## CSES - Shortest Routes II
+## 1672.CSES - Shortest Routes II
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. Your task is to process <span class="math inline">q</span> queries where you have to determine the length of the shortest route between two given cities.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has three integers <span class="math inline">n</span>, <span class="math inline">m</span> and <span class="math inline">q</span>: the number of cities, roads, and queries.</p>
@@ -1955,7 +1955,7 @@ RRDDR
 3
 </pre></div></div>
 
-## CSES - High Score
+## 1673.CSES - High Score
 <div class="md"><div class="md"><p>You play a game consisting of <span class="math inline">n</span> rooms and <span class="math inline">m</span> tunnels. Your initial score is <span class="math inline">0</span>, and each tunnel increases your score by <span class="math inline">x</span> where <span class="math inline">x</span> may be both positive or negative. You may go through a tunnel several times.</p>
 <p>Your task is to walk from room <span class="math inline">1</span> to room <span class="math inline">n</span>. What is the maximum score you can get?</p>
 <h1 id="input">Input</h1>
@@ -1984,7 +1984,7 @@ RRDDR
 <pre>5
 </pre></div></div>
 
-## CSES - Flight Discount
+## 1195.CSES - Flight Discount
 <div class="md"><div class="md"><p>Your task is to find a minimum-price flight route from Syrjälä to Metsälä. You have one discount coupon, using which you can halve the price of any single flight during the route. However, you can only use the coupon once.</p>
 <p>When you use the discount coupon for a flight whose price is <span class="math inline">x</span>, its price becomes <span class="math inline">\lfloor x/2 \rfloor</span> (it is rounded down to an integer).</p>
 <h1 id="input">Input</h1>
@@ -2012,7 +2012,7 @@ RRDDR
 <pre>2
 </pre></div></div>
 
-## CSES - Cycle Finding
+## 1197.CSES - Cycle Finding
 <div class="md"><div class="md"><p>You are given a directed graph, and your task is to find out if it contains a negative cycle, and also give an example of such a cycle.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math inline">1,2,...,n</span>.</p>
@@ -2040,7 +2040,7 @@ RRDDR
 1 2 4 1
 </pre></div></div>
 
-## CSES - Flight Routes
+## 1196.CSES - Flight Routes
 <div class="md"><div class="md"><p>Your task is to find the <span class="math inline">k</span> shortest flight routes from Syrjälä to Metsälä. A route can visit the same city several times.</p>
 <p>Note that there can be several routes with the same price and each of them should be considered (see the example).</p>
 <h1 id="input">Input</h1>
@@ -2073,7 +2073,7 @@ RRDDR
 <p>Explanation: The cheapest routes are <span class="math inline">1 -> 3 -> 4</span> (price <span class="math inline">4</span>), <span class="math inline">1 -> 2 -> 3 -> 4</span> (price <span class="math inline">4</span>) and <span class="math inline">1 -> 2 -> 4</span> (price <span class="math inline">7</span>).</p>
 </div></div>
 
-## CSES - Round Trip II
+## 1678.CSES - Round Trip II
 <div class="md"><div class="md"><p>Byteland has <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections. Your task is to design a round trip that begins in a city, goes through one or more other cities, and finally returns to the starting city. Every intermediate city on the route has to be distinct.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and flights. The cities are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2101,7 +2101,7 @@ RRDDR
 2 1 3 2
 </pre></div></div>
 
-## CSES - Course Schedule
+## 1679.CSES - Course Schedule
 <div class="md"><div class="md"><p>You have to complete <span class="math inline">n</span> courses. There are <span class="math inline">m</span> requirements of the form "course <span class="math inline">a</span> has to be completed before course <span class="math inline">b</span>". Your task is to find an order in which you can complete the courses.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of courses and requirements. The courses are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2126,7 +2126,7 @@ RRDDR
 <pre>3 4 1 5 2
 </pre></div></div>
 
-## CSES - Longest Flight Route
+## 1680.CSES - Longest Flight Route
 <div class="md"><div class="md"><p>Uolevi has won a contest, and the prize is a free flight trip that can consist of one or more flights through cities. Of course, Uolevi wants to choose a trip that has as many cities as possible.</p>
 <p>Uolevi wants to fly from Syrjälä to Lehmälä so that he visits the maximum number of cities. You are given the list of possible flights, and you know that there are no directed cycles in the flight network.</p>
 <h1 id="input">Input</h1>
@@ -2155,7 +2155,7 @@ RRDDR
 1 3 4 5
 </pre></div></div>
 
-## CSES - Game Routes
+## 1681.CSES - Game Routes
 <div class="md"><div class="md"><p>A game has <span class="math inline">n</span> levels, connected by <span class="math inline">m</span> teleporters, and your task is to get from level <span class="math inline">1</span> to level <span class="math inline">n</span>. The game has been designed so that there are no directed cycles in the underlying graph. In how many ways can you complete the game?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of levels and teleporters. The levels are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2181,7 +2181,7 @@ RRDDR
 <pre>3
 </pre></div></div>
 
-## CSES - Investigation
+## 1202.CSES - Investigation
 <div class="md"><div class="md"><p>You are going to travel from Syrjälä to Lehmälä by plane. You would like to find answers to the following questions:</p>
 <ul>
 <li>what is the minimum price of such a route?</li>
@@ -2215,7 +2215,7 @@ RRDDR
 <pre>5 2 1 2
 </pre></div></div>
 
-## CSES - Planets Queries I
+## 1750.CSES - Planets Queries I
 <div class="md"><div class="md"><p>You are playing a game consisting of <span class="math inline">n</span> planets. Each planet has a teleporter to another planet (or the planet itself).</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: when you begin on planet <span class="math inline">x</span> and travel through <span class="math inline">k</span> teleporters, which planet will you reach?</p>
 <h1 id="input">Input</h1>
@@ -2245,7 +2245,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Planets Queries II
+## 1160.CSES - Planets Queries II
 <div class="md"><div class="md"><p>You are playing a game consisting of n planets. Each planet has a teleporter to another planet (or the planet itself).</p>
 <p>You have to process <span class="math inline">q</span> queries of the form: You are now on planet <span class="math inline">a</span> and want to reach planet <span class="math inline">b</span>. What is the minimum number of teleportations?</p>
 <h1 id="input">Input</h1>
@@ -2273,7 +2273,7 @@ RRDDR
 -1
 </pre></div></div>
 
-## CSES - Planets Cycles
+## 1751.CSES - Planets Cycles
 <div class="md"><div class="md"><p>You are playing a game consisting of <span class="math inline">n</span> planets. Each planet has a teleporter to another planet (or the planet itself).</p>
 <p>You start on a planet and then travel through teleporters until you reach a planet that you have already visited before.</p>
 <p>Your task is to calculate for each planet the number of teleportations there would be if you started on that planet.</p>
@@ -2296,7 +2296,7 @@ RRDDR
 <pre>3 3 1 3 4
 </pre></div></div>
 
-## CSES - Road Reparation
+## 1675.CSES - Road Reparation
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. Unfortunately, the condition of the roads is so poor that they cannot be used. Your task is to repair some of the roads so that there will be a decent route between any two cities.</p>
 <p>For each road, you know its reparation cost, and you should find a solution where the total cost is as small as possible.</p>
 <h1 id="input">Input</h1>
@@ -2326,7 +2326,7 @@ RRDDR
 <pre>14
 </pre></div></div>
 
-## CSES - Road Construction
+## 1676.CSES - Road Construction
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and initially no roads between them. However, every day a new road will be constructed, and there will be a total of <span class="math inline">m</span> roads.</p>
 <p>A component is a group of cities where there is a route between any two cities using the roads. After each day, your task is to find the number of components and the size of the largest component.</p>
 <h1 id="input">Input</h1>
@@ -2354,7 +2354,7 @@ RRDDR
 2 3
 </pre></div></div>
 
-## CSES - Flight Routes Check
+## 1682.CSES - Flight Routes Check
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections. Your task is to check if you can travel from any city to any other city using the available flights.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and flights. The cities are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2381,7 +2381,7 @@ RRDDR
 4 2
 </pre></div></div>
 
-## CSES - Planets and Kingdoms
+## 1683.CSES - Planets and Kingdoms
 <div class="md"><div class="md"><p>A game has <span class="math inline">n</span> planets, connected by <span class="math inline">m</span> teleporters. Two planets <span class="math inline">a</span> and <span class="math inline">b</span> belong to the same kingdom exactly when there is a route both from <span class="math inline">a</span> to <span class="math inline">b</span> and from <span class="math inline">b</span> to <span class="math inline">a</span>. Your task is to determine for each planet its kingdom.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of planets and teleporters. The planets are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2409,7 +2409,7 @@ RRDDR
 1 1 1 2 2
 </pre></div></div>
 
-## CSES - Giant Pizza
+## 1684.CSES - Giant Pizza
 <div class="md"><div class="md"><p>Uolevi's family is going to order a large pizza and eat it together. A total of <span class="math inline">n</span> family members will join the order, and there are <span class="math inline">m</span> possible toppings. The pizza may have any number of toppings.</p>
 <p>Each family member gives two wishes concerning the toppings of the pizza. The wishes are of the form "topping <span class="math inline">x</span> is good/bad". Your task is to choose the toppings so that at least one wish from everybody becomes true (a good topping is included in the pizza or a bad topping is not included).</p>
 <h1 id="input">Input</h1>
@@ -2434,7 +2434,7 @@ RRDDR
 <pre>- + + + -
 </pre></div></div>
 
-## CSES - Coin Collector
+## 1686.CSES - Coin Collector
 <div class="md"><div class="md"><p>A game has <span class="math inline">n</span> rooms and <span class="math inline">m</span> tunnels between them. Each room has a certain number of coins. What is the maximum number of coins you can collect while moving through the tunnels when you can freely choose your starting and ending room?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of rooms and tunnels. The rooms are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -2462,7 +2462,7 @@ RRDDR
 <pre>16
 </pre></div></div>
 
-## CSES - Mail Delivery
+## 1691.CSES - Mail Delivery
 <div class="md"><div class="md"><p>Your task is to deliver mail to the inhabitants of a city. For this reason, you want to find a route whose starting and ending point are the post office, and that goes through every street exactly once.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of crossings and streets. The crossings are numbered <span class="math inline">1,\,2,...,\,n</span>, and the post office is located at crossing <span class="math inline">1</span>.</p>
@@ -2491,7 +2491,7 @@ RRDDR
 <pre>1 2 6 3 2 4 5 3 1
 </pre></div></div>
 
-## CSES - De Bruijn Sequence
+## 1692.CSES - De Bruijn Sequence
 <div class="md"><div class="md"><p>Your task is to construct a minimum-length bit string that contains all possible substrings of length <span class="math inline">n</span>. For example, when <span class="math inline">n=2</span>, the string 00110 is a valid solution, because its substrings of length <span class="math inline">2</span> are 00, 01, 10 and 11.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has an integer <span class="math inline">n</span>.</p>
@@ -2509,7 +2509,7 @@ RRDDR
 <pre>00110
 </pre></div></div>
 
-## CSES - Teleporters Path
+## 1693.CSES - Teleporters Path
 <div class="md"><div class="md"><p>A game has <span class="math inline">n</span> levels and <span class="math inline">m</span> teleportes between them. You win the game if you move from level <span class="math inline">1</span> to level <span class="math inline">n</span> using every teleporter exactly once.</p>
 <p>Can you win the game, and what is a possible way to do it?</p>
 <h1 id="input">Input</h1>
@@ -2539,7 +2539,7 @@ RRDDR
 <pre>1 3 1 2 4 2 5
 </pre></div></div>
 
-## CSES - Hamiltonian Flights
+## 1690.CSES - Hamiltonian Flights
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections between them. You want to travel from Syrjälä to Lehmälä so that you visit each city exactly once. How many possible routes are there?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and flights. The cities are numbered <span class="math inline">1,2,\dots,n</span>. City <span class="math inline">1</span> is Syrjälä, and city <span class="math inline">n</span> is Lehmälä.</p>
@@ -2566,7 +2566,7 @@ RRDDR
 <pre>2
 </pre></div></div>
 
-## CSES - Knight's Tour
+## 1689.CSES - Knight's Tour
 <div class="md"><div class="md"><p>Given a starting position of a knight on an <span class="math inline">8 x 8</span> chessboard, your task is to find a sequence of moves such that it visits every square exactly once.</p>
 <p>On each move, the knight may either move two steps horizontally and one step vertically, or one step horizontally and two steps vertically.</p>
 <h1 id="input">Input</h1>
@@ -2592,7 +2592,7 @@ RRDDR
 47 56 43 38 45 54 61 64
 </pre></div></div>
 
-## CSES - Download Speed
+## 1694.CSES - Download Speed
 <div class="md"><div class="md"><p>Consider a network consisting of <span class="math inline">n</span> computers and <span class="math inline">m</span> connections. Each connection specifies how fast a computer can send data to another computer.</p>
 <p>Kotivalo wants to download some data from a server. What is the maximum speed he can do this, using the connections in the network?</p>
 <h1 id="input">Input</h1>
@@ -2620,7 +2620,7 @@ RRDDR
 <pre>6
 </pre></div></div>
 
-## CSES - Police Chase
+## 1695.CSES - Police Chase
 <div class="md"><div class="md"><p>Kaaleppi has just robbed a bank and is now heading to the harbor. However, the police wants to stop him by closing some streets of the city.</p>
 <p>What is the minimum number of streets that should be closed so that there is no route between the bank and the harbor?</p>
 <h1 id="input">Input</h1>
@@ -2649,7 +2649,7 @@ RRDDR
 1 4
 </pre></div></div>
 
-## CSES - School Dance
+## 1696.CSES - School Dance
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> boys and <span class="math inline">m</span> girls in a school. Next week a school dance will be organized. A dance pair consists of a boy and a girl, and there are <span class="math inline">k</span> potential pairs.</p>
 <p>Your task is to find out the maximum number of dance pairs and show how this number can be achieved.</p>
 <h1 id="input">Input</h1>
@@ -2678,7 +2678,7 @@ RRDDR
 3 1
 </pre></div></div>
 
-## CSES - Distinct Routes
+## 1711.CSES - Distinct Routes
 <div class="md"><div class="md"><p>A game consists of <span class="math inline">n</span> rooms and <span class="math inline">m</span> teleporters. At the beginning of each day, you start in room <span class="math inline">1</span> and you have to reach room <span class="math inline">n</span>.</p>
 <p>You can use each teleporter at most once during the game. How many days can you play if you choose your routes optimally?</p>
 <h1 id="input">Input</h1>
@@ -2712,7 +2712,7 @@ RRDDR
 1 3 4 6
 </pre></div></div>
 
-## CSES - Static Range Sum Queries
+## 1646.CSES - Static Range Sum Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the form: what is the sum of values in range <span class="math inline">[a,b]</span>?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">q</span>: the number of values and queries.</p>
@@ -2742,7 +2742,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Static Range Minimum Queries
+## 1647.CSES - Static Range Minimum Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the form: what is the minimum value in range <span class="math inline">[a,b]</span>?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">q</span>: the number of values and queries.</p>
@@ -2772,7 +2772,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Dynamic Range Sum Queries
+## 1648.CSES - Dynamic Range Sum Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the following types:</p>
 <ol>
 <li>update the value at position <span class="math inline">k</span> to <span class="math inline">u</span></li>
@@ -2806,7 +2806,7 @@ RRDDR
 11
 </pre></div></div>
 
-## CSES - Dynamic Range Minimum Queries
+## 1649.CSES - Dynamic Range Minimum Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the following types:</p>
 <ol>
 <li>update the value at position <span class="math inline">k</span> to <span class="math inline">u</span></li>
@@ -2840,7 +2840,7 @@ RRDDR
 3
 </pre></div></div>
 
-## CSES - Range Xor Queries
+## 1650.CSES - Range Xor Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the form: what is the xor sum of values in range <span class="math inline">[a,b]</span>?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">q</span>: the number of values and queries.</p>
@@ -2870,7 +2870,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Range Update Queries
+## 1651.CSES - Range Update Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the following types:</p>
 <ol>
 <li>increase each value in range <span class="math inline">[a,b]</span> by <span class="math inline">u</span></li>
@@ -2902,7 +2902,7 @@ RRDDR
 6
 </pre></div></div>
 
-## CSES - Forest Queries
+## 1652.CSES - Forest Queries
 <div class="md"><div class="md"><p>You are given an <span class="math inline">n x n</span> grid representing the map of a forest. Each square is either empty or contains a tree. The upper-left square has coordinates <span class="math inline">(1,1)</span>, and the lower-right square has coordinates <span class="math inline">(n,n)</span>.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: how many trees are inside a given rectangle in the forest?</p>
 <h1 id="input">Input</h1>
@@ -2935,7 +2935,7 @@ RRDDR
 2
 </pre></div></div>
 
-## CSES - Hotel Queries
+## 1143.CSES - Hotel Queries
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> hotels on a street. For each hotel you know the number of free rooms. Your task is to assign hotel rooms for groups of tourists. All members of a group want to stay in the same hotel.</p>
 <p>The groups will come to you one after another, and you know for each group the number of rooms it requires. You always assign a group to the first hotel having enough rooms. After this, the number of free rooms in the hotel decreases.</p>
 <h1 id="input">Input</h1>
@@ -2960,7 +2960,7 @@ RRDDR
 <pre>3 5 0 1 1
 </pre></div></div>
 
-## CSES - List Removals
+## 1749.CSES - List Removals
 <div class="md"><div class="md"><p>You are given a list consisting of <span class="math inline">n</span> integers. Your task is to remove elements from the list at given positions, and report the removed elements.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the initial size of the list. During the process, the elements are numbered <span class="math inline">1,2,\dots,k</span> where <span class="math inline">k</span> is the current size of the list.</p>
@@ -2986,7 +2986,7 @@ RRDDR
 <p>Explanation: The contents of the list are <span class="math inline">[2,6,1,4,2]</span>, <span class="math inline">[2,6,4,2]</span>, <span class="math inline">[6,4,2]</span>, <span class="math inline">[6,4]</span>, <span class="math inline">[4]</span> and <span class="math inline">[]</span>.</p>
 </div></div>
 
-## CSES - Salary Queries
+## 1144.CSES - Salary Queries
 <div class="md"><div class="md"><p>A company has <span class="math inline">n</span> employees with certain salaries. Your task is to keep track of the salaries and process queries.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains two integers <span class="math inline">n</span> and <span class="math inline">q</span>: the number of employees and queries. The employees are numbered <span class="math inline">1,2,...,n</span>.</p>
@@ -3019,7 +3019,7 @@ RRDDR
 2
 </pre></div></div>
 
-## CSES - Prefix Sum Queries
+## 2166.CSES - Prefix Sum Queries
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to process <span class="math inline">q</span> queries of the following types:</p>
 <ol>
 <li>update the value at position <span class="math inline">k</span> to <span class="math inline">u</span></li>
@@ -3053,7 +3053,7 @@ RRDDR
 0
 </pre></div></div>
 
-## CSES - Pizzeria Queries
+## 2206.CSES - Pizzeria Queries
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> buildings on a street, numbered <span class="math inline">1,2,\dots,n</span>. Each building has a pizzeria and an apartment.</p>
 <p>The pizza price in building <span class="math inline">k</span> is <span class="math inline">p_k</span>. If you order a pizza from building <span class="math inline">a</span> to building <span class="math inline">b</span>, its price (with delivery) is <span class="math inline">p_a+|a-b|</span>.</p>
 <p>Your task is to process two types of queries:</p>
@@ -3086,7 +3086,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Subarray Sum Queries
+## 1190.CSES - Subarray Sum Queries
 <div class="md"><div class="md"><p>There is an array consisting of <span class="math inline">n</span> integers. Some values of the array will be updated, and after each update, your task is to report the maximum subarray sum in the array. </p>
 <h1 id="input">Input</h1>
 <p>The first input line contains integers <span class="math inline">n</span> and <span class="math inline">m</span>: the size of the array and the number of updates. The array is indexed <span class="math inline">1,2,...,n</span>.</p>
@@ -3115,7 +3115,7 @@ RRDDR
 6
 </pre></div></div>
 
-## CSES - Distinct Values Queries
+## 1734.CSES - Distinct Values Queries
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers and <span class="math inline">q</span> queries of the form: how many distinct values are there in a range <span class="math inline">[a,b]</span>?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">q</span>: the array size and number of queries.</p>
@@ -3143,7 +3143,7 @@ RRDDR
 3
 </pre></div></div>
 
-## CSES - Increasing Array Queries
+## 2416.CSES - Increasing Array Queries
 <div class="md"><div class="md"><p>You are given an array that consists of <span class="math inline">n</span> integers. The array elements are indexed <span class="math inline">1,2,\dots,n</span>.</p>
 <p>You can modify the array using the following operation: choose an array element and increase its value by one.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: when we consider a subarray from position <span class="math inline">a</span> to position <span class="math inline">b</span>, what is the minimum number of operations after which the subarray is increasing?</p>
@@ -3174,7 +3174,7 @@ RRDDR
 14
 </pre></div></div>
 
-## CSES - Forest Queries II
+## 1739.CSES - Forest Queries II
 <div class="md"><div class="md"><p>You are given an <span class="math inline">n x n</span> grid representing the map of a forest. Each square is either empty or has a tree. Your task is to process <span class="math inline">q</span> queries of the following types:</p>
 <ol>
 <li>Change the state (empty/tree) of a square.</li>
@@ -3210,7 +3210,7 @@ RRDDR
 4
 </pre></div></div>
 
-## CSES - Range Updates and Sums
+## 1735.CSES - Range Updates and Sums
 <div class="md"><div class="md"><p>Your task is to maintain an array of <span class="math inline">n</span> values and efficiently process the following types of queries:</p>
 <ol>
 <li>Increase each value in range <span class="math inline">[a,b]</span> by <span class="math inline">x</span>.</li>
@@ -3245,7 +3245,7 @@ RRDDR
 15
 </pre></div></div>
 
-## CSES - Polynomial Queries
+## 1736.CSES - Polynomial Queries
 <div class="md"><div class="md"><p>Your task is to maintain an array of <span class="math inline">n</span> values and efficiently process the following types of queries:</p>
 <ol>
 <li>Increase the first value in range <span class="math inline">[a,b]</span> by <span class="math inline">1</span>, the second value by <span class="math inline">2</span>, the third value by <span class="math inline">3</span>, and so on.</li>
@@ -3276,7 +3276,7 @@ RRDDR
 32
 </pre></div></div>
 
-## CSES - Range Queries and Copies
+## 1737.CSES - Range Queries and Copies
 <div class="md"><div class="md"><p>Your task is to maintain a list of arrays which initially has a single array. You have to process the following types of queries:</p>
 <ol>
 <li>Set the value <span class="math inline">a</span> in array <span class="math inline">k</span> to <span class="math inline">x</span>.</li>
@@ -3313,7 +3313,7 @@ RRDDR
 15
 </pre></div></div>
 
-## CSES - Subordinates
+## 1674.CSES - Subordinates
 <div class="md"><div class="md"><p>Given the structure of a company, your task is to calculate for each employee the number of their subordinates.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of employees. The employees are numbered <span class="math inline">1,2,\dots,n</span>, and employee <span class="math inline">1</span> is the general director of the company.</p>
@@ -3333,7 +3333,7 @@ RRDDR
 <pre>4 1 1 0 0
 </pre></div></div>
 
-## CSES - Tree Matching
+## 1130.CSES - Tree Matching
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes.</p>
 <p>A <em>matching</em> is a set of edges where each node is an endpoint of at most one edge. What is the maximum number of edges in a matching?</p>
 <h1 id="input">Input</h1>
@@ -3360,7 +3360,7 @@ RRDDR
 <p>Explanation: One possible matching is <span class="math inline">(1,2)</span> and <span class="math inline">(3,4)</span>.</p>
 </div></div>
 
-## CSES - Tree Diameter
+## 1131.CSES - Tree Diameter
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes.</p>
 <p>The <em>diameter</em> of a tree is the maximum distance between two nodes. Your task is to determine the diameter of the tree.</p>
 <h1 id="input">Input</h1>
@@ -3387,7 +3387,7 @@ RRDDR
 <p>Explanation: The diameter corresponds to the path <span class="math inline">2 -> 1 -> 3 -> 5</span>.</p>
 </div></div>
 
-## CSES - Tree Distances I
+## 1132.CSES - Tree Distances I
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes.</p>
 <p>Your task is to determine for each node the maximum distance to another node.</p>
 <h1 id="input">Input</h1>
@@ -3412,7 +3412,7 @@ RRDDR
 <pre>2 3 2 3 3
 </pre></div></div>
 
-## CSES - Tree Distances II
+## 1133.CSES - Tree Distances II
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes.</p>
 <p>Your task is to determine for each node the sum of the distances from the node to all other nodes.</p>
 <h1 id="input">Input</h1>
@@ -3437,7 +3437,7 @@ RRDDR
 <pre>6 9 5 8 8
 </pre></div></div>
 
-## CSES - Company Queries I
+## 1687.CSES - Company Queries I
 <div class="md"><div class="md"><p>A company has <span class="math inline">n</span> employees, who form a tree hierarchy where each employee has a boss, except for the general director.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: who is employee <span class="math inline">x</span>'s boss <span class="math inline">k</span> levels higher up in the hierarchy?</p>
 <h1 id="input">Input</h1>
@@ -3467,7 +3467,7 @@ RRDDR
 -1
 </pre></div></div>
 
-## CSES - Company Queries II
+## 1688.CSES - Company Queries II
 <div class="md"><div class="md"><p>A company has <span class="math inline">n</span> employees, who form a tree hierarchy where each employee has a boss, except for the general director.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: who is the lowest common boss of employees <span class="math inline">a</span> and <span class="math inline">b</span> in the hierarchy?</p>
 <h1 id="input">Input</h1>
@@ -3496,7 +3496,7 @@ RRDDR
 1
 </pre></div></div>
 
-## CSES - Distance Queries
+## 1135.CSES - Distance Queries
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: what is the distance between nodes <span class="math inline">a</span> and <span class="math inline">b</span>?</p>
 <h1 id="input">Input</h1>
@@ -3527,7 +3527,7 @@ RRDDR
 2
 </pre></div></div>
 
-## CSES - Counting Paths
+## 1136.CSES - Counting Paths
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes, and <span class="math inline">m</span> paths in the tree.</p>
 <p>Your task is to calculate for each node the number of paths containing that node.</p>
 <h1 id="input">Input</h1>
@@ -3556,7 +3556,7 @@ RRDDR
 <pre>3 1 3 1 1
 </pre></div></div>
 
-## CSES - Subtree Queries
+## 1137.CSES - Subtree Queries
 <div class="md"><div class="md"><p>You are given a rooted tree consisting of <span class="math inline">n</span> nodes. The nodes are numbered <span class="math inline">1,2,...,n</span>, and node <span class="math inline">1</span> is the root. Each node has a value.</p>
 <p>Your task is to process following types of queries:</p>
 <ol>
@@ -3593,7 +3593,7 @@ RRDDR
 10
 </pre></div></div>
 
-## CSES - Path Queries
+## 1138.CSES - Path Queries
 <div class="md"><div class="md"><p>You are given a rooted tree consisting of <span class="math inline">n</span> nodes. The nodes are numbered <span class="math inline">1,2,...,n</span>, and node <span class="math inline">1</span> is the root. Each node has a value.</p>
 <p>Your task is to process following types of queries:</p>
 <ol>
@@ -3630,7 +3630,7 @@ RRDDR
 8
 </pre></div></div>
 
-## CSES - Path Queries II
+## 2134.CSES - Path Queries II
 <div class="md"><div class="md"><p>You are given a tree consisting of <span class="math inline">n</span> nodes. The nodes are numbered <span class="math inline">1,2,...,n</span>. Each node has a value.</p>
 <p>Your task is to process following types of queries:</p>
 <ol>
@@ -3666,7 +3666,7 @@ RRDDR
 <pre>4 3
 </pre></div></div>
 
-## CSES - Distinct Colors
+## 1139.CSES - Distinct Colors
 <div class="md"><div class="md"><p>You are given a rooted tree consisting of <span class="math inline">n</span> nodes. The nodes are numbered <span class="math inline">1,2,...,n</span>, and node <span class="math inline">1</span> is the root. Each node has a color.</p>
 <p>Your task is to determine for each node the number of distinct colors in the subtree of the node.</p>
 <h1 id="input">Input</h1>
@@ -3694,7 +3694,7 @@ RRDDR
 <pre>3 1 2 1 1
 </pre></div></div>
 
-## CSES - Finding a Centroid
+## 2079.CSES - Finding a Centroid
 <div class="md"><div class="md"><p>Given a tree of <span class="math inline">n</span> nodes, your task is to find a <em>centroid</em>, i.e., a node such that when it is appointed the root of the tree, each subtree has at most <span class="math inline">\lfloor n/2 \rfloor</span> nodes.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains an integer <span class="math inline">n</span>: the number of nodes. The nodes are numbered <span class="math inline">1,2,…,n</span>.</p>
@@ -3718,7 +3718,7 @@ RRDDR
 <pre>3
 </pre></div></div>
 
-## CSES - Fixed-Length Paths I
+## 2080.CSES - Fixed-Length Paths I
 <div class="md"><div class="md"><p>Given a tree of <span class="math inline">n</span> nodes, your task is to count the number of distinct paths that consist of exactly <span class="math inline">k</span> edges.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains two integers <span class="math inline">n</span> and <span class="math inline">k</span>: the number of nodes and the path length. The nodes are numbered <span class="math inline">1,2,...,n</span>.</p>
@@ -3742,7 +3742,7 @@ RRDDR
 <pre>4
 </pre></div></div>
 
-## CSES - Fixed-Length Paths II
+## 2081.CSES - Fixed-Length Paths II
 <div class="md"><div class="md"><p>Given a tree of <span class="math inline">n</span> nodes, your task is to count the number of distinct paths that have at least <span class="math inline">k_1</span> and at most <span class="math inline">k_2</span> edges.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains three integers <span class="math inline">n</span>, <span class="math inline">k_1</span> and <span class="math inline">k_2</span>: the number of nodes and the path lengths. The nodes are numbered <span class="math inline">1,2,...,n</span>.</p>
@@ -3766,7 +3766,7 @@ RRDDR
 <pre>6
 </pre></div></div>
 
-## CSES - Josephus Queries
+## 2164.CSES - Josephus Queries
 <div class="md"><div class="md"><p>Consider a game where there are <span class="math inline">n</span> children (numbered <span class="math inline">1,2,\dots,n</span>) in a circle. During the game, every second child is removed from the circle, until there are no children left.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: "when there are <span class="math inline">n</span> children, who is the <span class="math inline">k</span>th child that will be removed?"</p>
 <h1 id="input">Input</h1>
@@ -3794,7 +3794,7 @@ RRDDR
 1107
 </pre></div></div>
 
-## CSES - Exponentiation
+## 1095.CSES - Exponentiation
 <div class="md"><div class="md"><p>Your task is to efficiently calculate values <span class="math inline">a^b</span> modulo <span class="math inline">10^9+7</span>.</p>
 <p>Note that in this task we assume that <span class="math inline">0^0=1</span>.</p>
 <h1 id="input">Input</h1>
@@ -3820,7 +3820,7 @@ RRDDR
 921450052
 </pre></div></div>
 
-## CSES - Exponentiation II
+## 1712.CSES - Exponentiation II
 <div class="md"><div class="md"><p>Your task is to efficiently calculate values <span class="math inline">a^{b^c}</span> modulo <span class="math inline">10^9+7</span>.</p>
 <p>Note that in this task we assume that <span class="math inline">0^0=1</span>.</p>
 <h1 id="input">Input</h1>
@@ -3846,7 +3846,7 @@ RRDDR
 763327764
 </pre></div></div>
 
-## CSES - Counting Divisors
+## 1713.CSES - Counting Divisors
 <div class="md"><div class="md"><p>Given <span class="math inline">n</span> integers, your task is to report for each integer the number of its divisors.</p>
 <p>For example, if <span class="math inline">x=18</span>, the correct answer is <span class="math inline">6</span> because its divisors are <span class="math inline">1,2,3,6,9,18</span>.</p>
 <h1 id="input">Input</h1>
@@ -3872,7 +3872,7 @@ RRDDR
 6
 </pre></div></div>
 
-## CSES - Common Divisors
+## 1081.CSES - Common Divisors
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> positive integers. Your task is to find two integers such that their greatest common divisor is as large as possible.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -3893,7 +3893,7 @@ RRDDR
 <pre>7
 </pre></div></div>
 
-## CSES - Sum of Divisors
+## 1082.CSES - Sum of Divisors
 <div class="md"><div class="md"><p>Let <span class="math inline">\sigma(n)</span> denote the sum of divisors of an integer <span class="math inline">n</span>. For example, <span class="math inline">\sigma(12)=1+2+3+4+6+12=28</span>.</p>
 <p>Your task is to calculate the sum <span class="math inline">\sum_{i=1}^n \sigma(i)</span> modulo <span class="math inline">10^9+7</span>.</p>
 <h1 id="input">Input</h1>
@@ -3912,7 +3912,7 @@ RRDDR
 <pre>21
 </pre></div></div>
 
-## CSES - Divisor Analysis
+## 2182.CSES - Divisor Analysis
 <div class="md"><div class="md"><p>Given an integer, your task is to find the number, sum and product of its divisors. As an example, let us consider the number <span class="math inline">12</span>:</p>
 <ul>
 <li>the number of divisors is <span class="math inline">6</span> (they are <span class="math inline">1</span>, <span class="math inline">2</span>, <span class="math inline">3</span>, <span class="math inline">4</span>, <span class="math inline">6</span>, <span class="math inline">12</span>)</li>
@@ -3942,7 +3942,7 @@ RRDDR
 <pre>6 28 1728
 </pre></div></div>
 
-## CSES - Prime Multiples
+## 2185.CSES - Prime Multiples
 <div class="md"><div class="md"><p>You are given <span class="math inline">k</span> distinct prime numbers <span class="math inline">a_1,a_2,...,a_k</span> and an integer <span class="math inline">n</span>.</p>
 <p>Your task is to calculate how many of the first <span class="math inline">n</span> positive integers are divisible by at least one of the given prime numbers.</p>
 <h1 id="input">Input</h1>
@@ -3967,7 +3967,7 @@ RRDDR
 <p>Explanation: the <span class="math inline">12</span> numbers are <span class="math inline">2,4,5,6,8,10,12,14,15,16,18,20</span>.</p>
 </div></div>
 
-## CSES - Counting Coprime Pairs
+## 2417.CSES - Counting Coprime Pairs
 <div class="md"><div class="md"><p>Given a list of <span class="math inline">n</span> positive integers, your task is to count the number of pairs of integers that are coprime (i.e., their greatest common divisor is one).</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of elements.</p>
@@ -3988,7 +3988,7 @@ RRDDR
 <pre>19
 </pre></div></div>
 
-## CSES - Binomial Coefficients
+## 1079.CSES - Binomial Coefficients
 <div class="md"><div class="md"><p>Your task is to calculate <span class="math inline">n</span> binomial coefficients modulo <span class="math inline">10^9+7</span>.</p>
 <p>A binomial coefficient <span class="math inline">{a \choose b}</span> can be calculated using the formula <span class="math inline">\frac{a!}{b!(a-b)!}</span>. We assume that <span class="math inline">a</span> and <span class="math inline">b</span> are integers and <span class="math inline">0 <= b <= a</span>.</p>
 <h1 id="input">Input</h1>
@@ -4014,7 +4014,7 @@ RRDDR
 126
 </pre></div></div>
 
-## CSES - Creating Strings II
+## 1715.CSES - Creating Strings II
 <div class="md"><div class="md"><p>Given a string, your task is to calculate the number of different strings that can be created using its characters.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span>. Each character is between a–z.</p>
@@ -4032,7 +4032,7 @@ RRDDR
 <pre>20
 </pre></div></div>
 
-## CSES - Distributing Apples
+## 1716.CSES - Distributing Apples
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> children and <span class="math inline">m</span> apples that will be distributed to them. Your task is to count the number of ways this can be done.</p>
 <p>For example, if <span class="math inline">n=3</span> and <span class="math inline">m=2</span>, there are <span class="math inline">6</span> ways: <span class="math inline">[0,0,2]</span>, <span class="math inline">[0,1,1]</span>, <span class="math inline">[0,2,0]</span>, <span class="math inline">[1,0,1]</span>, <span class="math inline">[1,1,0]</span> and <span class="math inline">[2,0,0]</span>.</p>
 <h1 id="input">Input</h1>
@@ -4051,7 +4051,7 @@ RRDDR
 <pre>6
 </pre></div></div>
 
-## CSES - Christmas Party
+## 1717.CSES - Christmas Party
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> children at a Christmas party, and each of them has brought a gift. The idea is that everybody will get a gift brought by someone else.</p>
 <p>In how many ways can the gifts be distributed?</p>
 <h1 id="input">Input</h1>
@@ -4070,7 +4070,7 @@ RRDDR
 <pre>9
 </pre></div></div>
 
-## CSES - Bracket Sequences I
+## 2064.CSES - Bracket Sequences I
 <div class="md"><div class="md"><p>Your task is to calculate the number of valid bracket sequences of length <span class="math inline">n</span>. For example, when <span class="math inline">n=6</span>, there are <span class="math inline">5</span> sequences:</p>
 <ul>
 <li><code>()()()</code></li>
@@ -4095,7 +4095,7 @@ RRDDR
 <pre>5
 </pre></div></div>
 
-## CSES - Bracket Sequences II
+## 2187.CSES - Bracket Sequences II
 <div class="md"><div class="md"><p>Your task is to calculate the number of valid bracket sequences of length <span class="math inline">n</span> when a <em>prefix</em> of the sequence is given.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>.</p>
@@ -4117,7 +4117,7 @@ RRDDR
 <p>Explanation: There are two possible sequences: <code>(())()</code> and <code>(()())</code>.</p>
 </div></div>
 
-## CSES - Counting Necklaces
+## 2209.CSES - Counting Necklaces
 <div class="md"><div class="md"><p>Your task is to count the number of different necklaces that consist of <span class="math inline">n</span> pearls and each pearl has <span class="math inline">m</span> possible colors.</p>
 <p>Two necklaces are considered to be different if it is not possible to rotate one of them so that they look the same.</p>
 <h1 id="input">Input</h1>
@@ -4136,7 +4136,7 @@ RRDDR
 <pre>24
 </pre></div></div>
 
-## CSES - Counting Grids
+## 2210.CSES - Counting Grids
 <div class="md"><div class="md"><p>Your task is to count the number of different <span class="math inline">n x n</span> grids whose each square is black or white.</p>
 <p>Two grids are considered to be different if it is not possible to rotate one of them so that they look the same.</p>
 <h1 id="input">Input</h1>
@@ -4155,7 +4155,7 @@ RRDDR
 <pre>16456
 </pre></div></div>
 
-## CSES - Fibonacci Numbers
+## 1722.CSES - Fibonacci Numbers
 <div class="md"><div class="md"><p>The Fibonacci numbers can be defined as follows:</p>
 <ul>
 <li><span class="math inline">F_0=0</span></li>
@@ -4179,7 +4179,7 @@ RRDDR
 <pre>55
 </pre></div></div>
 
-## CSES - Throwing Dice
+## 1096.CSES - Throwing Dice
 <div class="md"><div class="md"><p>Your task is to calculate the number of ways to get a sum <span class="math inline">n</span> by throwing dice. Each throw yields an integer between <span class="math inline">1 ... 6</span>.</p>
 <p>For example, if <span class="math inline">n=10</span>, some possible ways are <span class="math inline">3+3+4</span>, <span class="math inline">1+4+1+4</span> and <span class="math inline">1+1+6+1+1</span>.</p>
 <h1 id="input">Input</h1>
@@ -4198,7 +4198,7 @@ RRDDR
 <pre>125
 </pre></div></div>
 
-## CSES - Graph Paths I
+## 1723.CSES - Graph Paths I
 <div class="md"><div class="md"><p>Consider a directed graph that has <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges. Your task is to count the number of paths from node <span class="math inline">1</span> to node <span class="math inline">n</span> with exactly <span class="math inline">k</span> edges.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains three integers <span class="math inline">n</span>, <span class="math inline">m</span> and <span class="math inline">k</span>: the number of nodes and edges, and the length of the path. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -4226,7 +4226,7 @@ RRDDR
 <p>Explanation: The paths are <span class="math inline">1 -> 2 -> 3 -> 1 -> 2 -> 3 -> 1 -> 2 -> 3</span> and <span class="math inline">1 -> 2 -> 3 -> 2 -> 3 -> 2 -> 3 -> 2 -> 3</span>.</p>
 </div></div>
 
-## CSES - Graph Paths II
+## 1724.CSES - Graph Paths II
 <div class="md"><div class="md"><p>Consider a directed weighted graph having <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges. Your task is to calculate the minimum path length from node <span class="math inline">1</span> to node <span class="math inline">n</span> with exactly <span class="math inline">k</span> edges.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains three integers <span class="math inline">n</span>, <span class="math inline">m</span> and <span class="math inline">k</span>: the number of nodes and edges, and the length of the path. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -4253,7 +4253,7 @@ RRDDR
 <pre>27
 </pre></div></div>
 
-## CSES - Dice Probability
+## 1725.CSES - Dice Probability
 <div class="md"><div class="md"><p>You throw a dice <span class="math inline">n</span> times, and every throw produces an outcome between <span class="math inline">1</span> and <span class="math inline">6</span>. What is the probability that the sum of outcomes is between <span class="math inline">a</span> and <span class="math inline">b</span>?</p>
 <h1 id="input">Input</h1>
 <p>The only input line contains three integers <span class="math inline">n</span>, <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
@@ -4272,7 +4272,7 @@ RRDDR
 <pre>0.194444
 </pre></div></div>
 
-## CSES - Moving Robots
+## 1726.CSES - Moving Robots
 <div class="md"><div class="md"><p>Each square of an <span class="math inline">8 x 8</span> chessboard has a robot. Each robot independently moves <span class="math inline">k</span> steps, and there can be many robots on the same square.</p>
 <p>On each turn, a robot moves one step left, right, up or down, but not outside the board. It randomly chooses a direction among those where it can move.</p>
 <p>Your task is to calculate the expected number of <em>empty</em> squares after <span class="math inline">k</span> turns.</p>
@@ -4292,7 +4292,7 @@ RRDDR
 <pre>23.120740
 </pre></div></div>
 
-## CSES - Candy Lottery
+## 1727.CSES - Candy Lottery
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> children, and each of them independently gets a random integer number of candies between <span class="math inline">1</span> and <span class="math inline">k</span>.</p>
 <p>What is the expected maximum number of candies a child gets?</p>
 <h1 id="input">Input</h1>
@@ -4312,7 +4312,7 @@ RRDDR
 <pre>2.444444
 </pre></div></div>
 
-## CSES - Inversion Probability
+## 1728.CSES - Inversion Probability
 <div class="md"><div class="md"><p>An array has <span class="math inline">n</span> integers <span class="math inline">x_1,x_2,\dots,x_n</span>, and each of them has been randomly chosen between <span class="math inline">1</span> and <span class="math inline">r_i</span>. An inversion is a pair <span class="math inline">(a,b)</span> where <span class="math inline">a&lt;b</span> and <span class="math inline">x_a&gt;x_b</span>.</p>
 <p>What is the expected number of inversions in the array?</p>
 <h1 id="input">Input</h1>
@@ -4334,7 +4334,7 @@ RRDDR
 <pre>1.057143
 </pre></div></div>
 
-## CSES - Stick Game
+## 1729.CSES - Stick Game
 <div class="md"><div class="md"><p>Consider a game where two players remove sticks from a heap. The players move alternately, and the player who removes the last stick wins the game.</p>
 <p>A set <span class="math inline">P=\{p_1,p_2,...,p_k\}</span> determines the allowed moves. For example, if <span class="math inline">P=\{1,3,4\}</span>, a player may remove <span class="math inline">1</span>, <span class="math inline">3</span> or <span class="math inline">4</span> sticks.</p>
 <p>Your task is find out for each number of sticks <span class="math inline">1,2,\dots,n</span> if the first player has a winning or losing position.</p>
@@ -4358,7 +4358,7 @@ RRDDR
 <pre>WLWWWWLWLW
 </pre></div></div>
 
-## CSES - Nim Game I
+## 1730.CSES - Nim Game I
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> heaps of sticks and two players who move alternately. On each move, a player chooses a non-empty heap and removes any number of sticks. The player who removes the last stick wins the game.</p>
 <p>Your task is to find out who wins if both players play optimally.</p>
 <h1 id="input">Input</h1>
@@ -4390,7 +4390,7 @@ first
 second
 </pre></div></div>
 
-## CSES - Nim Game II
+## 1098.CSES - Nim Game II
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> heaps of sticks and two players who move alternately. On each move, a player chooses a non-empty heap and removes <span class="math inline">1</span>, <span class="math inline">2</span>, or <span class="math inline">3</span> sticks. The player who removes the last stick wins the game.</p>
 <p>Your task is to find out who wins if both players play optimally.</p>
 <h1 id="input">Input</h1>
@@ -4422,7 +4422,7 @@ first
 second
 </pre></div></div>
 
-## CSES - Stair Game
+## 1099.CSES - Stair Game
 <div class="md"><div class="md"><p>There is a staircase consisting of <span class="math inline">n</span> stairs, numbered <span class="math inline">1,2,...,n</span>. Initially, each stair has some number of balls.</p>
 <p>There are two players who move alternately. On each move, a player chooses a stair <span class="math inline">k</span> where <span class="math inline">k \neq 1</span> and it has at least one ball. Then, the player moves any number of balls from stair <span class="math inline">k</span> to stair <span class="math inline">k-1</span>. The player who moves last wins the game.</p>
 <p>Your task is to find out who wins the game when both players play optimally.</p>
@@ -4456,7 +4456,7 @@ second
 first
 </pre></div></div>
 
-## CSES - Grundy's Game
+## 2207.CSES - Grundy's Game
 <div class="md"><div class="md"><p>There is a heap of <span class="math inline">n</span> coins and two players who move alternately. On each move, a player chooses a heap and divides into two nonempty heaps that have a different number of coins. The player who makes the last move wins the game.</p>
 <p>Your task is to find out who wins if both players play optimally.</p>
 <h1 id="input">Input</h1>
@@ -4482,7 +4482,7 @@ second
 first
 </pre></div></div>
 
-## CSES - Another Game
+## 2208.CSES - Another Game
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> heaps of coins and two players who move alternately. On each move, a player selects some of the nonempty heaps and removes one coin from each heap. The player who removes the last coin wins the game.</p>
 <p>Your task is to find out who wins if both players play optimally.</p>
 <h1 id="input">Input</h1>
@@ -4514,7 +4514,7 @@ second
 first
 </pre></div></div>
 
-## CSES - Word Combinations
+## 1731.CSES - Word Combinations
 <div class="md"><div class="md"><p>You are given a string of length <span class="math inline">n</span> and a dictionary containing <span class="math inline">k</span> words. In how many ways can you create the string using the words?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string containing <span class="math inline">n</span> characters between a–z.</p>
@@ -4543,7 +4543,7 @@ cb
 <p>Explanation: The possible ways are <code>ab+ab+c</code> and <code>abab+c</code>.</p>
 </div></div>
 
-## CSES - String Matching
+## 1753.CSES - String Matching
 <div class="md"><div class="md"><p>Given a string and a pattern, your task is to count the number of positions where the pattern occurs in the string.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span>, and the second input line has a pattern of length <span class="math inline">m</span>. Both of them consist of characters a–z.</p>
@@ -4562,7 +4562,7 @@ pp
 <pre>2
 </pre></div></div>
 
-## CSES - Finding Borders
+## 1732.CSES - Finding Borders
 <div class="md"><div class="md"><p>A <em>border</em> of a string is a prefix that is also a suffix of the string but not the whole string. For example, the borders of <code>abcababcab</code> are <code>ab</code> and <code>abcab</code>.</p>
 <p>Your task is to find all border lengths of a given string.</p>
 <h1 id="input">Input</h1>
@@ -4581,7 +4581,7 @@ pp
 <pre>2 5
 </pre></div></div>
 
-## CSES - Finding Periods
+## 1733.CSES - Finding Periods
 <div class="md"><div class="md"><p>A <em>period</em> of a string is a prefix that can be used to generate the whole string by repeating the prefix. The last repetition may be partial. For example, the periods of <code>abcabca</code> are <code>abc</code>, <code>abcabc</code> and <code>abcabca</code>.</p>
 <p>Your task is to find all period lengths of a string.</p>
 <h1 id="input">Input</h1>
@@ -4600,7 +4600,7 @@ pp
 <pre>3 6 7
 </pre></div></div>
 
-## CSES - Minimal Rotation
+## 1110.CSES - Minimal Rotation
 <div class="md"><div class="md"><p>A rotation of a string can be generated by moving characters one after another from beginning to end. For example, the rotations of <code>acab</code> are <code>acab</code>, <code>caba</code>, <code>abac</code>, and <code>baca</code>.</p>
 <p>Your task is to determine the lexicographically minimal rotation of a string.</p>
 <h1 id="input">Input</h1>
@@ -4619,7 +4619,7 @@ pp
 <pre>abac
 </pre></div></div>
 
-## CSES - Longest Palindrome
+## 1111.CSES - Longest Palindrome
 <div class="md"><div class="md"><p>Given a string, your task is to determine the longest palindromic substring of the string. For example, the longest palindrome in <code>aybabtu</code> is <code>bab</code>.</p>
 <h1 id="input">Input</h1>
 <p>The only input line contains a string of length <span class="math inline">n</span>. Each character is one of a–z.</p>
@@ -4637,7 +4637,7 @@ pp
 <pre>bab
 </pre></div></div>
 
-## CSES - Required Substring
+## 1112.CSES - Required Substring
 <div class="md"><div class="md"><p>Your task is to calculate the number of strings of length <span class="math inline">n</span> having a given pattern of length <span class="math inline">m</span> as their substring. All strings consist of characters A–Z.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the length of the final string.</p>
@@ -4660,7 +4660,7 @@ ABCDB
 <p>Explanation: The final string will be of the form ABCDB<span class="math inline">x</span> or <span class="math inline">x</span>ABCDB where <span class="math inline">x</span> is any character between A–Z.</p>
 </div></div>
 
-## CSES - Palindrome Queries
+## 2420.CSES - Palindrome Queries
 <div class="md"><div class="md"><p>You are given a string that consists of <span class="math inline">n</span> characters between a–z. The positions of the string are indexed <span class="math inline">1,2,\dots,n</span>.</p>
 <p>Your task is to process <span class="math inline">m</span> operations of the following types:</p>
 <ol>
@@ -4695,7 +4695,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Finding Patterns
+## 2102.CSES - Finding Patterns
 <div class="md"><div class="md"><p>Given a string and patterns, check for each pattern if it appears in the string.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span>.</p>
@@ -4723,7 +4723,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Counting Patterns
+## 2103.CSES - Counting Patterns
 <div class="md"><div class="md"><p>Given a string and patterns, count for each pattern the number of positions where it appears in the string.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span>.</p>
@@ -4751,7 +4751,7 @@ a
 2
 </pre></div></div>
 
-## CSES - Pattern Positions
+## 2104.CSES - Pattern Positions
 <div class="md"><div class="md"><p>Given a string and patterns, find for each pattern the first position (1-indexed) where it appears in the string.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span>.</p>
@@ -4779,7 +4779,7 @@ a
 1
 </pre></div></div>
 
-## CSES - Distinct Substrings
+## 2105.CSES - Distinct Substrings
 <div class="md"><div class="md"><p>Count the number of distinct substrings that appear in a string.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span> that consists of characters a–z.</p>
@@ -4799,7 +4799,7 @@ a
 <p>Explanation: the substrings are <code>a</code>, <code>b</code>, <code>aa</code>, <code>ab</code>, <code>ba</code>, <code>aba</code>, <code>baa</code> and <code>abaa</code>.</p>
 </div></div>
 
-## CSES - Repeating Substring
+## 2106.CSES - Repeating Substring
 <div class="md"><div class="md"><p>A repeating substring is a substring that occurs in two (or more) locations in the string. Your task is to find the longest repeating substring in a given string.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span> that consists of characters a–z.</p>
@@ -4817,7 +4817,7 @@ a
 <pre>abab
 </pre></div></div>
 
-## CSES - String Functions
+## 2107.CSES - String Functions
 <div class="md"><div class="md"><p>We consider a string of <span class="math inline">n</span> characters, indexed <span class="math inline">1,2,\dots,n</span>. Your task is to calculate all values of the following functions:</p>
 <ul>
 <li><span class="math inline">z(i)</span> denotes the maximum length of a substring that begins at position <span class="math inline">i</span> and is a prefix of the string. In addition, <span class="math inline">z(1)=0</span>.</li>
@@ -4841,7 +4841,7 @@ a
 0 0 1 1 2 0 1
 </pre></div></div>
 
-## CSES - Substring Order I
+## 2108.CSES - Substring Order I
 <div class="md"><div class="md"><p>You are given a string of length <span class="math inline">n</span>. If all of its distinct substrings are ordered lexicographically, what is the <span class="math inline">k</span>th smallest of them?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span> that consists of characters a–z.</p>
@@ -4865,7 +4865,7 @@ a
 <p>Explanation: The 10 smallest distinct substrings in order are a, aa, aab, aac, aacb, aacba, aacbaa, aacbaab, ab, and aba.</p>
 </div></div>
 
-## CSES - Substring Order II
+## 2109.CSES - Substring Order II
 <div class="md"><div class="md"><p>You are given a string of length <span class="math inline">n</span>. If all of its substrings (not necessarily distinct) are ordered lexicographically, what is the <span class="math inline">k</span>th smallest of them?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a string of length <span class="math inline">n</span> that consists of characters a–z.</p>
@@ -4888,7 +4888,7 @@ a
 <p>Explanation: The 10 smallest substrings in order are a, a, a, a, aa, aa, aab, aaba, aabaa, and ab.</p>
 </div></div>
 
-## CSES - Substring Distribution
+## 2110.CSES - Substring Distribution
 <div class="md"><div class="md"><p>You are given a string of length <span class="math inline">n</span>. For every integer between <span class="math inline">1 ... n</span> you need to print the number of distinct substrings of that length.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string of length <span class="math inline">n</span> that consists of characters a–z.</p>
@@ -4906,7 +4906,7 @@ a
 <pre>2 2 2 1
 </pre></div></div>
 
-## CSES - Point Location Test
+## 2189.CSES - Point Location Test
 <div class="md"><div class="md"><p>There is a line that goes through the points <span class="math inline">p_1=(x_1,y_1)</span> and <span class="math inline">p_2=(x_2,y_2)</span>. There is also a point <span class="math inline">p_3=(x_3,y_3)</span>.</p>
 <p>Your task is to determine whether <span class="math inline">p_3</span> is located on the left or right side of the line or if it touches the line when we are looking from <span class="math inline">p_1</span> to <span class="math inline">p_2</span>.</p>
 <h1 id="input">Input</h1>
@@ -4933,7 +4933,7 @@ RIGHT
 TOUCH
 </pre></div></div>
 
-## CSES - Line Segment Intersection
+## 2190.CSES - Line Segment Intersection
 <div class="md"><div class="md"><p>There are two line segments: the first goes through the points <span class="math inline">(x_1,y_1)</span> and <span class="math inline">(x_2,y_2)</span>, and the second goes through the points <span class="math inline">(x_3,y_3)</span> and <span class="math inline">(x_4,y_4)</span>.</p>
 <p>Your task is to determine if the line segments intersect, i.e., they have at least one common point.</p>
 <h1 id="input">Input</h1>
@@ -4965,7 +4965,7 @@ YES
 YES
 </pre></div></div>
 
-## CSES - Polygon Area
+## 2191.CSES - Polygon Area
 <div class="md"><div class="md"><p>Your task is to calculate the area of a given polygon.</p>
 <p>The polygon consists of <span class="math inline">n</span> vertices <span class="math inline">(x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)</span>. The vertices <span class="math inline">(x_i,y_i)</span> and <span class="math inline">(x_{i+1},y_{i+1})</span> are adjacent for <span class="math inline">i=1,2,\dots,n-1</span>, and the vertices <span class="math inline">(x_1,y_1)</span> and <span class="math inline">(x_n,y_n)</span> are also adjacent.</p>
 <h1 id="input">Input</h1>
@@ -4991,7 +4991,7 @@ YES
 <pre>16
 </pre></div></div>
 
-## CSES - Point in Polygon
+## 2192.CSES - Point in Polygon
 <div class="md"><div class="md"><p>You are given a polygon of <span class="math inline">n</span> vertices and a list of <span class="math inline">m</span> points. Your task is to determine for each point if it is inside, outside or on the boundary of the polygon.</p>
 <p>The polygon consists of <span class="math inline">n</span> vertices <span class="math inline">(x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)</span>. The vertices <span class="math inline">(x_i,y_i)</span> and <span class="math inline">(x_{i+1},y_{i+1})</span> are adjacent for <span class="math inline">i=1,2,\dots,n-1</span>, and the vertices <span class="math inline">(x_1,y_1)</span> and <span class="math inline">(x_n,y_n)</span> are also adjacent.</p>
 <h1 id="input">Input</h1>
@@ -5025,7 +5025,7 @@ OUTSIDE
 BOUNDARY
 </pre></div></div>
 
-## CSES - Polygon Lattice Points
+## 2193.CSES - Polygon Lattice Points
 <div class="md"><div class="md"><p>Given a polygon, your task is to calculate the number of lattice points inside the polygon and on its boundary. A lattice point is a point whose coordinates are integers.</p>
 <p>The polygon consists of <span class="math inline">n</span> vertices <span class="math inline">(x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)</span>. The vertices <span class="math inline">(x_i,y_i)</span> and <span class="math inline">(x_{i+1},y_{i+1})</span> are adjacent for <span class="math inline">i=1,2,\dots,n-1</span>, and the vertices <span class="math inline">(x_1,y_1)</span> and <span class="math inline">(x_n,y_n)</span> are also adjacent.</p>
 <h1 id="input">Input</h1>
@@ -5051,7 +5051,7 @@ BOUNDARY
 <pre>6 8
 </pre></div></div>
 
-## CSES - Minimum Euclidean Distance
+## 2194.CSES - Minimum Euclidean Distance
 <div class="md"><div class="md"><p>Given a set of points in the two-dimensional plane, your task is to find the minimum Euclidean distance between two distinct points.</p>
 <p>The Euclidean distance of points <span class="math inline">(x_1,y_1)</span> and <span class="math inline">(x_2,y_2)</span> is <span class="math inline">\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}</span>.</p>
 <h1 id="input">Input</h1>
@@ -5076,7 +5076,7 @@ BOUNDARY
 <pre>2
 </pre></div></div>
 
-## CSES - Convex Hull
+## 2195.CSES - Convex Hull
 <div class="md"><div class="md"><p>Given a set of <span class="math inline">n</span> points in the two-dimensional plane, your task is to determine the convex hull of the points.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of points.</p>
@@ -5108,7 +5108,7 @@ BOUNDARY
 6 3
 </pre></div></div>
 
-## CSES - Meet in the Middle
+## 1628.CSES - Meet in the Middle
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> numbers. In how many ways can you choose a subset of the numbers with sum <span class="math inline">x</span>?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two numbers <span class="math inline">n</span> and <span class="math inline">x</span>: the array size and the required sum.</p>
@@ -5130,7 +5130,7 @@ BOUNDARY
 <pre>3
 </pre></div></div>
 
-## CSES - Hamming Distance
+## 2136.CSES - Hamming Distance
 <div class="md"><div class="md"><p>The Hamming distance between two strings <span class="math inline">a</span> and <span class="math inline">b</span> of equal length is the number of positions where the strings differ.</p>
 <p>You are given <span class="math inline">n</span> bit strings, each of length <span class="math inline">k</span> and your task is to calculate the minimum Hamming distance between two strings. </p>
 <h1 id="input">Input</h1>
@@ -5158,7 +5158,7 @@ BOUNDARY
 <p>Explanation: The strings <code>101000</code> and <code>001000</code> differ only at the first position.</p>
 </div></div>
 
-## CSES - Beautiful Subgrids
+## 2137.CSES - Beautiful Subgrids
 <div class="md"><div class="md"><p>You are given an <span class="math inline">n x n</span> grid whose each square is either black or white. A subgrid is called <em>beautiful</em> if its height and width is at least two and all of its corners are black. How many beautiful subgrids are there within the given grid?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the grid.</p>
@@ -5182,7 +5182,7 @@ BOUNDARY
 <pre>4
 </pre></div></div>
 
-## CSES - Reachable Nodes
+## 2138.CSES - Reachable Nodes
 <div class="md"><div class="md"><p>A directed acyclic graph consists of <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
 <p>Calculate for each node the number of nodes you can reach from that node (including the node itself).</p>
 <h1 id="input">Input</h1>
@@ -5209,7 +5209,7 @@ BOUNDARY
 <pre>5 3 2 2 1
 </pre></div></div>
 
-## CSES - Reachability Queries
+## 2143.CSES - Reachability Queries
 <div class="md"><div class="md"><p>A directed graph consists of <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges. The edges are numbered <span class="math inline">1,2,\dots,n</span>.</p>
 <p>Your task is to answer <span class="math inline">q</span> queries of the form "can you reach node <span class="math inline">b</span> from node <span class="math inline">a</span>?"</p>
 <h1 id="input">Input</h1>
@@ -5240,7 +5240,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Cut and Paste
+## 2072.CSES - Cut and Paste
 <div class="md"><div class="md"><p>Given a string, your task is to process operations where you cut a substring and paste it to the end of the string. What is the final string after all the operations?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the length of the string and the number of operations. The characters of the string are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5264,7 +5264,7 @@ AYBABTU
 <pre>AYABTUB
 </pre></div></div>
 
-## CSES - Substring Reversals
+## 2073.CSES - Substring Reversals
 <div class="md"><div class="md"><p>Given a string, your task is to process operations where you reverse a substring of the string. What is the final string after all the operations?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the length of the string and the number of operations. The characters of the string are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5288,7 +5288,7 @@ AYBABTU
 <pre>AYAUTBB
 </pre></div></div>
 
-## CSES - Reversals and Sums
+## 2074.CSES - Reversals and Sums
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, you have to process following operations:</p>
 <ol>
 <li>reverse a subarray</li>
@@ -5320,7 +5320,7 @@ AYBABTU
 9
 </pre></div></div>
 
-## CSES - Necessary Roads
+## 2076.CSES - Necessary Roads
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. There is a route between any two cities.</p>
 <p>A road is called <em>necessary</em> if there is no route between some two cities after removing that road. Your task is to find all necessary roads.</p>
 <h1 id="input">Input</h1>
@@ -5349,7 +5349,7 @@ AYBABTU
 4 5
 </pre></div></div>
 
-## CSES - Necessary Cities
+## 2077.CSES - Necessary Cities
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. There is a route between any two cities.</p>
 <p>A city is called <em>necessary</em> if there is no route between some other two cities after removing that city (and adjacent roads). Your task is to find all necessary cities.</p>
 <h1 id="input">Input</h1>
@@ -5377,7 +5377,7 @@ AYBABTU
 4 5
 </pre></div></div>
 
-## CSES - Eulerian Subgraphs
+## 2078.CSES - Eulerian Subgraphs
 <div class="md"><div class="md"><p>You are given an undirected graph that has <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges.</p>
 <p>We consider subgraphs that have all nodes of the original graph and some of its edges. A subgraph is called <em>Eulerian</em> if each node has even degree.</p>
 <p>Your task is to count the number of Eulerian subgraphs modulo <span class="math inline">10^9+7</span>.</p>
@@ -5405,7 +5405,7 @@ AYBABTU
 <p>Explanation: You can either keep or remove all edges, so there are two possible Eulerian subgraphs.</p>
 </div></div>
 
-## CSES - Monster Game I
+## 2084.CSES - Monster Game I
 <div class="md"><div class="md"><p>You are playing a game that consists of <span class="math inline">n</span> levels. Each level has a monster. On levels <span class="math inline">1,2,\dots,n-1</span>, you can either kill or escape the monster. However, on level <span class="math inline">n</span> you must kill the final monster to win the game.</p>
 <p>Killing a monster takes <span class="math inline">sf</span> time where <span class="math inline">s</span> is the monster's strength and <span class="math inline">f</span> is your skill factor (lower skill factor is better). After killing a monster, you get a new skill factor. What is the minimum total time in which you can win the game?</p>
 <h1 id="input">Input</h1>
@@ -5433,7 +5433,7 @@ AYBABTU
 <p>Explanation: The best way to play is to kill the third and fifth monster.</p>
 </div></div>
 
-## CSES - Monster Game II
+## 2085.CSES - Monster Game II
 <div class="md"><div class="md"><p>You are playing a game that consists of <span class="math inline">n</span> levels. Each level has a monster. On levels <span class="math inline">1,2,\dots,n-1</span>, you can either kill or escape the monster. However, on level <span class="math inline">n</span> you must kill the final monster to win the game.</p>
 <p>Killing a monster takes <span class="math inline">sf</span> time where <span class="math inline">s</span> is the monster's strength and <span class="math inline">f</span> is your skill factor. After killing a monster, you get a new skill factor  (lower skill factor is better). What is the minimum total time in which you can win the game?</p>
 <h1 id="input">Input</h1>
@@ -5460,7 +5460,7 @@ AYBABTU
 <p>Explanation: The best way to play is to kill the second and fifth monster.</p>
 </div></div>
 
-## CSES - Subarray Squares
+## 2086.CSES - Subarray Squares
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> elements, your task is to divide into <span class="math inline">k</span> subarrays. The cost of each subarray is the square of the sum of the values in the subarray. What is the minimum total cost if you act optimally?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">k</span>: the array elements and the number of subarrays. The array elements are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5483,7 +5483,7 @@ AYBABTU
 <p>Explanation: An optimal solution is <span class="math inline">[2,3,1]</span>, <span class="math inline">[2,2,3]</span>, <span class="math inline">[4,1]</span>, whose cost is <span class="math inline">(2+3+1)^2+(2+2+3)^2+(4+1)^2=110</span>.</p>
 </div></div>
 
-## CSES - Houses and Schools
+## 2087.CSES - Houses and Schools
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> houses on a street, numbered <span class="math inline">1,2,\dots,n</span>. The distance of houses <span class="math inline">a</span> and <span class="math inline">b</span> is <span class="math inline">|a-b|</span>. You know the number of children in each house.</p>
 <p>Your task is to establish <span class="math inline">k</span> schools in such a way that each school is in some house. Then, each child goes to the nearest school. What is the minimum total walking distance of the children if you act optimally?</p>
 <h1 id="input">Input</h1>
@@ -5507,7 +5507,7 @@ AYBABTU
 <p>Explanation: Houses 2 and 5 will have schools.</p>
 </div></div>
 
-## CSES - Knuth Division
+## 2088.CSES - Knuth Division
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> numbers, your task is to divide it into <span class="math inline">n</span> subarrays, each of which has a single element.</p>
 <p>On each move, you may choose any subarray and split it into two subarrays. The cost of such a move is the sum of values in the chosen subarray.</p>
 <p>What is the minimum total cost if you act optimally?</p>
@@ -5530,7 +5530,7 @@ AYBABTU
 <pre>43
 </pre></div></div>
 
-## CSES - Apples and Bananas
+## 2111.CSES - Apples and Bananas
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> apples and <span class="math inline">m</span> bananas, and each of them has an integer weight between <span class="math inline">1 ... k</span>. Your task is to calculate, for each weight <span class="math inline">w</span> between <span class="math inline">2 \dots 2k</span>, the number of ways we can choose an apple and a banana whose combined weight is <span class="math inline">w</span>.</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains three integers <span class="math inline">k</span>, <span class="math inline">n</span> and <span class="math inline">m</span>: the number <span class="math inline">k</span>, the number of apples and the number of bananas.</p>
@@ -5556,7 +5556,7 @@ AYBABTU
 <p>Explanation: For example for <span class="math inline">w</span> = <span class="math inline">8</span> there are <span class="math inline">4</span> different ways: we can pick an apple of weight <span class="math inline">5</span> in two different ways and a banana of weight <span class="math inline">3</span> in two different ways.</p>
 </div></div>
 
-## CSES - One Bit Positions
+## 2112.CSES - One Bit Positions
 <div class="md"><div class="md"><p>You are given a binary string of length <span class="math inline">n</span>. Your task is to calculate, for every <span class="math inline">k</span> between <span class="math inline">1 ... n-1</span>, the number of ways we can choose two positions <span class="math inline">i</span> and <span class="math inline">j</span> such that <span class="math inline">i-j=k</span> and there is a one-bit at both positions.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has a string that consists only of characters <span class="math inline">0</span> and <span class="math inline">1</span>.</p>
@@ -5574,7 +5574,7 @@ AYBABTU
 <pre>1 2 3 0 2 1 0 1 0
 </pre></div></div>
 
-## CSES - Signal Processing
+## 2113.CSES - Signal Processing
 <div class="md"><div class="md"><p>You are given two integer sequences: a signal and a mask. Your task is to process the signal by moving the mask through the signal from left to right. At each mask position calculate the sum of products of aligned signal and mask values in the part where the signal and the mask overlap.</p>
 <h1 id="input">Input</h1>
 <p>The first input line consists of two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the length of the signal and the length of the mask.</p>
@@ -5599,7 +5599,7 @@ AYBABTU
 <p>Explanation: For example, at the second mask position the sum of aligned products is <span class="math inline">2 . 1 + 3 . 3 = 11</span>.</p>
 </div></div>
 
-## CSES - New Roads Queries
+## 2101.CSES - New Roads Queries
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities in Byteland but no roads between them. However, each day, a new road will be built. There will be a total of <span class="math inline">m</span> roads.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: "after how many days can we travel from city <span class="math inline">a</span> to city <span class="math inline">b</span> for the first time?"</p>
 <h1 id="input">Input</h1>
@@ -5630,7 +5630,7 @@ AYBABTU
 4
 </pre></div></div>
 
-## CSES - Dynamic Connectivity
+## 2133.CSES - Dynamic Connectivity
 <div class="md"><div class="md"><p>Consider an undirected graph that consists of <span class="math inline">n</span> nodes and <span class="math inline">m</span> edges. There are two types of events that can happen:</p>
 <ol>
 <li>A new edge is created between nodes <span class="math inline">a</span> and <span class="math inline">b</span>.</li>
@@ -5663,7 +5663,7 @@ AYBABTU
 <pre>2 2 2 1
 </pre></div></div>
 
-## CSES - Parcel Delivery
+## 2121.CSES - Parcel Delivery
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> routes through which parcels can be carried from one city to another city. For each route, you know the maximum number of parcels and the cost of a single parcel.</p>
 <p>You want to send <span class="math inline">k</span> parcels from Syrjälä to Lehmälä. What is the cheapest way to do that?</p>
 <h1 id="input">Input</h1>
@@ -5694,7 +5694,7 @@ AYBABTU
 <p>Explanation: One parcel is delivered through route <span class="math inline">1 -> 2 -> 4</span> (cost <span class="math inline">1 . 450=450</span>) and two parcels are delivered through route <span class="math inline">1 -> 3 -> 4</span> (cost <span class="math inline">2 . 150=300</span>).</p>
 </div></div>
 
-## CSES - Task Assignment
+## 2129.CSES - Task Assignment
 <div class="md"><div class="md"><p>A company has <span class="math inline">n</span> employees and there are <span class="math inline">n</span> tasks that need to be done. We know for each employee the cost of carrying out each task. Every employee should be assigned to exactly one task. What is the minimum total cost if we assign the tasks optimally and how could they be assigned?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has one integer <span class="math inline">n</span>: the number of employees and the number of tasks that need to be done.</p>
@@ -5726,7 +5726,7 @@ AYBABTU
 <p>Explanation: The minimum total cost is <span class="math inline">33</span>. We can reach this by assigning employee 1 task 4, employee 2 task 1, employee 3 task 3 and employee 4 task 2. This will cost <span class="math inline">9 + 7 + 10 + 7 = 33</span>.</p>
 </div></div>
 
-## CSES - Distinct Routes II
+## 2130.CSES - Distinct Routes II
 <div class="md"><div class="md"><p>A game consists of <span class="math inline">n</span> rooms and <span class="math inline">m</span> teleporters. At the beginning of each day, you start in room <span class="math inline">1</span> and you have to reach room <span class="math inline">n</span>.</p>
 <p>You can use each teleporter at most once during the game. You want to play the game for exactly <span class="math inline">k</span> days. Every time you use any teleporter you have to pay one coin. What is the minimum number of coins you have to pay during <span class="math inline">k</span> days if you play optimally?</p>
 <h1 id="input">Input</h1>
@@ -5765,7 +5765,7 @@ AYBABTU
 1 3 5 8 
 </pre></div></div>
 
-## CSES - Shortest Subsequence
+## 1087.CSES - Shortest Subsequence
 <div class="md"><div class="md"><p>You are given a DNA sequence consisting of characters A, C, G, and T.</p>
 <p>Your task is to find the shortest DNA sequence that is not a subsequence of the original sequence.</p>
 <h1 id="input">Input</h1>
@@ -5784,7 +5784,7 @@ AYBABTU
 <pre>AAA
 </pre></div></div>
 
-## CSES - Counting Bits
+## 1146.CSES - Counting Bits
 <div class="md"><div class="md"><p>Your task is to count the number of one bits in the binary representations of integers between <span class="math inline">1</span> and <span class="math inline">n</span>.</p>
 <h1 id="input">Input</h1>
 <p>The only input line has an integer <span class="math inline">n</span>.</p>
@@ -5804,7 +5804,7 @@ AYBABTU
 <p>Explanation: The binary representations of <span class="math inline">1 ... 7</span> are 1, 10, 11, 100, 101, 110, and 111, so there are a total of 12 one bits.</p>
 </div></div>
 
-## CSES - Swap Game
+## 1670.CSES - Swap Game
 <div class="md"><div class="md"><p>You are given a <span class="math inline">3 x 3</span> grid containing the numbers <span class="math inline">1,2,\dots,9</span>. Your task is to perform a sequence of moves so that the grid will look like this:</p>
 <pre>1 2 3
 4 5 6
@@ -5825,7 +5825,7 @@ AYBABTU
 <pre>4
 </pre></div></div>
 
-## CSES - Prüfer Code
+## 1134.CSES - Prüfer Code
 <div class="md"><div class="md"><p>A <em>Prüfer code</em> of a tree of <span class="math inline">n</span> nodes is a sequence of <span class="math inline">n-2</span> integers that uniquely specifies the structure of the tree.</p>
 <p>The code is constructed as follows: As long as there are at least three nodes left, find a leaf with the smallest label, add the label of its only neighbor to the code, and remove the leaf from the tree.</p>
 <p>Given a Prüfer code of a tree, your task is to construct the original tree.</p>
@@ -5851,7 +5851,7 @@ AYBABTU
 4 5
 </pre></div></div>
 
-## CSES - Acyclic Graph Edges
+## 1756.CSES - Acyclic Graph Edges
 <div class="md"><div class="md"><p>Given an undirected graph, your task is to choose a direction for each edge so that the resulting directed graph is acyclic.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5877,7 +5877,7 @@ AYBABTU
 3 1
 </pre></div></div>
 
-## CSES - Strongly Connected Edges
+## 2177.CSES - Strongly Connected Edges
 <div class="md"><div class="md"><p>Given an undirected graph, your task is to choose a direction for each edge so that the resulting directed graph is strongly connected.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5905,7 +5905,7 @@ AYBABTU
 3 1
 </pre></div></div>
 
-## CSES - Even Outdegree Edges
+## 2179.CSES - Even Outdegree Edges
 <div class="md"><div class="md"><p>Given an undirected graph, your task is to choose a direction for each edge so that in the resulting directed graph each node has an even outdegree. The outdegree of a node is the number of edges coming out of that node.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -5935,7 +5935,7 @@ AYBABTU
 1 4
 </pre></div></div>
 
-## CSES - Multiplication Table
+## 2422.CSES - Multiplication Table
 <div class="md"><div class="md"><p>Find the middle element when the numbers in an <span class="math inline">n x n</span> multiplication table are sorted in increasing order. It is assumed that <span class="math inline">n</span> is odd.</p>
 <p>For example, the <span class="math inline">3 x 3</span> multiplication table is as follows:
 <span class="math display">
@@ -5962,7 +5962,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>3
 </pre></div></div>
 
-## CSES - Advertisement
+## 1142.CSES - Advertisement
 <div class="md"><div class="md"><p>A fence consists of <span class="math inline">n</span> vertical boards. The width of each board is 1 and their heights may vary.</p>
 <p>You want to attach a rectangular advertisement to the fence. What is the maximum area of such an advertisement?</p>
 <h1 id="input">Input</h1>
@@ -5984,7 +5984,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>10
 </pre></div></div>
 
-## CSES - Special Substrings
+## 2186.CSES - Special Substrings
 <div class="md"><div class="md"><p>A substring is called <em>special</em> if every character that appears in the string appears the same number of times in the substring.</p>
 <p>Your task is to count the number of special substrings in a given string.</p>
 <h1 id="input">Input</h1>
@@ -6005,7 +6005,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <p>Explanation: The special substrings are <code>abc</code>, <code>cab</code>, <code>abccab</code>, <code>bccaba</code> and <code>ccabab</code>.</p>
 </div></div>
 
-## CSES - Permutation Inversions
+## 2229.CSES - Permutation Inversions
 <div class="md"><div class="md"><p>Your task is to count the number of permutations of <span class="math inline">1,2,\dots,n</span> that have exactly <span class="math inline">k</span> inversions (i.e., pairs of elements in the wrong order).</p>
 <p>For example, when <span class="math inline">n=4</span> and <span class="math inline">k=3</span>, there are <span class="math inline">6</span> such permutations:</p>
 <ul>
@@ -6033,7 +6033,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>6
 </pre></div></div>
 
-## CSES - Maximum Xor Subarray
+## 1655.CSES - Maximum Xor Subarray
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to find the maximum xor sum in a subarray.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -6054,7 +6054,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>13
 </pre></div></div>
 
-## CSES - Movie Festival Queries
+## 1664.CSES - Movie Festival Queries
 <div class="md"><div class="md"><p>In a movie festival, <span class="math inline">n</span> movies will be shown. You know the starting and ending time of each movie.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: if you arrive and leave the festival at specific times, what is the maximum number of movies you can watch?</p>
 <p>You can watch two movies if the first movie ends before or exactly when the second movie starts. You can start the first movie exactly when you arrive and leave exactly when the last movie ends.</p>
@@ -6086,7 +6086,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 1
 </pre></div></div>
 
-## CSES - Chess Tournament
+## 1697.CSES - Chess Tournament
 <div class="md"><div class="md"><p>There will be a chess tournament of <span class="math inline">n</span> players. Each player has announced the number of games they want to play.</p>
 <p>Each pair of players can play at most one game. Your task is to determine which games will be played so that everybody will be happy.</p>
 <h1 id="input">Input</h1>
@@ -6113,7 +6113,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 3 5
 </pre></div></div>
 
-## CSES - Tree Traversals
+## 1702.CSES - Tree Traversals
 <div class="md"><div class="md"><p>There are three common ways to traverse the nodes of a binary tree:</p>
 <ul>
 <li><em>Preorder</em>: First process the root, then the left subtree, and finally the right subtree.</li>
@@ -6141,7 +6141,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>3 1 4 2 5
 </pre></div></div>
 
-## CSES - Network Renovation
+## 1704.CSES - Network Renovation
 <div class="md"><div class="md"><p>Syrjälä's network consists of <span class="math inline">n</span> computers and <span class="math inline">n-1</span> connections between them. It is possible to send data between any two computers.</p>
 <p>However, if any connection breaks down, it will no longer be possible to send data between some computers. Your task is to add the minimum number of new connections in such a way that you can still send data between any two computers even if any single connection breaks down.</p>
 <h1 id="input">Input</h1>
@@ -6168,7 +6168,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 4 5
 </pre></div></div>
 
-## CSES - Graph Girth
+## 1707.CSES - Graph Girth
 <div class="md"><div class="md"><p>Given an undirected graph, your task is to determine its <em>girth</em>, i.e., the length of its shortest cycle.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -6195,7 +6195,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>3
 </pre></div></div>
 
-## CSES - Intersection Points
+## 1740.CSES - Intersection Points
 <div class="md"><div class="md"><p>Given <span class="math inline">n</span> horizontal and vertical line segments, your task is to calculate the number of their intersection points.</p>
 <p>You can assume that no parallel line segments intersect, and no endpoint of a line segment is an intersection point.</p>
 <h1 id="input">Input</h1>
@@ -6221,7 +6221,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>2
 </pre></div></div>
 
-## CSES - Inverse Inversions
+## 2214.CSES - Inverse Inversions
 <div class="md"><div class="md"><p>Your task is to create a permutation of numbers <span class="math inline">1,2,\dots,n</span> that has exactly <span class="math inline">k</span> inversions.</p>
 <p>An inversion is a pair <span class="math inline">(a,b)</span> where <span class="math inline">a&lt;b</span> and <span class="math inline">p_a&gt;p_b</span> where <span class="math inline">p_i</span> denotes the number at position <span class="math inline">i</span> in the permutation.</p>
 <h1 id="input">Input</h1>
@@ -6241,7 +6241,7 @@ The numbers in increasing order are <span class="math inline">[1,2,2,3,3,4,6,6,9
 <pre>1 5 2 4 3
 </pre></div></div>
 
-## CSES - Monotone Subsequences
+## 2215.CSES - Monotone Subsequences
 <div class="md"><div class="md"><p>Your task is to create a permutation of numbers <span class="math inline">1,2,\dots,n</span> whose longest monotone subsequence has exactly <span class="math inline">k</span> elements.</p>
 <p>A monotone subsequence is either increasing or decreasing. For example, some monotone subsequences in <span class="math inline">[2,1,4,5,3]</span> are <span class="math inline">[2,4,5]</span> and <span class="math inline">[4,3]</span>.</p>
 <h1 id="input">Input</h1>
@@ -6267,7 +6267,7 @@ IMPOSSIBLE
 1 2 3 4 5 6 7
 </pre></div></div>
 
-## CSES - String Reorder
+## 1743.CSES - String Reorder
 <div class="md"><div class="md"><p>Given a string, you want to reorder its characters so that no two adjacent characters are the same. What is the lexicographically minimal such string?</p>
 <h1 id="input">Input</h1>
 <p>The only input line as a string of length <span class="math inline">n</span> consisting of characters A–Z.</p>
@@ -6285,7 +6285,7 @@ IMPOSSIBLE
 <pre>AHATITITVT
 </pre></div></div>
 
-## CSES - Stack Weights
+## 2425.CSES - Stack Weights
 <div class="md"><div class="md"><p>You have <span class="math inline">n</span> coins, each of which has a distinct weight.</p>
 <p>There are two stacks which are initially empty. On each step you move one coin to a stack. You never remove a coin from a stack.</p>
 <p>After each move, your task is to determine which stack is heavier (if we can be sure that either stack is heavier).</p>
@@ -6313,7 +6313,7 @@ IMPOSSIBLE
 <p>Explanation: After the last move, if the coins are <span class="math inline">[2,3,4]</span>, the left stack is heavier, but if the coins are <span class="math inline">[1,2,5]</span>, the right stack is heavier.</p>
 </div></div>
 
-## CSES - Pyramid Array
+## 1747.CSES - Pyramid Array
 <div class="md"><div class="md"><p>You are given an array consisting of <span class="math inline">n</span> distinct integers. On each move, you can swap any two adjacent values.</p>
 <p>You want to transform the array into a <em>pyramid array</em>. This means that the final array has to be first increasing and then decreasing. It is also allowed that the final array is only increasing or decreasing.</p>
 <p>What is the minimum number of moves needed?</p>
@@ -6338,7 +6338,7 @@ IMPOSSIBLE
 <p>Explanation: You may swap the first two values which creates a pyramid array <span class="math inline">[1,2,5,3]</span>.</p>
 </div></div>
 
-## CSES - Increasing Subsequence II
+## 1748.CSES - Increasing Subsequence II
 <div class="md"><div class="md"><p>Given an array of <span class="math inline">n</span> integers, your task is to calculate the number of increasing subsequences it contains. If two subsequences have the same values but in different positions in the array, they are counted separately.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array.</p>
@@ -6361,7 +6361,7 @@ IMPOSSIBLE
 <p>Explanation: The increasing subsequences are <span class="math inline">[2]</span>, <span class="math inline">[1]</span>, <span class="math inline">[3]</span>, <span class="math inline">[2,3]</span> and <span class="math inline">[1,3]</span>.</p>
 </div></div>
 
-## CSES - String Removals
+## 1149.CSES - String Removals
 <div class="md"><div class="md"><p>You are given a string. You can remove any number of characters from it, but you cannot change the order of the remaining characters.</p>
 <p>How many different strings can you generate?</p>
 <h1 id="input">Input</h1>
@@ -6380,7 +6380,7 @@ IMPOSSIBLE
 <pre>103
 </pre></div></div>
 
-## CSES - Bit Inversions
+## 1188.CSES - Bit Inversions
 <div class="md"><div class="md"><p>There is a bit string consisting of <span class="math inline">n</span> bits. Then, there are some changes that invert one given bit. Your task is to report, after each change, the length of the longest substring whose each bit is the same.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has a bit string consisting of <span class="math inline">n</span> bits. The bits are numbered <span class="math inline">1,2,...,n</span>.</p>
@@ -6406,7 +6406,7 @@ IMPOSSIBLE
 <p>Explanation: The bit string first becomes <code>000011</code>, then <code>010011</code>, and finally <code>010001</code>.</p>
 </div></div>
 
-## CSES - Xor Pyramid
+## 2419.CSES - Xor Pyramid
 <div class="md"><div class="md"><p>Consider a xor pyramid where each number is the xor of lower-left and lower-right numbers. Here is an example pyramid:
 <center><img alt="" class="invertible" height="" src="/file/382652cc16953396bbaeeabf0e98daec74a4bda09afb8db8da0e67870205fc76" width="250"/></center>
 Given the bottom row of the pyramid, your task is to find the topmost number.</p>
@@ -6429,7 +6429,7 @@ Given the bottom row of the pyramid, your task is to find the topmost number.</p
 <pre>9
 </pre></div></div>
 
-## CSES - Writing Numbers
+## 1086.CSES - Writing Numbers
 <div class="md"><div class="md"><p>You would like to write a list of positive integers <span class="math inline">1,2,3,...</span> using your computer. However, you can press each key <span class="math inline">0</span>–<span class="math inline">9</span> at most <span class="math inline">n</span> times during the process.</p>
 <p>What is the last number you can write?</p>
 <h1 id="input">Input</h1>
@@ -6450,7 +6450,7 @@ Given the bottom row of the pyramid, your task is to find the topmost number.</p
 <p>Explanation: You can write the numbers <span class="math inline">1,2,...,12</span>. This requires that you press key <span class="math inline">1</span> five times, so you cannot write the number <span class="math inline">13</span>.</p>
 </div></div>
 
-## CSES - String Transform
+## 1113.CSES - String Transform
 <div class="md"><div class="md"><p>Consider the following string transformation:</p>
 <ol>
 <li>append the character # to the string (we assume that # is lexicographically smaller than all other characters of the string)</li>
@@ -6475,7 +6475,7 @@ Given the bottom row of the pyramid, your task is to find the topmost number.</p
 <pre>babc
 </pre></div></div>
 
-## CSES - Letter Pair Move Game
+## 2427.CSES - Letter Pair Move Game
 <div class="md"><div class="md"><p>There are <span class="math inline">2n</span> boxes in a line. Two adjacent boxes are empty, and all other boxes have a letter "A" or "B". Both letters appear in exactly <span class="math inline">n-1</span> boxes.</p>
 <p>Your task is to move the letters so that all letters "A" appear before any letter "B". On each turn you can choose any two adjacent boxes that have a letter and move the letters to the two adjacent empty boxes, preserving their order.</p>
 <p>It can be proven that either there is a solution that consists of at most <span class="math inline">10n</span> turns or there are no solutions.</p>
@@ -6507,7 +6507,7 @@ ABAB..
 <pre>-1
 </pre></div></div>
 
-## CSES - Maximum Building I
+## 1147.CSES - Maximum Building I
 <div class="md"><div class="md"><p>You are given a map of a forest where some squares are empty and some squares have trees.</p>
 <p>What is the maximum area of a rectangular building that can be placed in the forest so that no trees must be cut down?</p>
 <h1 id="input">Input</h1>
@@ -6531,7 +6531,7 @@ ABAB..
 <pre>12
 </pre></div></div>
 
-## CSES - Sorting Methods
+## 1162.CSES - Sorting Methods
 <div class="md"><div class="md"><p>Here are some possible methods using which we can sort the elements of an array in increasing order:</p>
 <ol>
 <li>At each step, choose two adjacent elements and swap them.</li>
@@ -6558,7 +6558,7 @@ ABAB..
 <pre>20 6 5 6
 </pre></div></div>
 
-## CSES - Cyclic Array
+## 1191.CSES - Cyclic Array
 <div class="md"><div class="md"><p>You are given a cyclic array consisting of <span class="math inline">n</span> values. Each element has two neighbors; the elements at positions <span class="math inline">n</span> and <span class="math inline">1</span> are also considered neighbors.</p>
 <p>Your task is to divide the array into subarrays so that the sum of each subarray is at most <span class="math inline">k</span>. What is the minimum number of subarrays?</p>
 <h1 id="input">Input</h1>
@@ -6584,7 +6584,7 @@ ABAB..
 <p>Explanation: We can create three subarrays: <span class="math inline">[2,2,1]</span>, <span class="math inline">[3,1]</span>, and <span class="math inline">[2,1,2]</span> (remember that the array is cyclic).</p>
 </div></div>
 
-## CSES - List of Sums
+## 2414.CSES - List of Sums
 <div class="md"><div class="md"><p>List <span class="math inline">A</span> consists of <span class="math inline">n</span> positive integers, and list <span class="math inline">B</span> contains the sum of each element pair of list <span class="math inline">A</span>.</p>
 <p>For example, if <span class="math inline">A=[1,2,3]</span>, then <span class="math inline">B=[3,4,5]</span>, and if <span class="math inline">A=[1,3,3,3]</span>, then <span class="math inline">B=[4,4,4,6,6,6]</span>.</p>
 <p>Given list <span class="math inline">B</span>, your task is to reconstruct list <span class="math inline">A</span>.</p>
@@ -6611,7 +6611,7 @@ ABAB..
 <p>Explanation: In this case list <span class="math inline">A</span> can be either <span class="math inline">[1,3,3,3]</span> or <span class="math inline">[2,2,2,4]</span> and both solutions are accepted.</p>
 </div></div>
 
-## CSES - Increasing Array II
+## 2132.CSES - Increasing Array II
 <div class="md"><div class="md"><p>You are given an array of <span class="math inline">n</span> integers. You want to modify the array so that it is increasing, i.e., every element is at least as large as the previous element.</p>
 <p>On each move, you can increase or decrease the value of any element by one. What is the minimum number of moves required?</p>
 <h1 id="input">Input</h1>
@@ -6633,7 +6633,7 @@ ABAB..
 <pre>4
 </pre></div></div>
 
-## CSES - Food Division
+## 1189.CSES - Food Division
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> children around a round table. For each child, you know the amount of food they currently have and the amount of food they want. The total amount of food in the table is correct.</p>
 <p>At each step, a child can give one unit of food to his or her neighbour. What is the minimum number of steps needed?</p>
 <h1 id="input">Input</h1>
@@ -6659,7 +6659,7 @@ ABAB..
 <p>Explanation: Child 1 gives one unit of food to child 3, and child 2 gives one unit of food to child 3.</p>
 </div></div>
 
-## CSES - Bit Problem
+## 1654.CSES - Bit Problem
 <div class="md"><div class="md"><p>Given a list of <span class="math inline">n</span> integers, your task is to calculate for each element <span class="math inline">x</span>:</p>
 <ol>
 <li>the number of elements <span class="math inline">y</span> such that <span class="math inline">x \mid y = x</span></li>
@@ -6689,7 +6689,7 @@ ABAB..
 2 4 4
 </pre></div></div>
 
-## CSES - Swap Round Sorting
+## 1698.CSES - Swap Round Sorting
 <div class="md"><div class="md"><p>You are given an array containing a permutation of numbers <span class="math inline">1,2,\dots,n</span>, and your task is to sort the array using <em>swap rounds</em>. On each swap round, you can choose any number of distinct pairs of elements and swap each pair.</p>
 <p>Your task is to find the minimum number of rounds and show how you can choose the pairs in each round.</p>
 <h1 id="input">Input</h1>
@@ -6718,7 +6718,7 @@ ABAB..
 <p>Explanation: The inital array is <span class="math inline">[5,2,1,3,4]</span>. After round <span class="math inline">1</span>, the array becomes <span class="math inline">[1,2,5,4,3]</span>. After round <span class="math inline">2</span>, the array becomes <span class="math inline">[1,2,3,4,5]</span>.</p>
 </div></div>
 
-## CSES - Binary Subsequences
+## 2430.CSES - Binary Subsequences
 <div class="md"><div class="md"><p>Your task is to find a minimum length bit string that has exactly <span class="math inline">n</span> distinct subsequences.</p>
 <p>For example, a correct solution for <span class="math inline">n=6</span> is <code>101</code> whose distinct subsequences are <code>0</code>, <code>1</code>, <code>01</code>, <code>10</code>, <code>11</code> and <code>101</code>.</p>
 <h1 id="input">Input</h1>
@@ -6737,7 +6737,7 @@ ABAB..
 <pre>101
 </pre></div></div>
 
-## CSES - Tree Isomorphism I
+## 1700.CSES - Tree Isomorphism I
 <div class="md"><div class="md"><p>Given two rooted trees, your task is to find out if they are <em>isomorphic</em>, i.e., it is possible to draw them so that they look the same.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">t</span>: the number of tests. Then, there are <span class="math inline">t</span> tests described as follows:</p>
@@ -6770,7 +6770,7 @@ ABAB..
 YES
 </pre></div></div>
 
-## CSES - Counting Sequences
+## 2228.CSES - Counting Sequences
 <div class="md"><div class="md"><p>Your task is to count the number of sequences of length <span class="math inline">n</span> where each element is an integer between <span class="math inline">1 \dots k</span> and each integer between <span class="math inline">1 \dots k</span> appears at least once in the sequence.</p>
 <p>For example, when <span class="math inline">n=6</span> and <span class="math inline">k=4</span>, some valid sequences are <span class="math inline">[1,3,1,4,3,2]</span> and <span class="math inline">[2,2,1,3,4,2]</span>.</p>
 <h1 id="input">Input</h1>
@@ -6789,7 +6789,7 @@ YES
 <pre>1560
 </pre></div></div>
 
-## CSES - Critical Cities
+## 1703.CSES - Critical Cities
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections between them. A city is called a <em>critical city</em> if it appears on every route from a city to another city.</p>
 <p>Your task is to find all critical cities from Syrjälä to Lehmälä.</p>
 <h1 id="input">Input</h1>
@@ -6818,7 +6818,7 @@ YES
 1 2 5
 </pre></div></div>
 
-## CSES - School Excursion
+## 1706.CSES - School Excursion
 <div class="md"><div class="md"><p>A group of <span class="math inline">n</span> children are coming to Helsinki. There are two possible attractions: a child can visit either Korkeasaari (zoo) or Linnanmäki (amusement park).</p>
 <p>There are <span class="math inline">m</span> pairs of children who want to visit the same attraction. Your task is to find all possible alternatives for the number of children that will visit Korkeasaari. The children's wishes have to be taken into account.</p>
 <h1 id="input">Input</h1>
@@ -6845,7 +6845,7 @@ YES
 <p>Explanation: The number of children visiting Korkeasaari can be <span class="math inline">1</span>, <span class="math inline">4</span> or <span class="math inline">5</span>.</p>
 </div></div>
 
-## CSES - Coin Grid
+## 1709.CSES - Coin Grid
 <div class="md"><div class="md"><p>There is an <span class="math inline">n x n</span> grid whose each square is empty or has a coin. On each move, you can remove all coins in a row or column.</p>
 <p>What is the minimum number of moves after which the grid is empty?</p>
 <h1 id="input">Input</h1>
@@ -6871,7 +6871,7 @@ o.o
 2 3
 </pre></div></div>
 
-## CSES - Robot Path
+## 1742.CSES - Robot Path
 <div class="md"><div class="md"><p>You are given a description of a robot's path. The robot begins at point <span class="math inline">(0,0)</span> and performs <span class="math inline">n</span> commands. Each command moves the robot some distance up, down, left or right.</p>
 <p>The robot will stop when it has performed all commands, or immediately when it returns to a point that it has already visited. Your task is to calculate the total distance the robot moves.</p>
 <h1 id="input">Input</h1>
@@ -6897,7 +6897,7 @@ U 2
 <pre>9
 </pre></div></div>
 
-## CSES - Programmers and Artists
+## 2426.CSES - Programmers and Artists
 <div class="md"><div class="md"><p>A company wants to hire <span class="math inline">a</span> programmers and <span class="math inline">b</span> artists.</p>
 <p>There are a total of <span class="math inline">n</span> applicants, and each applicant can become either a programmer or an artist. You know each applicant's programming and artistic skills.</p>
 <p>Your task is to select the new employees so that the sum of their skills is maximum.</p>
@@ -6927,7 +6927,7 @@ U 2
 <p>Explanation: An optimal solution is to hire two programmers with skills <span class="math inline">9</span> and <span class="math inline">4</span> and one artist with skill <span class="math inline">7</span>. The sum of the skills is <span class="math inline">9+4+7=20</span>.</p>
 </div></div>
 
-## CSES - Course Schedule II
+## 1757.CSES - Course Schedule II
 <div class="md"><div class="md"><p>You want to complete <span class="math inline">n</span> courses that have requirements of the form "course <span class="math inline">a</span> has to be completed before course <span class="math inline">b</span>".</p>
 <p>You want to complete course <span class="math inline">1</span> as soon as possible. If there are several ways to do this, you want then to complete course <span class="math inline">2</span> as soon as possible, and so on.</p>
 <p>Your task is to determine the order in which you complete the courses.</p>
@@ -6953,7 +6953,7 @@ U 2
 <pre>2 1 3 4
 </pre></div></div>
 
-## CSES - Removing Digits II
+## 2174.CSES - Removing Digits II
 <div class="md"><div class="md"><p>You are given an integer <span class="math inline">n</span>. On each step, you may subtract from it any one-digit number that appears in it.</p>
 <p>How many steps are required to make the number equal to <span class="math inline">0</span>?</p>
 <h1 id="input">Input</h1>
@@ -6974,7 +6974,7 @@ U 2
 <p>Explanation: An optimal solution is <span class="math inline">27 -> 20 -> 18 -> 10 -> 9 -> 0</span>.</p>
 </div></div>
 
-## CSES - Coin Arrangement
+## 2180.CSES - Coin Arrangement
 <div class="md"><div class="md"><p>There is a <span class="math inline">2 x n</span> grid whose each cell contains some number of coins. The total number of coins is <span class="math inline">2n</span>.</p>
 <p>Your task is to arrange the coins so that each cell contains exactly one coin. On each move you can choose any coin and move it one step left, right, up or down.</p>
 <p>What is the minimum number of moves if you act optimally?</p>
@@ -6997,7 +6997,7 @@ U 2
 <pre>5
 </pre></div></div>
 
-## CSES - Counting Bishops
+## 2176.CSES - Counting Bishops
 <div class="md"><div class="md"><p>Your task is to count the number of ways <span class="math inline">k</span> bishops can be placed on an <span class="math inline">n x n</span> chessboard so that no two bishops attack each other.</p>
 <p>Two bishops attack each other if they are on the same diagonal.</p>
 <h1 id="input">Input</h1>
@@ -7017,7 +7017,7 @@ U 2
 <pre>2728
 </pre></div></div>
 
-## CSES - Grid Puzzle I
+## 2432.CSES - Grid Puzzle I
 <div class="md"><div class="md"><p>There is an <span class="math inline">n x n</span> grid, and your task is to choose from each row and column some number of squares. How can you do that?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the grid. The rows and columns are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -7046,7 +7046,7 @@ XX...
 .....
 </pre></div></div>
 
-## CSES - Grid Puzzle II
+## 2131.CSES - Grid Puzzle II
 <div class="md"><div class="md"><p>There is an <span class="math inline">n x n</span> grid whose each square has some number of coins in it.</p>
 <p>You know for each row and column how many squares you must choose from that row or column. You get all coins from every square you choose. What is the maximum number of coins you can collect and how could you choose the squares so that the given conditions are satisfied?</p>
 <h1 id="input">Input</h1>
@@ -7084,7 +7084,7 @@ XX...
 .....
 </pre></div></div>
 
-## CSES - Empty String
+## 1080.CSES - Empty String
 <div class="md"><div class="md"><p>You are given a string consisting of <span class="math inline">n</span> characters between a and z.</p>
 <p>On each turn, you may remove any two adjacent characters that are equal. Your goal is to construct an empty string by removing all the characters.</p>
 <p>In how many ways can you do this?</p>
@@ -7104,7 +7104,7 @@ XX...
 <pre>3
 </pre></div></div>
 
-## CSES - Grid Paths
+## 1078.CSES - Grid Paths
 <div class="md"><div class="md"><p>Consider an <span class="math inline">n x n</span> grid whose top-left square is <span class="math inline">(1,1)</span> and bottom-right square is <span class="math inline">(n,n)</span>.</p>
 <p>Your task is to move from the top-left square to the bottom-right square. On each step you may move one square right or down. In addition, there are <span class="math inline">m</span> traps in the grid. You cannot move to a square with a trap.</p>
 <p>What is the total number of possible paths?</p>
@@ -7129,7 +7129,7 @@ XX...
 <pre>2
 </pre></div></div>
 
-## CSES - Bit Substrings
+## 2115.CSES - Bit Substrings
 <div class="md"><div class="md"><p>You are given a bit string of length <span class="math inline">n</span>. Your task is to calculate for each <span class="math inline">k</span> between <span class="math inline">0  ... n</span> the number of non-empty substrings that contain exactly <span class="math inline">k</span> ones.</p>
 <p>For example, if the string is 101, there are:</p>
 <ul>
@@ -7154,7 +7154,7 @@ XX...
 <pre>1 4 1 0 
 </pre></div></div>
 
-## CSES - Reversal Sorting
+## 2075.CSES - Reversal Sorting
 <div class="md"><div class="md"><p>You have an array that contains a permutation of integers <span class="math inline">1,2,\dots,n</span>. Your task is to sort the array in increasing order by reversing subarrays. You can construct any solution that has at most <span class="math inline">n</span> reversals.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the array. The array elements are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -7177,7 +7177,7 @@ XX...
 2 3
 </pre></div></div>
 
-## CSES - Counting Reorders
+## 2421.CSES - Counting Reorders
 <div class="md"><div class="md"><p>Calculate the number of ways you can reorder the characters of a string so that no two adjacent characters are the same.</p>
 <p>For example, the answer for <code>aabc</code> is <span class="math inline">6</span>, because the possible orders are <code>abac</code>, <code>abca</code>, <code>acab</code>, <code>acba</code>, <code>baca</code>, and <code>caba</code>.</p>
 <h1 id="input">Input</h1>
@@ -7196,7 +7196,7 @@ XX...
 <pre>6
 </pre></div></div>
 
-## CSES - Book Shop II
+## 1159.CSES - Book Shop II
 <div class="md"><div class="md"><p>You are in a book shop which sells <span class="math inline">n</span> different books. You know the price, the number of pages and the number of copies of each book.</p>
 <p>You have decided that the total price of your purchases will be at most <span class="math inline">x</span>. What is the maximum number of pages you can buy? You can buy several copies of the same book.</p>
 <h1 id="input">Input</h1>
@@ -7225,7 +7225,7 @@ XX...
 <p>Explanation: You can buy three copies of book 1 and one copy of book 3. The price is <span class="math inline">3 . 2 + 3 = 9</span> and the number of pages is <span class="math inline">3 . 8 + 4 = 28</span>.</p>
 </div></div>
 
-## CSES - Network Breakdown
+## 1677.CSES - Network Breakdown
 <div class="md"><div class="md"><p>Syrjälä's network has <span class="math inline">n</span> computers and <span class="math inline">m</span> connections between them. The network consists of components of computers that can send messages to each other.</p>
 <p>Nobody in Syrjälä understands how the network works. For this reason, if a connection breaks down, nobody will repair it. In this situation a component may be divided into two components.</p>
 <p>Your task is to calculate the number of components after each connection breakdown.</p>
@@ -7258,7 +7258,7 @@ XX...
 <pre>2 2 3
 </pre></div></div>
 
-## CSES - Visiting Cities
+## 1203.CSES - Visiting Cities
 <div class="md"><div class="md"><p>You want to travel from Syrjälä to Lehmälä by plane using a minimum-price route. Which cities will you certainly visit?</p>
 <h1 id="input">Input</h1>
 <p>The first input line contains two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and the number of flights. The cities are numbered <span class="math inline">1,2,...,n</span>. City 1 is Syrjälä, and city <span class="math inline">n</span> is Lehmälä.</p>
@@ -7288,7 +7288,7 @@ XX...
 1 3 4 5
 </pre></div></div>
 
-## CSES - Missing Coin Sum Queries
+## 2184.CSES - Missing Coin Sum Queries
 <div class="md"><div class="md"><p>You have <span class="math inline">n</span> coins with positive integer values. The coins are numbered <span class="math inline">1,2,\dots,n</span>.</p>
 <p>Your task is to process <span class="math inline">q</span> queries of the form: "if you can use coins <span class="math inline">a \dots b</span>, what is the smallest sum you cannot produce?"</p>
 <h1 id="input">Input</h1>
@@ -7319,7 +7319,7 @@ XX...
 <p>Explanation: First you can use coins <span class="math inline">[9,1,2]</span>, then coins <span class="math inline">[2]</span> and finally coins <span class="math inline">[2,9,1,2,7]</span>.</p>
 </div></div>
 
-## CSES - Number Grid
+## 1157.CSES - Number Grid
 <div class="md"><div class="md"><p>Consider a two-dimensional grid whose rows and columns are <span class="math inline">1</span>-indexed. Each square contains the smallest nonnegative integer that does not appear to the left on the same row or above on the same column.</p>
 <p>Your task is to calculate the value at square <span class="math inline">(y,x)</span>.</p>
 <h1 id="input">Input</h1>
@@ -7338,7 +7338,7 @@ XX...
 <pre>6
 </pre></div></div>
 
-## CSES - Maximum Building II
+## 1148.CSES - Maximum Building II
 <div class="md"><div class="md"><p>You are given a map of a forest where some squares are empty and some squares have trees.</p>
 <p>You want to place a rectangular building in the forest so that no trees need to be cut down. For each building size, your task is to calculate the number of ways you can do this.</p>
 <h1 id="input">Input</h1>
@@ -7367,7 +7367,7 @@ XX...
 <p>Explanation: For example, there are <span class="math inline">5</span> possible places for a building of size <span class="math inline">2 x 4</span>.</p>
 </div></div>
 
-## CSES - Filling Trominos
+## 2423.CSES - Filling Trominos
 <div class="md"><div class="md"><p>Your task is to fill an <span class="math inline">n x m</span> grid using L-trominos (three squares that have an L-shape). For example, here is one way to fill a <span class="math inline">4 x 6</span> grid:
 <center><img alt="" class="invertible" src="/file/da3ce928fcf66fd793d582a1a5ad7f7f9cc37e68aa2aadacee90f99bc4271692"/></center></p>
 <h1 id="input">Input</h1>
@@ -7396,7 +7396,7 @@ BBAACC
 NO
 </pre></div></div>
 
-## CSES - Stick Divisions
+## 1161.CSES - Stick Divisions
 <div class="md"><div class="md"><p>You have a stick of length <span class="math inline">x</span> and you want to divide it into <span class="math inline">n</span> sticks, with given lengths, whose total length is <span class="math inline">x</span>.</p>
 <p>On each move you can take any stick and divide it into two sticks. The cost of such an operation is the length of the original stick.</p>
 <p>What is the minimum cost needed to create the sticks?</p>
@@ -7422,7 +7422,7 @@ NO
 <p>Explanation: You first divide the stick of length <span class="math inline">8</span> into sticks of length <span class="math inline">3</span> and <span class="math inline">5</span> (cost <span class="math inline">8</span>). After this, you divide the stick of length <span class="math inline">5</span> into sticks of length <span class="math inline">2</span> and <span class="math inline">3</span> (cost <span class="math inline">5</span>). The total cost is <span class="math inline">8+5=13</span>.</p>
 </div></div>
 
-## CSES - Coding Company
+## 1665.CSES - Coding Company
 <div class="md"><div class="md"><p>Your company has <span class="math inline">n</span> coders, and each of them has a skill level between <span class="math inline">0</span> and <span class="math inline">100</span>. Your task is to divide the coders into teams that work together.</p>
 <p>Based on your experience, you know that teams work well when the skill levels of the coders are about the same. For this reason, the penalty for creating a team is the skill level difference between the best and the worst coder.</p>
 <p>In how many ways can you divide the coders into teams such that the sum of the penalties is at most <span class="math inline">x</span>?</p>
@@ -7446,7 +7446,7 @@ NO
 <pre>3
 </pre></div></div>
 
-## CSES - Flight Route Requests
+## 1699.CSES - Flight Route Requests
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities with airports but no flight connections. You are given <span class="math inline">m</span> requests which routes should be possible to travel.</p>
 <p>Your task is to determine the minimum number of one-way flight connections which makes it possible to fulfil all requests.</p>
 <h1 id="input">Input</h1>
@@ -7475,7 +7475,7 @@ NO
 <p>Explanation: You can create the connections <span class="math inline">1 -> 2</span>, <span class="math inline">2 -> 3</span>, <span class="math inline">2 -> 4</span> and <span class="math inline">3 -> 1</span>. Then you can also fly from city <span class="math inline">3</span> to city <span class="math inline">4</span> using the route <span class="math inline">3 -> 1 -> 2 -> 4</span>.</p>
 </div></div>
 
-## CSES - Two Stacks Sorting
+## 2402.CSES - Two Stacks Sorting
 <div class="md"><div class="md"><p>You are given an input list that consists of <span class="math inline">n</span> numbers. Each integer between <span class="math inline">1</span> and <span class="math inline">n</span> appears exactly once in the list.</p>
 <p>Your task is to create a sorted output list using two stacks. On each move you can do one of the following:</p>
 <ul>
@@ -7501,7 +7501,7 @@ NO
 <pre>1 2 1 1 2
 </pre></div></div>
 
-## CSES - Tree Isomorphism II
+## 1701.CSES - Tree Isomorphism II
 <div class="md"><div class="md"><p>Given two (not rooted) trees, your task is to find out if they are <em>isomorphic</em>, i.e., it is possible to draw them so that they look the same.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">t</span>: the number of tests. Then, there are <span class="math inline">t</span> tests described as follows:</p>
@@ -7534,7 +7534,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Forbidden Cities
+## 1705.CSES - Forbidden Cities
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> roads between them. Kaaleppi is currently in city <span class="math inline">a</span> and wants to travel to city <span class="math inline">b</span>.</p>
 <p>However, there is a problem: Kaaleppi has recently robbed a bank in city <span class="math inline">c</span> and can't enter the city, because the local police would catch him. Your task is to find out if there is a route from city <span class="math inline">a</span> to city <span class="math inline">b</span> that does not visit city <span class="math inline">c</span>.</p>
 <p>As an additional challenge, you have to process <span class="math inline">q</span> queries where <span class="math inline">a</span>, <span class="math inline">b</span> and <span class="math inline">c</span> vary.</p>
@@ -7571,7 +7571,7 @@ NO
 YES
 </pre></div></div>
 
-## CSES - Area of Rectangles
+## 1741.CSES - Area of Rectangles
 <div class="md"><div class="md"><p>Given <span class="math inline">n</span> rectangles, your task is to determine the total area of their union.</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the number of rectangles.</p>
@@ -7595,7 +7595,7 @@ YES
 <pre>24
 </pre></div></div>
 
-## CSES - Grid Completion
+## 2429.CSES - Grid Completion
 <div class="md"><div class="md"><p>Your task is to create an <span class="math inline">n x n</span> grid whose each row and column has exactly one A and B. Some of the characters have already been placed. In how many ways can you complete the grid?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has an integer <span class="math inline">n</span>: the size of the grid.</p>
@@ -7620,7 +7620,7 @@ B....
 <pre>16
 </pre></div></div>
 
-## CSES - Creating Offices
+## 1752.CSES - Creating Offices
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">n-1</span> roads between them. There is a unique route between any two cities, and their distance is the number of roads on that route.</p>
 <p>A company wants to have offices in some cities, but the distance between any two offices has to be at least <span class="math inline">d</span>. What is the maximum number of offices they can have?</p>
 <h1 id="input">Input</h1>
@@ -7646,7 +7646,7 @@ B....
 1 4
 </pre></div></div>
 
-## CSES - Permutations II
+## 1075.CSES - Permutations II
 <div class="md"><div class="md"><p>A permutation of integers <span class="math inline">1,2,...,n</span> is called <em>beautiful</em> if there are no adjacent elements whose difference is <span class="math inline">1</span>.</p>
 <p>Given <span class="math inline">n</span>, your task is to count the number of beautiful permutations.</p>
 <h1 id="input">Input</h1>
@@ -7665,7 +7665,7 @@ B....
 <pre>14
 </pre></div></div>
 
-## CSES - Functional Graph Distribution
+## 2415.CSES - Functional Graph Distribution
 <div class="md"><div class="md"><p>A <em>functional graph</em> is a directed graph where each node has outdegree <span class="math inline">1</span>. For example, here is a functional graph that has <span class="math inline">9</span> nodes and <span class="math inline">2</span> components:
 <center><img alt="" class="invertible" height="" src="/file/39a5e727e368197cdce7593736c5cfd1abf75b6439c0823e27c671ff10662377" width="300"/></center>
 Given <span class="math inline">n</span>, your task is to calculate for each <span class="math inline">k=1 \dots n</span> the number of functional graphs that have <span class="math inline">n</span> nodes and <span class="math inline">k</span> components.</p>
@@ -7687,7 +7687,7 @@ Given <span class="math inline">n</span>, your task is to calculate for each <sp
 1
 </pre></div></div>
 
-## CSES - New Flight Routes
+## 1685.CSES - New Flight Routes
 <div class="md"><div class="md"><p>There are <span class="math inline">n</span> cities and <span class="math inline">m</span> flight connections between them. Your task is to add new flights so that it will be possible to travel from any city to any other city. What is the minimum number of new flights required?</p>
 <h1 id="input">Input</h1>
 <p>The first input line has two integers <span class="math inline">n</span> and <span class="math inline">m</span>: the number of cities and flights. The cities are numbered <span class="math inline">1,2,\dots,n</span>.</p>
@@ -7714,7 +7714,7 @@ Given <span class="math inline">n</span>, your task is to calculate for each <sp
 4 2
 </pre></div></div>
 
-## CSES - Grid Path Construction
+## 2418.CSES - Grid Path Construction
 <div class="md"><div class="md"><p>Given an <span class="math inline">n x m</span> grid and two squares <span class="math inline">a=(y_1,x_1)</span> and <span class="math inline">b=(y_2,x_2)</span>, create a path from <span class="math inline">a</span> to <span class="math inline">b</span> that visits each square exactly once.</p>
 <p>For example, here is a path from <span class="math inline">a=(1,3)</span> to <span class="math inline">b=(3,6)</span> in a <span class="math inline">4 x 7</span> grid:
 <center><img alt="" class="invertible" src="/file/944079e41a17eca6debb54a7d4da8f9124232206a1d80256432e8a2715c00055"/></center></p>
