@@ -362,9 +362,44 @@ class Searcher {
             }
         }
 
+        // Cycle Detection in Undirected Graph using DFS
+        static inline bool isCyclicDFS(
+            int u, int p, const Graph& g, vector<bool>& visited
+        ){
+            visited[u] = true;
+            for (const auto& [v, w] : g.adj[u]) {
+                if (!visited[v]) {
+                    if (isCyclicDFS(v, u, g, visited)) {
+                        return true;
+                    }
+                } else if (v != p) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // Cycle Detection in Directed Graph using DFS
+        static inline bool isCyclicDFSDirected(
+            int u, const Graph& g, 
+            vector<bool>& visited, vector<bool>& recStack
+        ){
+            visited[u] = true;
+            recStack[u] = true;
+            for (const auto& [v, w] : g.adj[u]) {
+                if (!visited[v] && isCyclicDFSDirected(v, g, visited, recStack)) {
+                    return true;
+                } else if (recStack[v]) {
+                    return true;
+                }
+            }
+            recStack[u] = false;
+            return false;
+        }
+
     public:
         /**
-         * @note Using g.adj
+         * @note Using g.adj O(V+E)
          */
         static inline void bfs(const Graph& g, int start){
             queue<int> q;
@@ -387,7 +422,7 @@ class Searcher {
 
         /**
          * @note Using g.adj
-         * @warning initialize `vector<bool> visited(g.V, false) first`;
+         * @warning initialize `vector<bool> visited(g.V, false) first`; O(V+E)
          */
         static inline void dfs(const Graph& g, vector<bool>& visited, int u){
             if (visited[u]) return;
@@ -442,6 +477,33 @@ class Searcher {
             }
             return {std::move(bridges), std::move(cut_points)};      
         }
+
+        static inline bool hasCycleDirected(const Graph& g){
+            vector<bool> visited(g.V, false);
+            vector<bool> recStack(g.V, false);
+
+            for (int u = 0; u < g.V; u++) {
+                if (!visited[u]) {
+                    if (isCyclicDFSDirected(u, g, visited, recStack)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        static inline bool hasCycleUndirected(const Graph& g) {
+            vector<bool> visited(g.V, false);
+
+            for (int u = 0; u < g.V; u++) {
+                if (!visited[u]) {
+                    if (isCyclicDFS(u, -1, g, visited)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }        
 };
 
 struct Topology {
