@@ -6,7 +6,85 @@ using namespace std;
 #define MAXIMUM_ARRAY 1000100
 #define OPERATOR(a, b) a + b                            
 #define OPERATOR_UPDATE_IT(lazy, l, r) lazy * (r - l + 1)  // for sum: it += lazy * (r - l + 1), for min/max: it += lazy
-typedef int IT;
+
+using IT = int;
+
+/**
+ * @brief Traversal Order
+ */
+enum class Order {
+    preorder,
+    inorder,
+    postorder
+};
+
+/**
+ * @brief Definition for a binary tree node.
+ */
+template<typename IT>
+class BTreeNode {
+    private:
+        void preOrderTraverse(BTreeNode<IT>* node, vector<IT>& its){
+            if (node == nullptr) return;
+            its.push_back(node->val);
+            preOrderTraverse(node->left, its);
+            preOrderTraverse(node->right, its);
+        }
+
+        void inOrderTraverse(BTreeNode<IT>* node, vector<IT>& its){
+            if (node == nullptr) return;
+            inOrderTraverse(node->left, its);
+            its.push_back(node->val);
+            inOrderTraverse(node->right, its);
+        }
+
+        void postOrderTraverse(BTreeNode<IT>* node, vector<IT>& its){
+            if (node == nullptr) return;
+            postOrderTraverse(node->left, its);
+            postOrderTraverse(node->right, its);
+            its.push_back(node->val);
+        }
+
+        size_t totalNode(const BTreeNode<IT>* node) const {
+            if (node == nullptr) return 0;
+            return totalNode(node->left) + totalNode(node->right) + 1;
+        }
+
+    public:
+        IT val;
+        BTreeNode<IT> *left;
+        BTreeNode<IT> *right;
+        BTreeNode() : val(0), left(nullptr), right(nullptr) {}
+        BTreeNode(IT x) : val(x), left(nullptr), right(nullptr) {}
+        BTreeNode(IT x, BTreeNode<IT> *left, BTreeNode<IT> *right) : val(x), left(left), right(right) {}
+
+    public:
+        vector<IT> traverse(Order order){
+            vector<IT> res;
+            switch (order){
+                case Order::inorder:
+                    inOrderTraverse(this, res);
+                    break;
+                
+                case Order::preorder:
+                    preOrderTraverse(this, res);
+                    break;
+
+                case Order::postorder:
+                    postOrderTraverse(this, res);
+                    break;
+
+                default:
+                    break;
+            }
+            return res;
+        }
+
+        size_t totalNode() const {
+            return totalNode(this);
+        }
+};
+
 
 /**
  * @brief Support for two operations:
@@ -220,5 +298,134 @@ struct FenwickTreeSum {
         void update(int idx, IT k){
             IT cur_val = sum(idx, idx);
             update(idx, idx, k - cur_val);
+        }
+};
+
+template<typename IT>
+class Tree {
+    public:
+        virtual void insert(IT key) = 0;
+
+        virtual void remove(IT key) = 0;
+
+        virtual bool find(IT key) = 0;
+
+        virtual vector<int> traverse(Order order) = 0;
+
+        virtual size_t size() = 0;
+};
+
+template<typename IT>
+class BinarySearchTree : public Tree<IT>{
+    private:
+        using Node = BTreeNode<IT>;
+        Node* root = nullptr;
+
+    private:
+        Node* _insert(Node* parent, IT key){
+            if (parent == nullptr){
+                return new Node(key);
+            }
+            if (parent->val < key){
+                parent->right = _insert(parent->right, key);
+            }
+            if (parent->val > key){
+                parent->left = _insert(parent->left, key);
+            }
+            return parent;
+        }
+
+        Node* _remove(Node* parent, IT key){
+            if (parent == nullptr) return nullptr;
+            if (parent->val < key){
+                parent->right = _remove(parent->right, key);
+            }
+            else if (parent->val > key){
+                parent->left = _remove(parent->left, key);
+            }
+            else {
+                if (parent->left != nullptr && parent->right != nullptr){
+                    Node* successor = _minimum(parent->right);
+                    parent->val = successor->val;
+                    parent->right = _remove(parent->right, successor->val);
+                }
+                else {
+                    if (parent->left == nullptr && parent->right == nullptr)
+                        return nullptr;
+
+                    if (parent->left != nullptr)
+                        return parent->left;
+
+                    if (parent->right != nullptr)
+                        return parent->right;                    
+                }
+            }
+            return parent;
+        }
+
+        Node* _search(Node* parent, IT key){
+            if (parent == nullptr) return nullptr;
+            if (parent->val == key){
+                return parent;
+            }
+            else if (parent->val < key){
+                return _search(parent->right, key);
+            }
+            else {
+                return _search(parent->left, key);
+            }
+        }
+
+        Node* _minimum(Node* parent){
+            Node* p = parent;
+            while (p->left != nullptr)
+                p = p->left;
+            return p;
+        }
+
+        Node* _maximum(Node* parent){
+            Node* p = parent;
+            while (p->right != nullptr)
+                p = p->right;
+            return p;
+        }
+
+    public:
+        BinarySearchTree(){}
+        BinarySearchTree(const vector<IT>& arr){
+            for (auto& ele : arr){
+                root = _insert(root, ele);
+            }
+        }
+
+        void insert(IT key) override {
+            root = _insert(root, key);
+        }
+
+        void remove(IT key) override {
+            root = _remove(root, key);
+        }
+
+        bool find(IT key) override {
+            return (_search(root, key) != nullptr);
+        }
+
+        vector<IT> traverse(Order order) override {
+            if (root == nullptr) return {};
+            return root->traverse(order);
+        }
+
+        size_t size() override {
+            return root->totalNode();
+        }
+
+        IT minimum(){
+            auto node = _minimum(root);
+            return (node == nullptr) ? 1e9 : node->val;  
+        }
+
+        IT maximum(){
+            auto node = _maximum(root);
+            return (node == nullptr) ? -1e9 : node->val;
         }
 };
