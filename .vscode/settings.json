@@ -91,6 +91,20 @@
         "__split_buffer": "cpp",
         "__tree": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
-    }
+        "stack": "cpp",
+        "ios": "cpp",
+        "locale": "cpp",
+        "filesystem": "cpp",
+        "__functional_03": "cpp",
+        "target": "cpp",
+        "__bit_reference": "cpp",
+        "__string": "cpp",
+        "__mutex_base": "cpp",
+        "__locale": "cpp",
+        "__node_handle": "cpp",
+        "__config": "cpp",
+        "__debug": "cpp",
+        "version": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++"
 }
