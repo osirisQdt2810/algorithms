@@ -33,23 +33,22 @@ private:
     /**
      * @brief Recursively erases a string and deletes unused nodes.
      */
-    bool erase(const std::string& value, Node* current, int index) {
-        if (index == static_cast<int>(value.size())) {
-            --current->occurrences;
+    Node* erase(const std::string& value, Node* curr, size_t len, size_t i) {
+        if (curr == nullptr) return nullptr;
+        if (i == len) {
+            --curr->occurrences;
         } else {
-            int c = value[index] - 'a';
-            bool deleted_child = erase(value, current->child[c], index + 1);
-            if (deleted_child) current->child[c] = nullptr;
+            int c = value[i] - 'a';
+            curr->child[c] = erase(value, curr->child[c],len, i + 1);
         }
 
-        if (current != root_) {
-            --current->prefix_count;
-            if (current->prefix_count == 0) {
-                delete current;
-                return true;
+        if (curr != root_) {
+            if (--curr->prefix_count == 0) {
+                delete curr;
+                curr = nullptr;
             }
         }
-        return false;
+        return curr;
     }
 
     /**
@@ -101,8 +100,7 @@ public:
      * @brief Removes one occurrence of a lowercase string when present.
      */
     void erase(const std::string& value) {
-        if (!find(value)) return;
-        erase(value, root_, 0);
+        erase(value, root_, value.size(), 0);
     }
 
     /**

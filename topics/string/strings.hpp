@@ -41,7 +41,7 @@ class StringHash : public StringDef {
          *   <=>  H[si...sj] * p^i = sigma[k=1->j](s[k] * p^k]) % M = (H[s_j] - H[s_i-1]) % M
          */
         inline long long hash(int i, int j){
-            long long hash = (h[j + 1] + M - h[j]) % M;
+            long long hash = (h[j + 1] + M - h[i]) % M;
             long long fact = Algebra::mod_power(P, i, M);
             return hash * Algebra::mod_inv(fact, M) % M;
         }
