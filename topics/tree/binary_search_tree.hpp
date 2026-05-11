@@ -1,7 +1,7 @@
 #ifndef DSA_TREE_BINARY_SEARCH_TREE_HPP
 #define DSA_TREE_BINARY_SEARCH_TREE_HPP
 
-#include "tree_types.hpp"
+#include "tree/tree_types.hpp"
 
 #include <limits>
 #include <vector>
