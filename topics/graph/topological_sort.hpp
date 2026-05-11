@@ -1,7 +1,7 @@
 #ifndef DSA_GRAPH_TOPOLOGICAL_SORT_HPP
 #define DSA_GRAPH_TOPOLOGICAL_SORT_HPP
 
-#include "graph_types.hpp"
+#include "graph/graph_types.hpp"
 
 #include <queue>
 #include <vector>

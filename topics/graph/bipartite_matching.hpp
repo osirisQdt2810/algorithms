@@ -1,7 +1,7 @@
 #ifndef DSA_GRAPH_BIPARTITE_MATCHING_HPP
 #define DSA_GRAPH_BIPARTITE_MATCHING_HPP
 
-#include "graph_types.hpp"
+#include "graph/graph_types.hpp"
 
 #include <algorithm>
 #include <queue>

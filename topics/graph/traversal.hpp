@@ -1,7 +1,7 @@
 #ifndef DSA_GRAPH_TRAVERSAL_HPP
 #define DSA_GRAPH_TRAVERSAL_HPP
 
-#include "graph_types.hpp"
+#include "graph/graph_types.hpp"
 
 #include <queue>
 #include <vector>

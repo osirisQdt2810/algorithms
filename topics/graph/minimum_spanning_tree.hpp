@@ -1,8 +1,8 @@
 #ifndef DSA_GRAPH_MINIMUM_SPANNING_TREE_HPP
 #define DSA_GRAPH_MINIMUM_SPANNING_TREE_HPP
 
-#include "disjoint_set_union.hpp"
-#include "graph_types.hpp"
+#include "graph/disjoint_set_union.hpp"
+#include "graph/graph_types.hpp"
 
 #include <algorithm>
 #include <queue>

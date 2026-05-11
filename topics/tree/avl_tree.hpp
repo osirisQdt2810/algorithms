@@ -1,7 +1,7 @@
 #ifndef DSA_TREE_AVL_TREE_HPP
 #define DSA_TREE_AVL_TREE_HPP
 
-#include "binary_search_tree.hpp"
+#include "tree/binary_search_tree.hpp"
 
 #include <algorithm>
 #include <vector>

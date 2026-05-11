@@ -1,11 +1,11 @@
 #ifndef DSA_TREE_TREE_HPP
 #define DSA_TREE_TREE_HPP
 
-#include "avl_tree.hpp"
-#include "binary_search_tree.hpp"
-#include "fenwick_tree.hpp"
-#include "segment_tree.hpp"
-#include "tree_types.hpp"
-#include "trie.hpp"
+#include "tree/avl_tree.hpp"
+#include "tree/binary_search_tree.hpp"
+#include "tree/fenwick_tree.hpp"
+#include "tree/segment_tree.hpp"
+#include "tree/tree_types.hpp"
+#include "tree/trie.hpp"
 
 #endif  // DSA_TREE_TREE_HPP
