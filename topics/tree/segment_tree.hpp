@@ -5,75 +5,208 @@
 #include <utility>
 #include <vector>
 
-namespace dsa::tree {
+#include "utility.hpp"
 
-/**
- * @brief Support for two operations:
- *        1. Update a[i] = k in O(logN)
- *        2. Query information in [x, y] (information: min, max, sum) in O(logN)
- * @note: Index run from 1->N
- */
-class SegmentTree {
-private:
-    struct Node {
-        int l, r;
-        int value{0};
+using namespace dsa::utility;
+
+namespace dsa::tree {
+    /**
+     * @brief Support for two operations:
+     *        1. Update a[i] = k in O(logN)
+     *        2. Query information in [x, y] (information: min, max, sum) in O(logN)
+     * @note: Index run from 1->N
+     */
+    class ClassicSegmentTree {
+    private:
+        struct Node {
+            int l, r;
+            int value{0};
+        };
+
+        std::vector<Node> nodes_;
+        std::vector<int> leaves_;
+
+        /**
+         * @brief Builds segment tree nodes for interval `[l, r]`.
+         */
+        void build(int t, int l, int r) {
+            nodes_[t].l = l;
+            nodes_[t].r = r;
+
+            if (l == r) {
+                leaves_[l] = t;
+                return;
+            }
+
+            int mid = (l + r) / 2;
+            build(2 * t, l, mid);
+            build(2 * t + 1, mid + 1, r);
+        }
+
+        /**
+         * @brief Queries `[l, r]` while currently at tree node `t`.
+         */
+        int query(int t, int l, int r) {
+            if (l > r || r < nodes_[t].l || nodes_[t].r < l) return 0;
+            if (l <= nodes_[t].l && nodes_[t].r <= r) return nodes_[t].value;
+            return query(2 * t, l, r) + query(2 * t + 1, l, r);
+        }
+
+    public:
+        explicit ClassicSegmentTree(int n) : nodes_(4 * n + 5), leaves_(n + 1) {
+            build(1, 1, n);
+        }
+
+        void update(int index, int value) {
+            int t = leaves_[index];
+            nodes_[t].value = value;
+            while (t != 1) {
+                t /= 2;
+                nodes_[t].value = nodes_[2 * t].value + nodes_[2 * t + 1].value;
+            }
+        }
+
+        int query(int l, int r) {
+            return query(1, l, r);
+        }
     };
 
-    std::vector<Node> nodes_;
-    std::vector<int> leaves_;
+    template<
+        typename WeightType = float, 
+        class Ops = monoid::sumops<WeightType>, 
+        bool IndexReturn = false
+    >
+    class ModernIndexBasedSegmentTree {
+        public:
+            struct IndexNode {
+                int index{-1};
+                WeightType value{};
+                bool operator<(const IndexNode& o) const { return value < o.value; }
+                bool operator>(const IndexNode& o) const { return value > o.value; }
+            };
 
-    /**
-     * @brief Builds segment tree nodes for interval `[l, r]`.
-     */
-    void build(int t, int l, int r) {
-        nodes_[t].l = l;
-        nodes_[t].r = r;
+        private:
+            using NodeType = std::conditional_t<
+                IndexReturn,
+                IndexNode,
+                WeightType
+            >;
 
-        if (l == r) {
-            leaves_[l] = t;
-            return;
-        }
+            int n_;  // length of array
+            std::vector<NodeType> tree_;   // [4 * n + 4] nodes
 
-        int mid = (l + r) / 2;
-        build(2 * t, l, mid);
-        build(2 * t + 1, mid + 1, r);
-    }
+        protected:
+            static constexpr WeightType kNil = Ops::identity();
 
-    /**
-     * @brief Queries `[l, r]` while currently at tree node `t`.
-     */
-    int query(int t, int l, int r) {
-        if (l > r || r < nodes_[t].l || nodes_[t].r < l) return 0;
-        if (l <= nodes_[t].l && nodes_[t].r <= r) return nodes_[t].value;
-        return query(2 * t, l, r) + query(2 * t + 1, l, r);
-    }
+            static inline NodeType node(int index, WeightType value){
+                if constexpr (IndexReturn){
+                    return {index, value};
+                }
+                else {
+                    return value;
+                }
+            }
 
-public:
-    explicit SegmentTree(int n) : nodes_(4 * n + 5), leaves_(n + 1) {
-        build(1, 1, n);
-    }
+            // When IndexReturn=true (guaranteed comparative ops), picks the IndexNode
+            // whose value equals Ops::combine result. Safe: compare returns exactly a or b.
+            static inline NodeType combine(const NodeType& a, const NodeType& b){
+                if constexpr (IndexReturn){
+                    return (Ops::combine(a.value, b.value) == a.value) ? a : b;
+                }
+                else {
+                    return Ops::combine(a, b);
+                }
+            }
 
-    void update(int index, int value) {
-        int t = leaves_[index];
-        nodes_[t].value = value;
-        while (t != 1) {
-            t /= 2;
-            nodes_[t].value = nodes_[2 * t].value + nodes_[2 * t + 1].value;
-        }
-    }
+            void build(int t, int l, int r){
+                if (l == r){
+                    tree_[t] = node(l-1, kNil);
+                    return;
+                }
+                build(2 * t, l, (l + r) / 2);
+                build(2 * t + 1, (l + r) / 2, r);
+            }
 
-    int query(int l, int r) {
-        return query(1, l, r);
-    }
-};
+            void build(int t, int l, int r, const std::vector<WeightType>& arr){
+                if (l == r){
+                    tree_[t] = node(l-1, arr[l-1]);
+                    return;
+                }
+                int m = (l + r) / 2;
+                build(2 * t, l, m, arr);
+                build(2 * t + 1, m + 1, r, arr);
+                tree_[t] = combine(tree_[2 * t], tree_[2 * t + 1]);
+            }
+
+            NodeType query(int t, int l, int r, int a, int b){
+                // case 1: a...l...r...b <=> [l, r] is inside of [a, b] => always return information of node t
+                if (a <= l && r <= b) return tree_[t];
+                // case 2: a...b l...r or l...r a...b <=> [l, r] is outside of [a, b]
+                if (l > r || b < l || r < a) return node(-1, Ops::identity());
+                // case 3: [l, r] is overlapped with [a, b] => we still needa seek information of some node in [l, r] to update [a, b]
+                int m = (l + r) / 2;
+                return combine(query(2 * t, l, m, a, b), query(2 * t + 1, m + 1, r, a, b));
+            }
+
+            void update(int t, int l, int r, int pos, WeightType k){
+                if (l == r){
+                    tree_[t] = node(l-1, k);
+                    return;
+                }
+                int m = (l + r) / 2;
+                if (pos <= m){
+                    update(2 * t, l, m, pos, k);
+                }
+                else {
+                    update(2 * t + 1, m + 1, r, pos, k);
+                }
+                tree_[t] = combine(tree_[2 * t], tree_[2 * t + 1]);
+            }
+
+        public:
+            static_assert(
+                monoid::is_valid_monoid_ops<Ops, WeightType>::value,
+                "Ops must have ::identity() -> WeightType and ::combine(WeightType, WeightType) -> WeightType"
+            );
+
+            static_assert(
+                !IndexReturn || monoid::is_valid_monoid_comparative_ops<Ops, WeightType>::value,
+                "When IndexReturn=true, Ops must be a comparative monoid (maxops or minops)"
+            );
+
+        public:
+            explicit ModernIndexBasedSegmentTree(int n) : n_(n), tree_(4 * n){
+                build(1, 1, n_);
+            }
+
+            explicit ModernIndexBasedSegmentTree(const std::vector<WeightType>& arr) : n_(arr.size()), tree_(4 * n_){
+                build(1, 1, n_, arr);
+            }
+
+            // query [l, r]
+            WeightType query(int l, int r){
+                NodeType q = query(1, 1, n_, l+1, r+1);
+                if constexpr (IndexReturn) return q.value;
+                else return q;
+            }
+
+            // arr[i] = k
+            void update(int i, WeightType v){
+                update(1, 1, n_, i+1, v);
+            }
+
+            std::enable_if_t<IndexReturn, IndexNode>
+            query_with_index(int l, int r){
+                return query(1, 1, n_, l+1, r+1);
+            }
+    };
 
 /**
  * @brief Segment tree that returns both aggregate value and selected index.
  *
  * Ties are resolved toward the left child.
  */
-class IndexedSegmentTree {
+class ClassicSegmentTreeWithIndex {
 private:
     struct Node {
         int l, r;
@@ -112,7 +245,7 @@ private:
     }
 
 public:
-    explicit IndexedSegmentTree(int n) : nodes_(4 * n + 5), leaves_(n + 1) {
+    explicit ClassicSegmentTreeWithIndex(int n) : nodes_(4 * n + 5), leaves_(n + 1) {
         build(1, 1, n);
     }
 
