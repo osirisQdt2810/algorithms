@@ -1,57 +1,22 @@
 #ifndef DSA_GRAPH_LOWEST_COMMON_ANCESTOR_HPP
 #define DSA_GRAPH_LOWEST_COMMON_ANCESTOR_HPP
 
-#include "graph_types.hpp"
+#include "graph/graph_types.hpp"
+#include "utility.hpp"
 
 #include <cassert>
 #include <utility>
 #include <vector>
-#include <type_traits>
+
+using namespace dsa::utility::monoid;
 
 namespace dsa::graph {
-    template<typename WeightType>
-    struct sumops {
-        static constexpr WeightType identity(){ return WeightType(0); }
-        static WeightType combine(const WeightType& a, const WeightType& b){ return a + b; }
-    };
-
-    template<typename WeightType>
-    struct maxops {
-        static constexpr WeightType identity(){ return WeightType(0); }
-        static WeightType combine(const WeightType& a, const WeightType& b){ return std::max(a, b); }
-    };
-
-    template<typename WeightType>
-    struct minops {
-        static constexpr WeightType identity(){ return WeightType(0); }
-        static WeightType combine(const WeightType& a, const WeightType& b){ return std::min(a, b); }
-    };
-
-    template<typename WeightType>
-    struct gcdops {
-        static constexpr WeightType identity(){ return WeightType(0); }
-        static WeightType combine(const WeightType& a, const WeightType& b){ return std::__algo_gcd(a, b); }
-    };
-
+    
     template<typename WeightType = float, class Ops = sumops<WeightType>>
     class GenericLowestCommonAncestor {
         public:
-            template<typename O, typename W, typename = void>
-            struct is_valid_ops : std::false_type {};
-
-            template<typename O, typename W>
-            struct is_valid_ops<O, W, std::void_t<
-                decltype(O::identity()),
-                decltype(O::combine(std::declval<W>(), std::declval<W>()))
-            >> : std::bool_constant<
-                std::is_convertible_v<decltype(O::identity()), W> &&
-                std::is_convertible_v<
-                    decltype(O::combine(std::declval<W>(), std::declval<W>())), W
-                >
-            > {};
-
             static_assert(
-                is_valid_ops<Ops, WeightType>::value,
+                is_valid_monoid_ops<Ops, WeightType>::value,
                 "Ops must have ::identity() -> WeightType and ::combine(WeightType, WeightType) -> WeightType"
             );
 
