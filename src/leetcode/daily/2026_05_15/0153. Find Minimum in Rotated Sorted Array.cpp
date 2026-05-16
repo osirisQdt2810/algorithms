@@ -4,7 +4,6 @@
 #include <cassert>
 
 using namespace std;
-
 class Solution {
     private:
         int findMinBs(int l, int r, const vector<int>& nums){
@@ -14,7 +13,19 @@ class Solution {
             if (nums[m] <= nums[r]) return min(nums[m], findMinBs(l, m - 1, nums));
             return findMinBs(m + 1, r, nums);
         }
-
+        int findMinBsNoRecursion(vector<int>& nums) {
+            int l = 0, r = nums.size() - 1;
+            while (l < r){
+                int m = (l + r) / 2;
+                if (nums[m] < nums[r]){
+                    r = m;
+                }
+                else {
+                    l = m+1;
+                }
+            }
+            return nums[l];
+        }
     public:
         int findMin(vector<int>& nums) {
             return findMinBs(0, nums.size() - 1, nums);
