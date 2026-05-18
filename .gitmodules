@@ -1,0 +1,3 @@
+[submodule "courses/dsa-mentorship"]
+	path = courses/dsa-mentorship
+	url = git@github.com:osirisQdt2810/dsa-mentorship.git
