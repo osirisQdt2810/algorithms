@@ -1,3 +1,6 @@
 [submodule "courses/dsa-mentorship"]
 	path = courses/dsa-mentorship
 	url = git@github.com:osirisQdt2810/dsa-mentorship.git
+[submodule "courses/fse13-faang"]
+	path = courses/fse13-faang
+	url = git@github.com:osirisQdt2810/Courses-FSE13-FAANG.git
