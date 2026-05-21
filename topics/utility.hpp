@@ -60,6 +60,37 @@ namespace dsa::utility {
             std::enable_if_t<O::is_comparative && is_valid_monoid_ops<O, W>::value>
         > : std::true_type {};
     }
-} // namespace dsa::utility
+
+    namespace cmpr {
+        template<typename T>
+        struct less {
+            inline bool operator()(const T& a, const T& b) const { return a < b; }
+        };
+
+        template<typename T>
+        struct greater {
+            inline bool operator()(const T& a, const T& b) const { return a > b; }
+        };
+
+        template<typename T>
+        struct equal {
+            inline bool operator()(const T& a, const T& b) const { return a == b; }
+        };
+
+        template<typename T>
+        struct less_equal {
+            inline bool operator()(const T& a, const T& b) const { return a <= b; }
+        };
+
+        template<typename T>
+        struct greater_equal {
+            inline bool operator()(const T& a, const T& b) const { return a >= b; }
+        };
+
+        template<typename T>
+        struct not_equal {
+            inline bool operator()(const T& a, const T& b) const { return a != b; }
+        };
+    } // namespace dsa::utility
 
 #endif // DSA_UTILITY_HPP
