@@ -92,5 +92,6 @@ namespace dsa::utility {
             inline bool operator()(const T& a, const T& b) const { return a != b; }
         };
     } // namespace dsa::utility
+}
 
 #endif // DSA_UTILITY_HPP
