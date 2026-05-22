@@ -29,13 +29,16 @@ namespace dsa::linear::stack {
      * @tparam identity  Sentinel returned when no previous smaller/greater element exists.
      * @tparam Compare   Use less<T> for increasing stack (PSE), greater<T> for decreasing (PGE).
      */
-    template<typename T, T identity, class Compare = dsa::utility::cmpr::less<T>>
+    template<typename T, class Compare = dsa::utility::cmpr::less<T>>
     class MonotonicStack {
         private:
             std::stack<T> st;
             Compare cmpr;
+            T identity;
 
         public:
+            MonotonicStack(T identity_) : identity(identity_){}
+
             T push(const T& value) {
                 while (!st.empty() && !cmpr(st.top(), value)) st.pop();
                 T res = (st.empty()) ? identity : st.top();
@@ -53,11 +56,46 @@ namespace dsa::linear::stack {
             int  size()  const { return static_cast<int>(st.size()); }
     };
 
-    template<typename T, T identity>
-    using IncreasingMonotonicStack = MonotonicStack<T, identity, dsa::utility::cmpr::less<T>>;
+    template<typename T, typename IndexType, class Compare = dsa::utility::cmpr::less<T>>
+    class IndexMonotonicStack {
+        private:
+            std::stack<IndexType> st;
+            const std::vector<T>& nums;
+            IndexType identity;
 
-    template<typename T, T identity>
-    using DecreasingMonotonicStack = MonotonicStack<T, identity, dsa::utility::cmpr::greater<T>>;
+            Compare cmpr;
+
+        public:
+            IndexMonotonicStack(const std::vector<T>& nums_, IndexType identity_) : nums(nums_), identity(identity_){}
+
+            IndexType push(IndexType i) {
+                while (!st.empty() && !cmpr(nums[st.top()], nums[i])) st.pop();
+                IndexType res = (st.empty()) ? identity : st.top();
+                st.push(i);
+                return res;
+            }
+
+            IndexType pop() { 
+                IndexType res = st.top(); st.pop(); 
+                return res; 
+            }
+            
+            IndexType top() const { return st.top(); }
+            bool empty() const { return st.empty(); }
+            int  size()  const { return static_cast<int>(st.size()); }
+    };
+
+    template<typename T>
+    using IncreasingMonotonicStack = MonotonicStack<T, dsa::utility::cmpr::less<T>>;
+
+    template<typename T>
+    using DecreasingMonotonicStack = MonotonicStack<T, dsa::utility::cmpr::greater<T>>;
+
+    template<typename T>
+    using IncreasingIndexMonotonicStack = IndexMonotonicStack<T, int, dsa::utility::cmpr::less<T>>;
+
+    template<typename T>
+    using DecreasingIndexMonotonicStack = IndexMonotonicStack<T, int, dsa::utility::cmpr::greater<T>>;
 
 } // namespace dsa::linear::stack
 
