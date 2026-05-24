@@ -13,7 +13,7 @@ private:
 
         void build(int t, int l, int r){
             if (l == r){
-                nodes[t] = {INT_MAX, l};
+                nodes[t] = {INT_MIN, l};
                 return;
             }
             int m = (l+r) / 2;
@@ -37,7 +37,7 @@ private:
             else {
                 update(2*t+1, m+1, r, k, val);
             }
-            nodes[t] = min(nodes[2*t], nodes[2*t+1]);
+            nodes[t] = max(nodes[2*t], nodes[2*t+1]);
         }
 
         void update(int k, int val){
@@ -46,12 +46,12 @@ private:
 
         ii query(int t, int l, int r, int X, int Y){
             // case 1: l...r X...Y or X...Y l...r
-            if (l > r || r < X || Y < l) return {INT_MAX, -1};
+            if (l > r || r < X || Y < l) return {INT_MIN, -1};
             // case 2: X...l...r...Y
             if (X <= l && r <= Y) return nodes[t];
             // case 3: overlap
             int m = (l+r)/2;
-            return min(query(2*t, l, m, X, Y), query(2*t+1, m+1, r, X, Y));
+            return max(query(2*t, l, m, X, Y), query(2*t+1, m+1, r, X, Y));
         }
 
         int query(int X, int Y){
@@ -59,6 +59,30 @@ private:
             return query(1, 1, n, X+1, Y+1).second;
         }
     };
+
+    vector<int> find_left_most_greater(const vector<int>& arr){
+        int n = arr.size();
+        vector<int> left_side(n, -1);
+        vector<int> st;
+        for (int i = 0; i < n; ++i){
+            while (!st.empty() && arr[st.back()] < arr[i]) st.pop_back();
+            if (!st.empty()) left_side[i] = st.back();
+            st.push_back(i);
+        }
+        return left_side;
+    }
+
+    vector<int> find_right_most_greater(const vector<int>& arr){
+        int n = arr.size();
+        vector<int> right_side(n, n);
+        vector<int> st;
+        for (int i = n-1; i >= 0; --i){
+            while (!st.empty() && arr[st.back()] < arr[i]) st.pop_back();
+            if (!st.empty()) right_side[i] = st.back();
+            st.push_back(i);
+        }
+        return right_side;
+    }
 
 public:
     int maxJumps(vector<int>& arr, int d) {
@@ -72,19 +96,19 @@ public:
         vector<int> dp(n, 1);
         segtree tree(n);
 
+        vector<int> left_side = find_left_most_greater(arr);
+        vector<int> right_side = find_right_most_greater(arr);
+
         int ans = 0;
         for (int l = 0; l < n; ++l){
             auto [num, i] = arrwindex[l];
-            int j = tree.query(max(0, i-d), i-1);
-            int k = tree.query(i+1, min(i+1, n-1));
-            cout << "i = " << i << "\n";
+            int j = tree.query(max(left_side[i]+1, i-d), i-1);
+            int k = tree.query(i+1, min(i+d, right_side[i]-1));
             if (j > 0 && arr[i] > arr[j-1]){
                 dp[i] = max(dp[i], dp[j-1] + 1);
-                cout << " -> j=" << j-1 << " -> dp=" << dp[j-1] << " -> after dp[i]=" << dp[i] << "\n";
             }
             if (k > 0 && arr[i] > arr[k-1]){
                 dp[i] = max(dp[i], dp[k-1] + 1);
-                cout << " -> k=" << k-1 << " -> dp=" << dp[k-1] << " -> after dp[i]=" << dp[i] << "\n";
             }
             ans = max(ans, dp[i]);
             tree.update(i, dp[i]);
