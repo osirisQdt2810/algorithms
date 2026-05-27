@@ -1,5 +1,5 @@
-#ifndef DSA_LINEAR_MONOTONIC_STACK_HPP
-#define DSA_LINEAR_MONOTONIC_STACK_HPP
+#ifndef DSA_LINEAR_STACK_HPP
+#define DSA_LINEAR_STACK_HPP
 
 #include "utility.hpp"
 
@@ -99,4 +99,4 @@ namespace dsa::linear::stack {
 
 } // namespace dsa::linear::stack
 
-#endif // DSA_LINEAR_MONOTONIC_STACK_HPP
+#endif // DSA_LINEAR_STACK_HPP
