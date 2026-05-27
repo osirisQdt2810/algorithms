@@ -1,5 +1,5 @@
-#ifndef DSA_LINEAR_MONOTONIC_QUEUE_HPP
-#define DSA_LINEAR_MONOTONIC_QUEUE_HPP
+#ifndef DSA_LINEAR_QUEUE_HPP
+#define DSA_LINEAR_QUEUE_HPP
 
 #include "utility.hpp"
 
@@ -74,4 +74,4 @@ namespace dsa::linear::queue {
 
 } // namespace dsa::linear::queue
 
-#endif // DSA_LINEAR_MONOTONIC_QUEUE_HPP
+#endif // DSA_LINEAR_QUEUE_HPP
