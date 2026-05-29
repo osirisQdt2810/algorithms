@@ -30,8 +30,10 @@ namespace dsa::utility {
     namespace monoid {
         template<typename ValueType>
         struct sumops {
+            static constexpr bool is_invertible = true;
             static constexpr ValueType identity(){ return ValueType(0); }
             static ValueType combine(const ValueType& a, const ValueType& b){ return a + b; }
+            static ValueType inverse(const ValueType& info, const ValueType& old_val, const ValueType& new_val){ return info - old_val + new_val; }
         };
 
         template<typename ValueType>
@@ -135,6 +137,14 @@ namespace dsa::utility {
         template<typename O, typename W>
         struct is_valid_idempotent_ops<O, W,
             std::enable_if_t<O::is_idemp && is_valid_monoid_ops<O, W>::value>
+        > : std::true_type {};
+
+        template<typename O, typename W, typename = void>
+        struct is_valid_monoid_invertible_ops : std::false_type {};
+
+        template<typename O, typename W>
+        struct is_valid_monoid_invertible_ops<O, W,
+            std::enable_if_t<O::is_invertible && is_valid_monoid_ops<O, W>::value>
         > : std::true_type {};
     }
 
