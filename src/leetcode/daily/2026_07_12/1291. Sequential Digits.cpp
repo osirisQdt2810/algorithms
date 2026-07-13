@@ -47,12 +47,5 @@ auto init = [](){
 int main(){
     Solution sol;
 
-    vector<int> nums = {1,8,3,4,2};
-    int maxDiff = 3;
-    int n = 5;
-    vector<vector<int>> queries = {{0,3}, {2,4}};
-    
-    auto res = sol.pathExistenceQueries(n, nums, maxDiff, queries);
-    cout << "\n"; for (auto r : res) cout << r << " ";
     return 0;
 }
