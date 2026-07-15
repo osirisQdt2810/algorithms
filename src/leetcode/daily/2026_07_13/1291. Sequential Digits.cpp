@@ -7,6 +7,27 @@
 
 using namespace std;
 
+/*
+ * Best solution: Enumerate all sequential-digit numbers (fixed, tiny set).
+ *   There are only 36 sequential-digit numbers total: for each length
+ *   len in [2..9] and each starting digit s in [1..(10-len)] the number is
+ *   s, s+1, ..., s+len-1 (e.g. len=3, s=1 -> 123). Keep those in [low, high].
+ *
+ * Time:  O(1)  — at most 36 candidates regardless of the input range.
+ * Space: O(1)  — excluding the output vector.
+ *
+ * Approach (detail):
+ *   1. A sequential-digit number is a contiguous run of increasing digits,
+ *      so it is fully determined by (length, starting digit); only 36 exist.
+ *   2. Restrict lengths to [digits(low), digits(high)] to skip candidates
+ *      that cannot possibly lie in range.
+ *   3. For a fixed length the smallest such number is start = 123..len, and
+ *      the next one (same length, next starting digit) is start + offset,
+ *      where offset = 111..1 (len ones): adding it bumps every digit by 1.
+ *      Stop this length once the last digit would exceed 9 (num % 10 == 0).
+ *   4. Push any candidate within [low, high]. They are produced in
+ *      increasing order, so no final sort is needed.
+ */
 class Solution {
     public:
         vector<int> sequentialDigits(int low, int high) {
