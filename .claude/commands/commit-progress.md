@@ -90,20 +90,51 @@ Pick `[add]` for brand-new files (untracked / added), `[update]` for modificatio
 ## Annotate each solution before committing (REQUIRED)
 
 Before staging any solution file, prepend a block comment at the **top of the file** (right after the
-`#include`s / imports, before the `Solution` class) documenting the **reference-optimal** approach.
-Use `/* … */` for C/C++ and the language's block-comment equivalent otherwise (`""" … """` for
-Python). The block must contain, in this order:
+`#include`s / imports, before the `Solution` class) documenting **the problem itself** and the
+**reference-optimal** approach. Use `/* … */` for C/C++ and the language's block-comment equivalent
+otherwise (`""" … """` for Python). The block must contain, in this order:
+- **Title line** — `LC <NUMBER> - <Title>` (or the Codeforces problem id/title for course units), plus
+  the source URL.
+- **Problem** — the problem statement, **fetched from the source** (see below), restated faithfully:
+  what is given, what must be returned, and the **constraints** block.
+- **Examples** — the source's worked examples (input / output / explanation), **fetched from the
+  source**. Keep 2–3 representative ones — enough to pin down the exact I/O shape and at least one
+  edge case; do not paste all of them if the source lists many.
 - **Best solution** — the name of the optimal (or near-optimal) algorithm for the problem.
 - **Time & Space complexity** of that best solution (Big-O, e.g. `Time: O(V+E)`, `Space: O(V)`), with a
   one-clause justification each.
 - **Approach (detail)** — a numbered, step-by-step explanation of *how* the best solution works and
   *why* it is correct (the key insight), detailed enough to reconstruct the solution from the comment.
 
+### Fetching the problem statement + examples (REQUIRED)
+
+The statement and examples must come from the **actual source**, not from memory — use `WebFetch`.
+Resolve the source URL per target:
+- **Target A (`src/leetcode/daily/`) and Target D (`src/leetcode/problems/`)** — LeetCode:
+  `https://leetcode.com/problems/<slug>/`. Derive `<slug>` from the problem title in kebab-case
+  (e.g. `3517. Smallest Palindromic Rearrangement I` → `smallest-palindromic-rearrangement-i`).
+- **Target B (`courses/dsa-mentorship`)** — Codeforces. These files usually already carry the exact
+  URL in a leading `//` comment (e.g. `// https://codeforces.com/group/.../problem/C`) — **use that
+  URL**; it is authoritative for the group/contest-scoped statement.
+- **Target C (`courses/fse13-faang`)** — LeetCode via the filename's 4-digit id (strip zero-padding
+  to build the slug lookup). For homework-numbered files with no LC id, use whatever source URL the
+  file references; if there is none, see the fallback below.
+
+Fallback when the fetch fails (offline, 403/404, login-walled, or no resolvable URL): write the
+statement and examples from your own knowledge of the problem, mark that section in the file with a
+`(statement not verified against source — reconstructed)` note, and **flag the unit in your commit
+summary**. Never silently present reconstructed text as sourced.
+
 Rules for the annotation:
 - Document the **objectively best** solution for the problem, even when the committed code uses a
   different / less-optimal approach (the user's code may not yet be optimal). If the committed code
   diverges from the documented best, note that divergence in your commit **summary** (not in the file).
-- Identify the problem from the **actual code**, not the filename.
+- Identify the problem from the **actual code**, not the filename — then fetch *that* problem's
+  statement. If the filename's id points at a different problem than the code solves, the statement
+  must match the **code**.
+- Keep the statement/examples **concise and verbatim in substance** — trim LeetCode's boilerplate
+  ("Return the answer…" preamble, follow-up prompts, tag lists), but never reword the constraints or
+  alter an example's numbers.
 - The comment is part of the **same unit commit** (included in the `[add]`/`[update]`), never a
   separate commit. If a file was already committed this run without it, `--amend` that commit.
 - If you cannot confidently determine the best solution, **ask** rather than guessing.
