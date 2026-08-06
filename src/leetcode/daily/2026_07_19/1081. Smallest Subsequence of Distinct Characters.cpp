@@ -9,7 +9,25 @@ using namespace std;
 
 /*
  * LC 1081 - Smallest Subsequence of Distinct Characters
+ * https://leetcode.com/problems/smallest-subsequence-of-distinct-characters/
  * (identical problem to LC 316 - Remove Duplicate Letters)
+ *
+ * Problem:
+ *   Given a string s, return the lexicographically smallest subsequence of s
+ *   that contains all the distinct characters of s exactly once.
+ *
+ *   Constraints:
+ *     - 1 <= s.length <= 1000
+ *     - s consists of lowercase English letters.
+ *
+ * Examples:
+ *   Example 1:
+ *     Input:  s = "bcabc"
+ *     Output: "abc"
+ *
+ *   Example 2:
+ *     Input:  s = "cbacdcbc"
+ *     Output: "acdb"
  *
  * Best solution: Greedy monotonic stack driven by last-occurrence indices.
  * This is optimal — the input must be read once, and each character enters and
@@ -50,9 +68,6 @@ using namespace std;
  *      locally minimizing the earliest mutable slot is globally optimal.
  *   5. Read the stack bottom-to-top (front-to-back of the deque) to build the
  *      answer.
- *
- * Note: the pop test is written `c <= s[dq.back()]`, but the `seen` skip in
- * step 3a means c can never equal the top, so `<=` behaves exactly as `<`.
  */
 
 class Solution {
@@ -71,7 +86,7 @@ class Solution {
             for (int i = 0; i < n; ++i){
                 char c = s[i];
                 if (seen.find(c) != seen.end()) continue;
-                while (!dq.empty() && c <= s[dq.back()] && last[s[dq.back()]] > i){
+                while (!dq.empty() && c < s[dq.back()] && last[s[dq.back()]] > i){
                     seen.erase(s[dq.back()]);
                     dq.pop_back();
                 }
