@@ -105,6 +105,20 @@ otherwise (`""" … """` for Python). The block must contain, in this order:
   one-clause justification each.
 - **Approach (detail)** — a numbered, step-by-step explanation of *how* the best solution works and
   *why* it is correct (the key insight), detailed enough to reconstruct the solution from the comment.
+- **Your solution** — a **verdict sentence** stating plainly whether the algorithm the committed code
+  actually runs *is* the best solution documented above. Start it with one of these three verdicts,
+  then justify in the same sentence or the next one:
+  - `MATCHES BEST` — the code implements the documented optimal algorithm.
+  - `SUBOPTIMAL` — the code solves the problem correctly but with worse complexity. State the code's
+    own Time/Space, name the gap (e.g. `O(n^2) vs O(n log C)`), and say why it still passes (or does
+    not) under the stated constraints.
+  - `INCORRECT` — the code does not solve the problem. Name the failing case.
+
+  This section is about **the code in the file**, not the ideal — never write `MATCHES BEST` for a
+  file whose live method is not the optimal one. If the file contains both an optimal and a
+  suboptimal implementation, judge the one actually wired up (the method the platform calls) and
+  name the dead one. Any verdict other than `MATCHES BEST` must also be repeated in the commit
+  **summary**.
 
 ### Fetching the problem statement + examples (REQUIRED)
 
@@ -127,8 +141,9 @@ summary**. Never silently present reconstructed text as sourced.
 
 Rules for the annotation:
 - Document the **objectively best** solution for the problem, even when the committed code uses a
-  different / less-optimal approach (the user's code may not yet be optimal). If the committed code
-  diverges from the documented best, note that divergence in your commit **summary** (not in the file).
+  different / less-optimal approach (the user's code may not yet be optimal). When the committed code
+  diverges from the documented best, that divergence goes in **both** places: the **Your solution**
+  verdict inside the file, and your commit **summary**.
 - Identify the problem from the **actual code**, not the filename — then fetch *that* problem's
   statement. If the filename's id points at a different problem than the code solves, the statement
   must match the **code**.
