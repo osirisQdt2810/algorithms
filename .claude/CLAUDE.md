@@ -21,9 +21,15 @@ This repo is a personal DSA study journal (main repo `dsa-journey` + two git sub
      none exists, create `phuc-nguyen/review-<series>` named from the canonical topic vocabulary in
      `scripts/find_unsolved_leetcode.py` (`TOPIC_ALIASES`). Ask only when it's genuinely ambiguous.
 
-2. **Only "overall" / non-solution files may be committed directly on the base branch, and only
-   when the user clarifies it directly**: this `CLAUDE.md` and other Claude config, `README`,
-   tooling/scripts. Everything that is DSA solution code goes on a topic branch (rule 1).
+2. **Only "overall" / non-solution files may be committed directly on the base branch**: this
+   `CLAUDE.md` and other Claude config, `README`, tooling/scripts. Everything that is DSA solution
+   code goes on a topic branch (rule 1).
+
+   For anything under `.claude/` this is a **standing instruction, not a per-time confirmation** —
+   commit it straight onto the base branch (`master`), then **rebase every active topic branch onto
+   the updated base** so no branch carries a stale copy of the rules. Push the base and force-push
+   (`--force-with-lease`) the rebased topic branches. `README`/tooling changes still follow the
+   old "ask first" behaviour.
 
 3. **Before creating a topic branch off the base branch, ensure the local base is up to date with
    its remote first** — `git fetch`, then fast-forward the base (`git merge --ff-only origin/<base>`).
