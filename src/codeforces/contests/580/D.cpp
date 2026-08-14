@@ -1,6 +1,8 @@
 #include <iostream>
 #include <memory>
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <cstdio>
+#include <cstring>
 
 using namespace std;
 
