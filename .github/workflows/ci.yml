@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Run pre-commit on the PR diff
+        run: |
+          git fetch origin "${{ github.base_ref }}"
+          pre-commit run --show-diff-on-failure \
+            --from-ref "$(git merge-base "origin/${{ github.base_ref }}" HEAD)" \
+            --to-ref HEAD
+
+  # Merges the PR automatically once lint is green, but only for PRs that
+  # opted in via the `auto-merge` label (commit-progress [lc]/[problem] flow).
+  # A conflicting PR is left open for the user with an explanatory comment.
+  automerge:
+    needs: lint
+    if: contains(github.event.pull_request.labels.*.name, 'auto-merge')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Merge PR if conflict-free
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          for attempt in 1 2 3 4 5; do
+            state=$(gh pr view "$PR" --repo "$REPO" --json mergeable --jq .mergeable)
+            echo "attempt $attempt: mergeable=$state"
+            case "$state" in
+              MERGEABLE)
+                if gh pr merge "$PR" --repo "$REPO" --merge; then
+                  echo "merged."
+                  exit 0
+                fi
+                ;;
+              CONFLICTING)
+                gh pr comment "$PR" --repo "$REPO" --body \
+                  "auto-merge skipped: this PR conflicts with \`master\` — please resolve and merge manually."
+                exit 0
+                ;;
+            esac
+            sleep 10
+          done
+          echo "mergeable state still undetermined; leaving the PR for manual merge."

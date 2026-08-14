@@ -1,0 +1,29 @@
+# dsa-journey C++ style — tuned to match the existing solution style as closely as
+# clang-format allows (4-space indent, attached braces, indented access modifiers).
+BasedOnStyle: LLVM
+Language: Cpp
+
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 110
+
+# class Solution {
+#     public:
+#         int f() { ... }
+IndentAccessModifiers: true
+BreakBeforeBraces: Attach
+NamespaceIndentation: None
+
+AllowShortIfStatementsOnASingleLine: WithoutElse
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortLambdasOnASingleLine: Empty
+
+PointerAlignment: Left
+ReferenceAlignment: Left
+SpaceBeforeParens: ControlStatements
+
+# Keep the solution-template include order and the annotation comment blocks untouched.
+SortIncludes: Never
+ReflowComments: false
