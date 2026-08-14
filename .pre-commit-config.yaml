@@ -22,8 +22,10 @@ repos:
 
   - repo: local
     hooks:
+      # -I. because a few solutions include the repo's own reusable headers by
+      # repo-relative path, e.g. #include "topics/graph/disjoint_set_union.hpp".
       - id: cpp-syntax-check
         name: C++ syntax check (g++ -fsyntax-only)
-        entry: scripts/cpp_syntax_check.sh
-        language: script
+        entry: g++ -std=c++20 -fsyntax-only -I.
+        language: system
         types_or: [c++]

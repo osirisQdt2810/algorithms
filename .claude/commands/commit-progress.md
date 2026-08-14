@@ -105,9 +105,12 @@ on every PR diff, so an unlinted commit will block auto-merge.
   transitive includes that libstdc++ on CI does not provide), add the missing include — that is a
   mechanical portability fix, not a solution change — and note it in the summary. Any **other**
   syntax failure means broken code → the empty/unsolved guardrail applies (flag, don't commit).
-  - A failure on `bits/stdc++.h` or on a repo-relative header is a **toolchain** problem, never
-    broken code — `scripts/cpp_syntax_check.sh` already handles both. Never "fix" a solution by
-    rewriting its includes to satisfy a local compiler.
+  - Never write `#include <bits/stdc++.h>` in a new solution — it is a GCC implementation detail
+    and does not exist on Apple clang/libc++. Include the specific headers the code uses. The
+    repo's existing files were converted to explicit includes, so a `bits/stdc++.h` failure now
+    means a new file reintroduced it.
+  - Repo-relative includes (e.g. `#include "topics/graph/disjoint_set_union.hpp"`) resolve because
+    the hook passes `-I.`; a failure there is a wrong path, not a missing header.
 - **Bulk-move exception:** when a unit is a pure file move / module rename of code that is already
   committed (git reports `R100`), do **not** run the fixer hooks over the moved files. Reformatting
   already-merged code destroys rename detection and buries the move in hundreds of unrelated lines.
