@@ -5,6 +5,7 @@
 #include <unordered_map>
 
 #include "topics/graph/disjoint_set_union.hpp"
+#include <string>
 
 using namespace std;
 
