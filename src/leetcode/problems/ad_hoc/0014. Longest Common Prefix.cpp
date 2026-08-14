@@ -15,14 +15,13 @@ class Solution {
             string res = "";
             int n = strs.size();
             int min_len = INT_MAX;
-            for (auto& str : strs)
-                min_len = min(min_len, (int)str.size());
+            for (auto& str : strs) min_len = min(min_len, (int)str.size());
 
-            for (int i = 0; i < min_len; ++i) {
+            for (int i = 0; i < min_len; ++i){
                 char c = strs[0][i];
                 bool common_char = true;
-                for (int k = 1; k < strs.size(); ++k) {
-                    if (strs[k][i] != c) {
+                for (int k = 1; k < strs.size(); ++k){
+                    if (strs[k][i] != c){
                         common_char = false;
                         break;
                     }
@@ -36,14 +35,14 @@ class Solution {
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
 
     return 0;
 }

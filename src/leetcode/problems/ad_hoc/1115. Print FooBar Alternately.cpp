@@ -10,7 +10,11 @@ using namespace std;
 
 class FooBar {
     private:
-        enum State { foo_state, bar_state, unknown };
+        enum State {
+            foo_state,
+            bar_state,
+            unknown
+        };
 
     private:
         int n;
@@ -36,9 +40,7 @@ class FooBar {
                 m_currState.store(State::bar_state);
                 m_cvBarReady.notify_one();
                 unique_lock lock(m_mtx);
-                m_cvFooReady.wait(lock, [&]() {
-                    return m_currState == State::foo_state;
-                });
+                m_cvFooReady.wait(lock, [&](){return m_currState == State::foo_state;});
             }
         }
 
@@ -61,19 +63,18 @@ class FooBar {
         }
 };
 
-int main() {
+
+int main(){
     int n = 2;
     FooBar* cls = new FooBar(n);
 
-    thread foo = thread(&FooBar::foo, cls, []() {
-        printf("foo");
-    });
-    thread bar = thread(&FooBar::bar, cls, []() {
-        printf("bar");
-    });
+    thread foo = thread(&FooBar::foo, cls, [](){printf("foo");});
+    thread bar = thread(&FooBar::bar, cls, [](){printf("bar");});
 
     foo.join();
     bar.join();
+
+
 
     return 0;
 }

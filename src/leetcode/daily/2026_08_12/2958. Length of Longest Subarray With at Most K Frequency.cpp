@@ -84,9 +84,9 @@ class Solution {
         int maxSubarrayLength(vector<int>& nums, int k) {
             unordered_map<int, int> freqs;
             int res = 0, n = nums.size();
-            for (int l = 0, r = 0; r < n; ++r) {
+            for (int l = 0, r = 0; r < n; ++r){
                 freqs[nums[r]]++;
-                while (freqs[nums[r]] > k) {
+                while (freqs[nums[r]] > k){
                     --freqs[nums[l]];
                     ++l;
                 }
@@ -96,14 +96,14 @@ class Solution {
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
     Solution sol;
 
     return 0;

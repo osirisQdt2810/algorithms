@@ -79,27 +79,27 @@ class Solution {
             nums.push_back(-1);
             int n = nums.size();
             int sum = nums[0];
-            for (int i = 1; i < n; ++i) {
-                if (nums[i] != nums[i - 1] + 1) {
+            for (int i = 1; i < n; ++i){
+                if (nums[i] != nums[i-1] + 1){
                     break;
                 }
                 sum += nums[i];
             }
-            while (unique.count(sum)) {
+            while (unique.count(sum)){
                 ++sum;
             }
             return sum;
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
     Solution sol;
 
     return 0;

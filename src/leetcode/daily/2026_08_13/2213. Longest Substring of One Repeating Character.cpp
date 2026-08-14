@@ -104,99 +104,99 @@ using namespace std;
 class Solution {
     private:
         struct node {
-                int max_len{0};
-                int max_pref{0}, max_suff{0};
-                char pref{'|'};
-                char suff{'|'};
+            int max_len{0};
+            int max_pref{0}, max_suff{0};
+            char pref{'|'};
+            char suff{'|'};
         };
 
         struct segtree {
-                int n;
-                vector<node> nodes;
+            int n;
+            vector<node> nodes;
 
-                void build(int t, int l, int r, string& input) {
-                    // case 1: [l...r] k or k [l...r]
-                    if (l > input.size()) return;
-                    if (l == r) {
-                        nodes[t].pref = nodes[t].suff = input[l - 1];
-                        nodes[t].max_len = nodes[t].max_pref = nodes[t].max_suff = 1;
-                        return;
+            void build(int t, int l, int r, string& input){
+                // case 1: [l...r] k or k [l...r]
+                if (l > input.size()) return;
+                if (l == r){
+                    nodes[t].pref = nodes[t].suff = input[l-1];
+                    nodes[t].max_len  = nodes[t].max_pref = nodes[t].max_suff = 1;
+                    return;
+                }
+                int mid = (l+r)/2;
+                build(2*t, l, mid, input);
+                build(2*t+1, mid+1, r, input);
+                update_it(t, l, r);
+            }
+
+            segtree(string& input) : n(input.size()), nodes(4*n+1){
+                build(1, 1, n, input);
+            }
+
+            void update_it(int t, int l, int r){
+                int mid = (l+r)/2;
+                int llen = mid - l + 1;
+                int rlen = r - mid;
+
+                nodes[t].max_len = max(nodes[2*t].max_len, nodes[2*t+1].max_len);
+                nodes[t].pref = nodes[2*t].pref;
+                nodes[t].suff = nodes[2*t+1].suff;
+                nodes[t].max_pref = nodes[2*t].max_pref;
+                nodes[t].max_suff = nodes[2*t+1].max_suff;
+
+                if (nodes[2*t].suff == nodes[2*t+1].pref){
+                    nodes[t].max_len = max(nodes[t].max_len, nodes[2*t].max_suff + nodes[2*t+1].max_pref);
+                    if (nodes[2*t].max_pref == llen){
+                        nodes[t].max_pref += nodes[2*t+1].max_pref;
                     }
-                    int mid = (l + r) / 2;
-                    build(2 * t, l, mid, input);
-                    build(2 * t + 1, mid + 1, r, input);
-                    update_it(t, l, r);
-                }
-
-                segtree(string& input) : n(input.size()), nodes(4 * n + 1) {
-                    build(1, 1, n, input);
-                }
-
-                void update_it(int t, int l, int r) {
-                    int mid = (l + r) / 2;
-                    int llen = mid - l + 1;
-                    int rlen = r - mid;
-
-                    nodes[t].max_len = max(nodes[2 * t].max_len, nodes[2 * t + 1].max_len);
-                    nodes[t].pref = nodes[2 * t].pref;
-                    nodes[t].suff = nodes[2 * t + 1].suff;
-                    nodes[t].max_pref = nodes[2 * t].max_pref;
-                    nodes[t].max_suff = nodes[2 * t + 1].max_suff;
-
-                    if (nodes[2 * t].suff == nodes[2 * t + 1].pref) {
-                        nodes[t].max_len =
-                            max(nodes[t].max_len, nodes[2 * t].max_suff + nodes[2 * t + 1].max_pref);
-                        if (nodes[2 * t].max_pref == llen) {
-                            nodes[t].max_pref += nodes[2 * t + 1].max_pref;
-                        }
-                        if (nodes[2 * t + 1].max_suff == rlen) {
-                            nodes[t].max_suff += nodes[2 * t].max_suff;
-                        }
+                    if (nodes[2*t+1].max_suff == rlen){
+                        nodes[t].max_suff += nodes[2*t].max_suff;
                     }
                 }
+            }
 
-                int update(int t, int l, int r, int k, char c) {
-                    // case 1: [l...r] k or k [l...r]
-                    if (r < k || k < l) return nodes[t].max_len;
-                    // case 2: [l...r] = k
-                    if (l == r && l == k) {
-                        nodes[t].pref = nodes[t].suff = c;
-                        return nodes[t].max_len;
-                    }
-                    // case 3: k in [l...r]
-                    int mid = (l + r) / 2;
-                    int ml = update(2 * t, l, mid, k, c);
-                    int mr = update(2 * t + 1, mid + 1, r, k, c);
-
-                    // update nodes[t]
-                    update_it(t, l, r);
+            int update(int t, int l, int r, int k, char c){
+                // case 1: [l...r] k or k [l...r]
+                if (r < k || k < l) return nodes[t].max_len;
+                // case 2: [l...r] = k
+                if (l == r && l == k){
+                    nodes[t].pref = nodes[t].suff = c;
                     return nodes[t].max_len;
                 }
+                // case 3: k in [l...r]
+                int mid = (l+r)/2;
+                int ml = update(2*t, l, mid, k, c);
+                int mr = update(2*t+1, mid+1, r, k, c);
 
-                int update(int k, char c) {
-                    return update(1, 1, n, k, c);
-                }
+                // update nodes[t]
+                update_it(t, l, r);
+                return nodes[t].max_len;
+            }
+
+            int update(int k, char c){
+                return update(1, 1, n, k, c);
+            }
+
         };
 
     public:
         vector<int> longestRepeating(string s, string queryCharacters, vector<int>& queryIndices) {
             segtree tree(s);
             vector<int> res;
-            for (int i = 0; i < (int)queryIndices.size(); ++i) {
+            for (int i = 0; i < (int)queryIndices.size(); ++i){
                 res.push_back(tree.update(queryIndices[i] + 1, queryCharacters[i]));
             }
             return res;
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
     Solution sol;
 
     return 0;

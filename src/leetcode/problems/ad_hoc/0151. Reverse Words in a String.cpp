@@ -9,13 +9,11 @@ class Solution {
             s = ' ' + s + ' ';
             int n = s.size();
             int prev = n - 1, pos = n - 1;
-            while (pos >= 0) {
-                while (pos >= 0 && s[pos] != ' ')
-                    --pos;
+            while (pos >= 0){
+                while (pos >= 0 && s[pos] != ' ') --pos;
                 if (pos < 0) break;
                 if (pos + 1 < prev) s += ' ';
-                for (int i = pos + 1; i <= prev - 1; ++i)
-                    s += s[i];
+                for (int i = pos + 1; i <= prev - 1; ++i) s += s[i];
                 prev = pos;
                 --pos;
             }
@@ -26,19 +24,19 @@ class Solution {
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
     Solution sol;
     // string s = "the sky is blue";
     // string s = "  hello world  ";
     string s = "a good   example";
-    string t = sol.reverseWords(s);
+    string t =  sol.reverseWords(s);
     cout << " |" << t << "|\n";
 
     return 0;
