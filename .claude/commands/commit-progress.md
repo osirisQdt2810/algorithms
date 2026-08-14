@@ -1,7 +1,7 @@
 ---
-description: Commit study progress — daily LeetCode (main repo) + course lessons/homework/revision (submodules), one commit per unit, on the correct per-repo branch
-argument-hint: "[optional: paths/names to restrict scope, e.g. 2026_07_06 | lesson-06-graph | 01-two-pointers-sliding-window; else all pending]"
-allowed-tools: Bash(git:*), Bash(ls:*), Read
+description: Commit study progress — daily LeetCode (main repo) + course lessons/homework/revision (submodules), one commit per unit, on the correct per-repo branch; [lc]/[problem] flags also publish those branches as auto-merge PRs
+argument-hint: "[optional flags: [lc] [problem] to rebase+push+PR those targets] [optional: paths/names to restrict scope, e.g. 2026_07_06 | lesson-06-graph | 01-two-pointers-sliding-window; else all pending]"
+allowed-tools: Bash(git:*), Bash(ls:*), Bash(gh:*), Bash(pre-commit:*), Bash(g++:*), Read, Edit, WebFetch
 ---
 
 Commit uncommitted study work across **four targets in three repos** (the main repo hosts both Target A and Target D), each with its own scope, branch convention, and commit-message format. This supersedes the old `commit-daily-leetcode` command and fully covers it (the daily-LeetCode case is Target A below).
@@ -17,7 +17,8 @@ The two `courses/*` folders are **git submodules** — commit *inside* the submo
 | C | `courses/fse13-faang` (submodule) | `NN-<topic>/{homework,livecoding,revision}/` | one **problem** file (+ any sibling input) |
 | D | `.` (main repo `dsa-journey`) | `src/leetcode/problems/<topic>/` | one **problem** file `NNNN. *.cpp` (+ any sibling input) — a self-study *review series* |
 
-- If `$ARGUMENTS` names specific date folders / lesson folders / topic folders, restrict to those; otherwise commit **every** pending unit found across all three targets.
+- `$ARGUMENTS` may contain the publish flags `[lc]` / `[problem]` (see **Push & PR flags** below) — strip them first; the remaining tokens are scope filters.
+- If the remaining `$ARGUMENTS` name specific date folders / lesson folders / topic folders, restrict to those; otherwise commit **every** pending unit found across all three targets.
 - Discover pending work per repo with:
   - `git status --porcelain src/leetcode/daily/` (Target A)
   - `git status --porcelain src/leetcode/problems/` (Target D)
@@ -39,7 +40,7 @@ Each repo must be on the **correct feature branch** for the work. Never commit o
      3. If **no** review branch covers the topic, **create** `phuc-nguyen/review-<series>`, naming `<series>` from the topic slug(s) in the script's `TOPIC_ALIASES` (a short family name is fine, e.g. `review-trie`, `review-segtree`). Flag the created name. Only **ask** the user when it's genuinely ambiguous which existing series the problem belongs to.
      - **The branch is decided by the problem's `problems/<topic>/` folder, NEVER by whichever branch happens to be checked out.** The current branch counts only when it is *independently* the branch the folder resolves to. A new file in `problems/ad_hoc/` while HEAD sits on `phuc-nguyen/review-graph-sp-mst` must be committed on the ad-hoc series branch (creating it if needed) — **not** on `review-graph-sp-mst` just because you were already there. Before staging any Target D unit, re-derive the branch from its folder and compare it against `git rev-parse --abbrev-ref HEAD`; if they differ, check out (or create) the right one first.
      - Units from **different `problems/<topic>` folders that resolve to different series must go on different branches**, each in its own checkout — even when they were all written in the same sitting and show up in one `git status`. Never let convenience batch unrelated topics onto one branch.
-     - These review branches often sit **behind `master`** (an already-merged series) — commit the new problem on the branch as-is and note it's behind master; do **not** rebase/rewrite without asking.
+     - These review branches often sit **behind `master`** (an already-merged series) — commit the new problem on the branch as-is and note it's behind master; do **not** rebase/rewrite without asking. Exception: the `[problem]` flag authorizes exactly this rebase, as part of the publish flow (see **Push & PR flags**).
 2. Check the repo's current branch (`git -C <repo> rev-parse --abbrev-ref HEAD`).
    - Already on the expected branch → proceed.
    - Expected branch exists locally → `git -C <repo> checkout <branch>` (new practice files are untracked and carry over safely).
@@ -89,6 +90,24 @@ Pick `[add]` for brand-new files (untracked / added), `[update]` for modificatio
 ## How to fill in NUMBER and technique
 - **Read the source file(s)** in each unit first. Derive both the problem number and the technique from the **actual code** (the solved function + algorithm), NOT from the filename — filenames are often leftover templates and may not match the code inside.
 - If the filename's number disagrees with the code, keep the filename as-is but use the **code's** real number in the message, and note the mismatch in your summary.
+
+## Lint before staging (main repo, REQUIRED)
+
+The main repo has pre-commit configured (`.pre-commit-config.yaml`: clang-format per
+`.clang-format`, `g++ -std=c++20 -fsyntax-only`, whitespace/EOF hygiene). CI runs the same hooks
+on every PR diff, so an unlinted commit will block auto-merge.
+
+- Before staging each Target A/D unit (after writing the annotation block):
+  `pre-commit run --files <unit files>`. Fixer hooks modify files in place and report "failed" on
+  the first pass — re-run until clean, then stage the fixed result. Lint fixes are part of the
+  unit commit, **never** a separate commit.
+- If the syntax check fails on a **missing `#include`** (the LeetCode template compiles there via
+  transitive includes that libstdc++ on CI does not provide), add the missing include — that is a
+  mechanical portability fix, not a solution change — and note it in the summary. Any **other**
+  syntax failure means broken code → the empty/unsolved guardrail applies (flag, don't commit).
+- Targets B/C (submodules) have no pre-commit config yet; commit them as-is.
+- If `pre-commit` is missing on the machine, install it (`pipx install pre-commit`) instead of
+  skipping lint.
 
 ## Annotate each solution before committing (REQUIRED)
 
@@ -163,9 +182,39 @@ Rules for the annotation:
 - If a unit's solution is **empty/unsolved** or the code is broken, do NOT commit it silently — flag it and ask whether to skip, or wait for the user to finish it.
 - If a unit is genuinely ambiguous (can't tell the problem/technique from the code), ask rather than guess.
 - Committing inside a submodule leaves the **parent repo's submodule pointer** showing as modified — that's expected. Do **not** auto-commit the pointer bump in the parent; leave it for the user.
-- Do **not** push. Only push (or force-push) if the user explicitly asks.
+- Do **not** push. Only push (or force-push) if the user explicitly asks — passing `[lc]` /
+  `[problem]` **is** that explicit ask, but only for the matching main-repo branches (see below).
+  Submodules are never pushed by this command.
+
+## Push & PR flags — `[lc]` / `[problem]`
+
+When `$ARGUMENTS` contains these flags, publishing happens **after** all local unit commits are
+done (local commits always happen regardless):
+
+- `[lc]` → publish **Target A**: `phuc-nguyen/daily-lc-challenge`.
+- `[problem]` → publish **Target D**: **every** `phuc-nguyen/review-*` series branch that
+  received commits in this run (one PR per branch).
+- No flag → local commits only (the default; nothing is pushed).
+
+Publish steps, per branch:
+1. Update the base: `git fetch origin`, then fast-forward local `master`
+   (`git checkout master && git merge --ff-only origin/master`).
+2. `git checkout <branch> && git rebase master`. On any conflict: `git rebase --abort`, report
+   that branch as **not published**, and continue with the remaining branches — never resolve
+   conflicts or force through.
+3. Push: `git push -u origin <branch>` if it has no upstream, else
+   `git push --force-with-lease origin <branch>` (history was just rebased).
+4. Ensure the opt-in label exists (idempotent):
+   `gh label create auto-merge --color 0E8A16 --description "CI merges this PR when lint passes and there are no conflicts" 2>/dev/null || true`
+5. PR: if `gh pr list --head <branch> --state open` is empty →
+   `gh pr create --base master --head <branch> --fill --label auto-merge`.
+   Otherwise the push already updated the open PR — just ensure it carries the label
+   (`gh pr edit <number> --add-label auto-merge`).
+6. From here CI takes over (`.github/workflows/ci.yml`): the `lint` job re-checks the PR diff and
+   the `automerge` job merges the PR once lint is green **and** the PR is conflict-free; a
+   conflicting PR gets a bot comment and stays open for the user to merge manually.
 
 ## After committing
-For each repo you committed in, print its `git log --oneline` for the new commits and the branch it's on, then a combined table of `repo | branch | unit | number | technique`, plus any flagged/skipped units and any branches you created (with their base).
+For each repo you committed in, print its `git log --oneline` for the new commits and the branch it's on, then a combined table of `repo | branch | unit | number | technique`, plus any flagged/skipped units and any branches you created (with their base). When `[lc]`/`[problem]` was passed, also list each published branch's PR URL and whether auto-merge is expected (or why publishing was skipped, e.g. rebase conflict).
 
 Arguments: $ARGUMENTS

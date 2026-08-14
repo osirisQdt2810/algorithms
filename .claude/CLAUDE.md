@@ -41,5 +41,19 @@ This repo is a personal DSA study journal (main repo `dsa-journey` + two git sub
    as modified; **leave that pointer bump for the user** (do not auto-commit it).
 
 5. **Never push or merge to the base branch without an explicit request.** The user merges all PRs.
+   Exception: `/commit-progress` invoked with the `[lc]` / `[problem]` flags **is** that explicit
+   request for the matching main-repo branches — rebase the branch onto the up-to-date base, push
+   it, and open a PR labeled `auto-merge`; CI (`.github/workflows/ci.yml`) then merges the PR
+   automatically once lint is green, provided it has no conflicts (a conflicting PR is left open
+   for the user). Submodule branches are still never pushed automatically.
+
+## Lint
+
+The main repo uses **pre-commit** (`.pre-commit-config.yaml`: clang-format per `.clang-format`,
+`g++ -std=c++20 -fsyntax-only`, whitespace/EOF hygiene). CI runs the same hooks on every PR diff,
+so unlinted commits block auto-merge. Lint main-repo solution files **before staging them**
+(`pre-commit run --files <files>`, re-run until clean — fixer hooks modify in place);
+`/commit-progress` does this automatically. The submodules have no pre-commit config yet — commit
+their units as-is.
 
 See `.claude/commands/commit-progress.md` for the full per-repo commit-message formats and unit rules.
