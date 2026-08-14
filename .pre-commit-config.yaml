@@ -24,6 +24,6 @@ repos:
     hooks:
       - id: cpp-syntax-check
         name: C++ syntax check (g++ -fsyntax-only)
-        entry: g++ -std=c++20 -fsyntax-only
-        language: system
+        entry: scripts/cpp_syntax_check.sh
+        language: script
         types_or: [c++]
