@@ -4,22 +4,22 @@
 #   pre-commit install
 # CI (.github/workflows/ci.yml) runs the same hooks on each PR's diff.
 #
-# Style hooks are scoped to code that is still being written. The archived areas below
-# were finished before this config existed and are deliberately left alone: reformatting
-# them would rewrite thousands of lines of already-merged work for no benefit. Correctness
-# hooks (syntax check, merge markers, line endings) still apply everywhere.
+# NO AUTO-FORMATTER HERE, on purpose. clang-format cannot express this repo's style: it
+# always rewrites `for (...){` to `for (...) {` and `n-1` to `n - 1`, and neither has an
+# option to turn off. Those are the two things this codebase does deliberately, so an
+# auto-formatter would fight every commit. Formatting is the author's call; these hooks only
+# catch things that are actually broken.
 #
-# NOTE: some files outside these paths also predate the lint and are not clang-format
-# clean yet. That is expected — a fixer hook will tidy each one the first time it is
-# touched, so the repo converges as you work instead of in one giant reformat.
-#
-# When starting a new area, do NOT add it here. This list only shrinks.
+# `end-of-file-fixer` is deliberately absent too — a missing trailing newline is not a bug
+# worth rewriting files over.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
+      # Trailing whitespace is invisible and never intentional. Archived areas are left
+      # alone so finished work is not rewritten.
       - id: trailing-whitespace
-        exclude: &archived |
+        exclude: |
           (?x)^(
             src/leetcode/daily/(2024|2025)_
             |src/leetcode/contests/
@@ -27,27 +27,21 @@ repos:
             |src/vnoi/
             |src/codeforces/
           )
-      - id: end-of-file-fixer
-        exclude: *archived
       - id: check-merge-conflict
       - id: check-yaml
       - id: mixed-line-ending
         args: [--fix=lf]
 
-  - repo: https://github.com/pre-commit/mirrors-clang-format
-    rev: v19.1.7
-    hooks:
-      - id: clang-format
-        args: [--style=file, -i]
-        exclude: *archived
-
   - repo: local
     hooks:
-      # Applies to every file, archived or not: this one catches real breakage, and it
-      # already passes repo-wide. -I. because a few solutions include the repo's own
-      # reusable headers by repo-relative path (e.g. topics/graph/disjoint_set_union.hpp).
+      # The one hook that matters: does it compile? Applies everywhere, archived or not.
+      # Two include roots are needed:
+      #   -I.       solutions include the shared headers repo-relative
+      #             (e.g. #include "topics/graph/disjoint_set_union.hpp")
+      #   -Itopics  those headers include each other relative to topics/
+      #             (e.g. minimum_spanning_tree.hpp includes "graph/disjoint_set_union.hpp")
       - id: cpp-syntax-check
         name: C++ syntax check (g++ -fsyntax-only)
-        entry: g++ -std=c++20 -fsyntax-only -I.
+        entry: g++ -std=c++20 -fsyntax-only -I. -Itopics
         language: system
         types_or: [c++]
