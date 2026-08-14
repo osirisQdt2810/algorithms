@@ -29,12 +29,12 @@ class Solution {
         bool isPalindrome2(int x) {
             if (x < 0) return false;
             vector<int> digits;
-            while (x){
+            while (x) {
                 digits.push_back(x % 10);
                 x /= 10;
             }
             int l = 0, r = digits.size() - 1;
-            while (r - l >= 1){
+            while (r - l >= 1) {
                 if (digits[l] != digits[r]) return false;
                 ++l;
                 --r;
@@ -45,7 +45,7 @@ class Solution {
         bool isPalindrome(int x) {
             if (x < 0) return false;
             int revNum = 0, clone = x;
-            while (x){
+            while (x) {
                 revNum = (revNum * 10) + (x % 10);
                 x /= 10;
             }
@@ -53,14 +53,14 @@ class Solution {
         }
 };
 
-auto init = [](){
+auto init = []() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main(){
+int main() {
     Solution sol;
     cout << (sol.isPalindrome(121) ? "true" : "false") << "\n";
     return 0;

@@ -6,25 +6,22 @@ using namespace std;
 
 class Solution {
     private:
-        bool validOpenCloseChars(char& c, char& t){
-            return (
-                (c == '[' && t == ']') ||
-                (c == '(' && t == ')') ||
-                (c == '{' && t == '}')
-            );
+        bool validOpenCloseChars(char& c, char& t) {
+            return ((c == '[' && t == ']') || (c == '(' && t == ')') || (c == '{' && t == '}'));
         }
 
     public:
         bool isValid(string s) {
             stack<char> st;
 
-            for (auto& c : s){
-                if (c == '[' || c == '(' || c == '{'){
+            for (auto& c : s) {
+                if (c == '[' || c == '(' || c == '{') {
                     st.push(c);
-                } 
+                }
                 else {
                     if (st.empty()) return false;
-                    char t = st.top(); st.pop();
+                    char t = st.top();
+                    st.pop();
                     if (!validOpenCloseChars(t, c)) return false;
                 }
             }
@@ -33,14 +30,14 @@ class Solution {
         }
 };
 
-auto init = [](){
+auto init = []() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main(){
+int main() {
 
     return 0;
 }

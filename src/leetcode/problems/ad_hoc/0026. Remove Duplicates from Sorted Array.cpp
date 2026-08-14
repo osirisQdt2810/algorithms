@@ -10,8 +10,9 @@ class Solution {
             if (n < 2) return n;
 
             int pos = 1, curr_val = nums[0], res = 1;
-            while (true){
-                while (pos < n && nums[pos] == curr_val) ++pos;
+            while (true) {
+                while (pos < n && nums[pos] == curr_val)
+                    ++pos;
                 if (pos == n) break;
 
                 curr_val = nums[res] = nums[pos];
@@ -26,14 +27,14 @@ class Solution {
         }
 };
 
-auto init = [](){
+auto init = []() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main(){
-    
+int main() {
+
     return 0;
 }
