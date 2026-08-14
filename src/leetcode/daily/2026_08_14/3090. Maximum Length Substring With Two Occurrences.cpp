@@ -74,26 +74,26 @@ class Solution {
         int maximumLengthSubstring(string s) {
             int n = s.size(), res = 0;
             unordered_map<char, int> freqs;
-            for (int l = 0, r = 0; r < n; ++r) {
+            for (int l = 0, r = 0; r < n; ++r){
                 ++freqs[s[r]];
-                while (freqs[s[r]] > 2) {
+                while (freqs[s[r]] > 2){
                     --freqs[s[l]];
                     ++l;
                 }
-                res = max(res, r - l + 1);
+                res = max(res, r-l+1);
             }
             return res;
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main() {
+int main(){
     Solution sol;
 
     return 0;

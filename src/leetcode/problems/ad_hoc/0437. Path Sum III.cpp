@@ -17,25 +17,24 @@ using namespace std;
  */
 
 struct TreeNode {
-        int val;
-        TreeNode* left;
-        TreeNode* right;
-        TreeNode() : val(0), left(nullptr), right(nullptr) {}
-        TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-        TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
 typedef long long ll;
 
 class Solution {
     private:
-        void downwards(TreeNode* node, int& counter, const vector<ll>& parentSum, int target) {
+        void downwards(TreeNode* node, int& counter, const vector<ll>& parentSum, int target){
             if (node == nullptr) return;
-            vector<ll> currSum;
-            currSum.reserve(parentSum.size());
+            vector<ll> currSum; currSum.reserve(parentSum.size());
             currSum.push_back(node->val);
             counter += (node->val == target);
-            for (const auto& prefixSum : parentSum) {
+            for (const auto& prefixSum : parentSum){
                 ll sum = prefixSum + node->val;
                 counter += (sum == target);
                 currSum.push_back(sum);
@@ -53,8 +52,7 @@ class Solution {
         }
 
     private:
-        map<ll, int>
-            prefixSumCounter; // prefixSumCounter[u] = k means: In a certain current DFS node V, prefix sum u (from root->V) occurs k times.
+        map<ll, int> prefixSumCounter;  // prefixSumCounter[u] = k means: In a certain current DFS node V, prefix sum u (from root->V) occurs k times.
 
         /**
          * @brief
@@ -63,14 +61,12 @@ class Solution {
          * @param parentSum
          * @return int  number of paths that ends at root
          */
-        int dfs(TreeNode* node, ll parentSum, const int& targetSum) {
+        int dfs(TreeNode* node, ll parentSum, const int& targetSum){
             if (node == nullptr) return 0;
 
             parentSum += node->val;
             // number of valid paths ends at node
-            int count = (prefixSumCounter.find(parentSum - targetSum) == prefixSumCounter.end())
-                            ? 0
-                            : prefixSumCounter[parentSum - targetSum];
+            int count = (prefixSumCounter.find(parentSum - targetSum) == prefixSumCounter.end()) ? 0 : prefixSumCounter[parentSum - targetSum];
 
             // add the counter for current prefix sum (node is the last)
             if (prefixSumCounter.find(parentSum) == prefixSumCounter.end())
@@ -91,13 +87,14 @@ class Solution {
         }
 
     public:
+
         int pathSum(TreeNode* root, int targetSum) {
             prefixSumCounter[0] = 1;
             return dfs(root, 0, targetSum);
         }
 };
 
-auto init = []() {
+auto init = [](){
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
