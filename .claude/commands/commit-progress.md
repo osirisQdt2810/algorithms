@@ -121,6 +121,13 @@ on every PR diff, so an unlinted commit will block auto-merge.
 - Targets B/C (submodules) have no pre-commit config yet; commit them as-is.
 - If `pre-commit` is missing on the machine, install it (`pipx install pre-commit`) instead of
   skipping lint.
+- **Style hooks are scoped.** `.pre-commit-config.yaml` excludes archived areas
+  (`daily/2024_*`, `daily/2025_*`, `contests/`, `cses/`, `vnoi/`, `codeforces/`) from
+  clang-format and the whitespace fixers, because reformatting finished work buries the real
+  change. Everything else — including `daily/2026_*` and all of `problems/` — is in scope, so a
+  fixer hook may tidy a file you touch even though you only added a solution; that tidy-up
+  belongs in the same unit commit. Never add a new path to that exclude list to dodge a lint
+  failure. The syntax check is never excluded.
 
 ## Annotate each solution before committing (REQUIRED)
 

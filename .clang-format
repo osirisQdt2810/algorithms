@@ -1,5 +1,11 @@
-# dsa-journey C++ style — tuned to match the existing solution style as closely as
-# clang-format allows (4-space indent, attached braces, indented access modifiers).
+# dsa-journey C++ style — deliberately shaped around how the solutions in this repo are
+# actually written, not around an off-the-shelf preset:
+#   - access modifiers indented one level, members two (`class Solution { public: int f() }`)
+#   - `else` kept on its own line after the closing brace
+#   - includes never reordered, annotation comment blocks never rewrapped
+#
+# One unavoidable deviation: clang-format always puts a space between `)` and `{`, so
+# `for (...){` becomes `for (...) {`. There is no option to disable that.
 BasedOnStyle: LLVM
 Language: Cpp
 
@@ -12,18 +18,40 @@ ColumnLimit: 110
 #     public:
 #         int f() { ... }
 IndentAccessModifiers: true
-BreakBeforeBraces: Attach
 NamespaceIndentation: None
+
+# Do not inject/remove blank lines around `public:` / `private:` — keep what is written.
+EmptyLineBeforeAccessModifier: Leave
+
+# Attach braces everywhere except before `else` / `catch`, which stay on their own line.
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: false
+  AfterStruct: false
+  AfterUnion: false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
+  AfterControlStatement: Never
+  AfterCaseLabel: false
+  BeforeElse: true
+  BeforeCatch: true
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
 
 AllowShortIfStatementsOnASingleLine: WithoutElse
 AllowShortLoopsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortLambdasOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
 
 PointerAlignment: Left
 ReferenceAlignment: Left
 SpaceBeforeParens: ControlStatements
 
-# Keep the solution-template include order and the annotation comment blocks untouched.
+# The include order is the solution template's, and the annotation blocks are hand-wrapped
+# to a fixed column — leave both exactly as written.
 SortIncludes: Never
 ReflowComments: false

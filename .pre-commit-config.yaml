@@ -3,12 +3,32 @@
 # or install as a git hook once per machine:
 #   pre-commit install
 # CI (.github/workflows/ci.yml) runs the same hooks on each PR's diff.
+#
+# Style hooks are scoped to code that is still being written. The archived areas below
+# were finished before this config existed and are deliberately left alone: reformatting
+# them would rewrite thousands of lines of already-merged work for no benefit. Correctness
+# hooks (syntax check, merge markers, line endings) still apply everywhere.
+#
+# NOTE: some files outside these paths also predate the lint and are not clang-format
+# clean yet. That is expected — a fixer hook will tidy each one the first time it is
+# touched, so the repo converges as you work instead of in one giant reformat.
+#
+# When starting a new area, do NOT add it here. This list only shrinks.
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
       - id: trailing-whitespace
+        exclude: &archived |
+          (?x)^(
+            src/leetcode/daily/(2024|2025)_
+            |src/leetcode/contests/
+            |src/cses/
+            |src/vnoi/
+            |src/codeforces/
+          )
       - id: end-of-file-fixer
+        exclude: *archived
       - id: check-merge-conflict
       - id: check-yaml
       - id: mixed-line-ending
@@ -19,11 +39,13 @@ repos:
     hooks:
       - id: clang-format
         args: [--style=file, -i]
+        exclude: *archived
 
   - repo: local
     hooks:
-      # -I. because a few solutions include the repo's own reusable headers by
-      # repo-relative path, e.g. #include "topics/graph/disjoint_set_union.hpp".
+      # Applies to every file, archived or not: this one catches real breakage, and it
+      # already passes repo-wide. -I. because a few solutions include the repo's own
+      # reusable headers by repo-relative path (e.g. topics/graph/disjoint_set_union.hpp).
       - id: cpp-syntax-check
         name: C++ syntax check (g++ -fsyntax-only)
         entry: g++ -std=c++20 -fsyntax-only -I.
