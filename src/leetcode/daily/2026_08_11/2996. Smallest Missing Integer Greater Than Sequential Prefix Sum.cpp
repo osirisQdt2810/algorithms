@@ -11,11 +11,6 @@ using namespace std;
     LC 2996 - Smallest Missing Integer Greater Than Sequential Prefix Sum
     https://leetcode.com/problems/smallest-missing-integer-greater-than-sequential-prefix-sum/
 
-    NOTE: the filename says "3345. Smallest Divisible Digit Product I", but the code below solves
-    LC 2996 (missingInteger) - the filename is a leftover from the template this file was copied
-    from (LC 3345 itself was solved on 06-08-2026). Everything documented here is LC 2996, the
-    problem the code actually solves.
-
     Problem:
         You are given a 0-indexed array of integers nums.
         A prefix nums[0..i] is sequential if, for all 1 <= j <= i, nums[j] = nums[j - 1] + 1. In
