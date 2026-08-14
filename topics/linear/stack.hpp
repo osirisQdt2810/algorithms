@@ -48,11 +48,11 @@ namespace dsa::linear::stack {
                 return res;
             }
 
-            T pop() { 
-                T res = st.top(); st.pop(); 
-                return res; 
+            T pop() {
+                T res = st.top(); st.pop();
+                return res;
             }
-            
+
             T top() const { return st.top(); }
             bool empty() const { return st.empty(); }
             int  size()  const { return static_cast<int>(st.size()); }
@@ -77,11 +77,11 @@ namespace dsa::linear::stack {
                 return res;
             }
 
-            IndexType pop() { 
-                IndexType res = st.top(); st.pop(); 
-                return res; 
+            IndexType pop() {
+                IndexType res = st.top(); st.pop();
+                return res;
             }
-            
+
             IndexType top() const { return st.top(); }
             bool empty() const { return st.empty(); }
             int  size()  const { return static_cast<int>(st.size()); }

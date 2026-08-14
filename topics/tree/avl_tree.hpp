@@ -216,7 +216,7 @@ protected:
 public:
     using BinarySearchTree<T>::insert;
     using BinarySearchTree<T>::remove;
-    
+
     /**
      * @brief Creates an empty AVL tree.
      */

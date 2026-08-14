@@ -40,11 +40,11 @@ namespace dsa::string {
             static inline std::vector<int> prefix_function(const std::string& s) {
                 // 0...p[i-1]....i-1 i
                 // target in index i: find all suffixes end by `s[i]` (s[k->i]), which matched with prefix string [0->(i-k)]
-                // 1. we have T1=p[i-1]: [0.........T1-1] T1 .... [T1(i-1)....i-1] i 
+                // 1. we have T1=p[i-1]: [0.........T1-1] T1 .... [T1(i-1)....i-1] i
                 //      => have: s[0.........T1-1] = s[T1(i-1)....i-1]
                 //      => check: if s[T1] = s[i] or not
                 //          - if yes: => obviously p[i] = T1+1
-                //          - otherwise:  
+                //          - otherwise:
                 //              2. we have T2=p[T1-1]: [0...T2-1] T2 ... [X(T1)...T1-1] ..... [T2(i-1)...i-1] i
                 //              => have: s[0...T2-1] = s[X(T1)...T1-1] = s[T2(i-1)...i-1]
                 //              => check: if s[T2] = s[i] or not

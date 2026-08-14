@@ -14,7 +14,7 @@
 using namespace dsa::utility::monoid;
 
 namespace dsa::graph {
-    
+
     template<typename WeightType = float, class Ops = sumops<WeightType>>
     class GenericLowestCommonAncestor {
         public:
@@ -277,7 +277,7 @@ namespace dsa::graph {
                     if (!is_ancestor(up_[u][j], v)){
                         u = up_[u][j];
                     }
-                } 
+                }
                 return up_[u][0];
             }
 

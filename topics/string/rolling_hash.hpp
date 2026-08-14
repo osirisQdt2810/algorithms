@@ -24,7 +24,7 @@ namespace dsa::string {
      *           => hash_[3] = s[0] * BASE^2 + s[1] * BASE^1 + s[2] * BASE^0    (not s[0] * BASE^(n-1) + s[1] * BASE^(n-2) + s[2] * BASE^(n-3))
      *           ............
      *           substring hash(i,j) = hash_[j+1] - hash_[i] * BASE^(j+1-i), no mod_inv needed
-     * 
+     *
      */
     template<HashPolicy Policy = HashPolicy::Forward>
     class StringHash {
