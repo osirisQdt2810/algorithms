@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -67,7 +70,7 @@ class Solution {
                 B[i+1] = B[i] + grid[1][i];
             }
 
-            long long res = LONG_LONG_MAX;
+            long long res = LLONG_MAX;
             for (int i = 0; i < n; ++i){        // first robot will
                                                 //      0...0 ai+1 ... an-1
                                                 //      b0..0 0 .......0
@@ -86,7 +89,7 @@ class Solution {
 
             long long preA = 0, preB = 0;
 
-            long long res = LONG_LONG_MAX;
+            long long res = LLONG_MAX;
             for (int i = 0; i < n; ++i){        // first robot will
                                                 //      0...0 ai+1 ... an-1
                                                 //      b0..0 0 .......0

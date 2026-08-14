@@ -37,7 +37,9 @@
 //     cout<<dp[(1<<n)-1].first;
 // }
 
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <utility>
 using namespace std;
 int main(){
     int n,x;

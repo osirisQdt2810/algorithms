@@ -1,4 +1,7 @@
-#include <bits/stdc++.h>
+#include <cstdint>
+#include <iostream>
+#include <vector>
+#include <cmath>
 
 using namespace std;
 

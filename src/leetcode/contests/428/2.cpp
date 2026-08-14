@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <climits>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -117,10 +122,16 @@ public:
 
     }
 
-    bool visited[25][25];
-    vector<vector<VW>>
+    // ---- Second approach, abandoned mid-write during the contest ----
+    // Kept for the record, renamed so it no longer clashes with the finished maxAmount2
+    // above (same signature). It has no return statement — the body stops inside the
+    // rate-loading loop. The two declarations below are also unfinished: `visited` here
+    // collides with the 1-D `visited[25]` at the top of the class, and the second line is
+    // a fragment (`VW` was never defined), so both stay commented out.
+    // bool visited[25][25];
+    // vector<vector<VW>>
 
-    double maxAmount2(string initialCurrency, vector<vector<string>>& pairs1, vector<double>& rates1, vector<vector<string>>& pairs2, vector<double>& rates2) {
+    double maxAmount2_wip(string initialCurrency, vector<vector<string>>& pairs1, vector<double>& rates1, vector<vector<string>>& pairs2, vector<double>& rates2) {
         map<string, int> vertice;
 
         int N = 1;
@@ -185,5 +196,5 @@ int main(){
 
 
 
-    cout << sol.maxAmount(initialCurrency, pairs1, rates1, pairs2, rates2);
+    cout << sol.maxAmount2(initialCurrency, pairs1, rates1, pairs2, rates2);
 }
