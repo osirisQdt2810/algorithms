@@ -5,6 +5,7 @@
 #include <unordered_map>
 
 #include "topics/graph/disjoint_set_union.hpp"
+#include <string>
 
 using namespace std;
 
@@ -13,18 +14,19 @@ using Weight = double;
 using WeightNeighbor = std::pair<Vertex, Weight>;
 
 struct Graph {
-    int V, E;
-    std::vector<std::vector<WeightNeighbor>> adj;
-    std::vector<bool> visited;
+        int V, E;
+        std::vector<std::vector<WeightNeighbor>> adj;
+        std::vector<bool> visited;
 };
 
 class Solution {
     private:
-        Graph build_graph(int V, const vector<vector<string>>& equations, const vector<double>& values, unordered_map<string, int>& var2id){
+        Graph build_graph(int V, const vector<vector<string>>& equations, const vector<double>& values,
+                          unordered_map<string, int>& var2id) {
             Graph g;
             g.V = V;
             g.adj.resize(V);
-            for (int i = 0; i < (int)(equations.size()); ++i){
+            for (int i = 0; i < (int)(equations.size()); ++i) {
                 int u = var2id.at(equations[i][0]);
                 int v = var2id.at(equations[i][1]);
                 double w = values[i];
@@ -34,13 +36,13 @@ class Solution {
             return g;
         }
 
-        double dfs(Graph& g, int u, int target){
+        double dfs(Graph& g, int u, int target) {
             if (u == target) return 1.;
             g.visited[u] = true;
-            for (auto& [v, w] : g.adj[u]){
-                if (!g.visited[v]){
+            for (auto& [v, w] : g.adj[u]) {
+                if (!g.visited[v]) {
                     double vt = dfs(g, v, target);
-                    if (vt != -1.){
+                    if (vt != -1.) {
                         return vt * w;
                     }
                 }
@@ -49,14 +51,15 @@ class Solution {
         }
 
     public:
-        vector<double> calcEquationDFS(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+        vector<double> calcEquationDFS(vector<vector<string>>& equations, vector<double>& values,
+                                       vector<vector<string>>& queries) {
             int V = 0;
             unordered_map<string, int> var2id;
-            for (auto& equation : equations){
-                if (var2id.find(equation[0]) == var2id.end()){
+            for (auto& equation : equations) {
+                if (var2id.find(equation[0]) == var2id.end()) {
                     var2id[equation[0]] = V++;
                 }
-                if (var2id.find(equation[1]) == var2id.end()){
+                if (var2id.find(equation[1]) == var2id.end()) {
                     var2id[equation[1]] = V++;
                 }
             }
@@ -70,7 +73,7 @@ class Solution {
 
             int Q = queries.size();
             vector<double> res(Q, -1.);
-            for (int i = 0; i < Q; ++i){
+            for (int i = 0; i < Q; ++i) {
                 auto& q = queries[i];
                 if (var2id.find(q[0]) == var2id.end() || var2id.find(q[1]) == var2id.end()) continue;
                 int u = var2id.at(q[0]);
@@ -82,21 +85,22 @@ class Solution {
             return res;
         }
 
-        vector<double> calcEquationWDSU(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+        vector<double> calcEquationWDSU(vector<vector<string>>& equations, vector<double>& values,
+                                        vector<vector<string>>& queries) {
             int V = 0;
             unordered_map<string, int> var2id;
-            for (auto& equation : equations){
-                if (var2id.find(equation[0]) == var2id.end()){
+            for (auto& equation : equations) {
+                if (var2id.find(equation[0]) == var2id.end()) {
                     var2id[equation[0]] = V++;
                 }
-                if (var2id.find(equation[1]) == var2id.end()){
+                if (var2id.find(equation[1]) == var2id.end()) {
                     var2id[equation[1]] = V++;
                 }
             }
 
             using WDSU = dsa::graph::WeightedDisjointSetUnion<double>;
             WDSU dsu(V);
-            for (int i = 0; i < (int)(equations.size()); ++i){
+            for (int i = 0; i < (int)(equations.size()); ++i) {
                 int u = var2id.at(equations[i][0]);
                 int v = var2id.at(equations[i][1]);
                 double w = values[i];
@@ -105,7 +109,7 @@ class Solution {
 
             int Q = queries.size();
             vector<double> res(Q, -1.);
-            for (int i = 0; i < Q; ++i){
+            for (int i = 0; i < Q; ++i) {
                 auto& q = queries[i];
                 if (var2id.find(q[0]) == var2id.end() || var2id.find(q[1]) == var2id.end()) continue;
                 int u = var2id.at(q[0]);
@@ -117,25 +121,27 @@ class Solution {
             return res;
         }
 
-        vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+        vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values,
+                                    vector<vector<string>>& queries) {
             return calcEquationWDSU(equations, values, queries);
         }
 };
 
-auto init = [](){
+auto init = []() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
     std::cout.tie(nullptr);
     return 'c';
 }();
 
-int main(){
+int main() {
     Solution s;
-    vector<vector<string>> equations = {{"a","b"},{"b","c"},{"a","c"},{"d","e"}};
-    vector<double> values = {2.0,3.0,6.0,1.0};
-    vector<vector<string>> queries = {{"a","c"},{"b","a"},{"a","e"},{"a","a"},{"x","x"}};
+    vector<vector<string>> equations = {{"a", "b"}, {"b", "c"}, {"a", "c"}, {"d", "e"}};
+    vector<double> values = {2.0, 3.0, 6.0, 1.0};
+    vector<vector<string>> queries = {{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}};
 
     auto res = s.calcEquation(equations, values, queries);
-    for (auto r : res) std::cout << r << " ";
+    for (auto r : res)
+        std::cout << r << " ";
     return 0;
 }

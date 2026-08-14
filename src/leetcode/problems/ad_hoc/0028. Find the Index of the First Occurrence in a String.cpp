@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -10,14 +11,14 @@ class Solution {
         }
 };
 
-auto init = [](){
+auto init = []() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
     return 'c';
 }();
 
-int main(){
-    
+int main() {
+
     return 0;
 }
