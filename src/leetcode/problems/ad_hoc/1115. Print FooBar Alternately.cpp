@@ -1,4 +1,9 @@
-#include <bits/stdc++.h>
+#include <atomic>
+#include <condition_variable>
+#include <cstdio>
+#include <functional>
+#include <mutex>
+#include <thread>
 #include <semaphore.h>
 
 using namespace std;

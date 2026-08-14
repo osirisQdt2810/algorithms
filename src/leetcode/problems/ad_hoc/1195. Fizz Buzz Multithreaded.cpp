@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <functional>
+#include <iostream>
+#include <thread>
 #include <semaphore.h>
 
 using namespace std;
