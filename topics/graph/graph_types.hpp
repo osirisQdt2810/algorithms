@@ -9,6 +9,7 @@
 #include <ostream>
 #include <utility>
 #include <vector>
+#include <iostream>
 
 namespace dsa::graph {
 

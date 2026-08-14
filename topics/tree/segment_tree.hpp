@@ -6,6 +6,9 @@
 #include <vector>
 
 #include "utility.hpp"
+#include <algorithm>
+#include <iostream>
+#include <limits>
 
 using namespace dsa::utility;
 

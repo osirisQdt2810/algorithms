@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -13,7 +14,7 @@ class Algebra {
     public:
         static inline vector<ll> eratos(ll N){
             vector<bool> mask(UPPER_BOUND, true);
-            mask[0] = mask[1] = false; 
+            mask[0] = mask[1] = false;
 
             for (ll l = 2; l <= sqrt(UPPER_BOUND); ++l){
                 if (mask[l]){
@@ -33,7 +34,7 @@ class Algebra {
         }
 
         /**
-         * @brief a^n % mod 
+         * @brief a^n % mod
          */
         static inline long long mod_power(long long a, long long n, const long long& mod = 1e9 + 7){
             if (n == 0) return 1;
@@ -51,7 +52,7 @@ class Algebra {
         }
 
         /**
-         * @brief n! % mod 
+         * @brief n! % mod
          */
         static inline long long mod_factorial(long long n, const long long& mod = 1e9 + 7){
             long long f = 1;
@@ -68,7 +69,7 @@ class Algebra {
             fact[0] = 1;
             for (int i = 1; i <= n; ++i)
                 fact[i] = fact[i - 1] * i % mod;
-            
+
             long long t = mod_power(fact[k] * fact[n - k] % mod, mod - 2, mod);
             return fact[n] * t % mod;
         }

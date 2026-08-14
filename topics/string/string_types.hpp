@@ -1,8 +1,10 @@
 #ifndef DSA_STRING_STRING_TYPES_HPP
 #define DSA_STRING_STRING_TYPES_HPP
 
+#include <string>
+
 namespace dsa::string {
-    
+
     inline constexpr long long HASH_BASE = 31;
     inline constexpr long long HASH_MOD = 1e9 + 9;
 
