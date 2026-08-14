@@ -7,6 +7,9 @@
 #include <cassert>
 #include <utility>
 #include <vector>
+#include <cmath>
+#include <iostream>
+#include <iterator>
 
 using namespace dsa::utility::monoid;
 

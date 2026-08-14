@@ -4,6 +4,8 @@
 #include "utility.hpp"
 
 #include <stack>
+#include <functional>
+#include <vector>
 
 namespace dsa::linear::stack {
 

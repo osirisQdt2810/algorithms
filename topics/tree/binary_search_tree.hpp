@@ -5,6 +5,7 @@
 
 #include <limits>
 #include <vector>
+#include <algorithm>
 
 namespace dsa::tree {
 

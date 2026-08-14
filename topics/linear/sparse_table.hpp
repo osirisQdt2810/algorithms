@@ -5,6 +5,8 @@
 
 #include <cmath>
 #include <vector>
+#include <algorithm>
+#include <limits>
 
 using namespace dsa::utility::monoid;
 
