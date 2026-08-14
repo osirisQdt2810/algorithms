@@ -31,16 +31,12 @@ auto init = [](){
 int main(){
     Solution sol;
 
-    // vector<int> nums = {2,1,3,5,6};
-    // int k = 5, multiplier = 2;
+    vector<int> prices = {8, 4, 6, 2, 3};
 
-    // vector<int> nums = {100000, 2000};
-    // int k = 2, multiplier = 1000000;
-
-    vector<int> nums = {4, 2, 4};
-    int k = 3, multiplier = 2;
-
-    sol.getFinalState(nums, k, multiplier);
+    for (int p : sol.finalPrices(prices)){
+        cout << p << " ";
+    }
+    cout << "\n";
 
     return 0;
 }

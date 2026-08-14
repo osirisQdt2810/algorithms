@@ -49,10 +49,16 @@ auto init = [](){
 }();
 
 int main(){
-    Solution sol;
-    vector<int> nums = {4,1,3,3};
+    NumberContainers cont;
 
-    cout << sol.countBadPairs(nums);
+    cout << cont.find(10) << "\n";   // -1, nothing stored yet
+    cont.change(2, 10);
+    cont.change(1, 10);
+    cont.change(3, 10);
+    cont.change(5, 10);
+    cout << cont.find(10) << "\n";   // 1, smallest index holding 10
+    cont.change(1, 20);
+    cout << cont.find(10) << "\n";   // 2, index 1 now holds 20
 
     return 0;
 }

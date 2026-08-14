@@ -53,15 +53,25 @@ auto init = [](){
 int main(){
     Solution sol;
 
-    // vector<int> nums = {2,1,3,5,6};
-    // int k = 5, multiplier = 2;
+    // root = [2,3,5,8,13,21,34] -> expected [2,5,3,8,13,21,34]
+    TreeNode* root = new TreeNode(2,
+        new TreeNode(3, new TreeNode(8), new TreeNode(13)),
+        new TreeNode(5, new TreeNode(21), new TreeNode(34)));
 
-    // vector<int> nums = {100000, 2000};
-    // int k = 2, multiplier = 1000000;
+    root = sol.reverseOddLevels(root);
 
-    vector<int> arr = {1,0,2,3,4};
-
-    cout << sol.maxChunksToSorted(arr);
+    // level-order print
+    vector<TreeNode*> level{root};
+    while (!level.empty()){
+        vector<TreeNode*> next;
+        for (TreeNode* node : level){
+            cout << node->val << " ";
+            if (node->left) next.push_back(node->left);
+            if (node->right) next.push_back(node->right);
+        }
+        level = next;
+    }
+    cout << "\n";
 
     return 0;
 }
