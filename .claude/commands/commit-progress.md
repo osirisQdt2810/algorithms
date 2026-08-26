@@ -1,6 +1,6 @@
 ---
-description: Commit study progress — daily LeetCode (main repo) + course lessons/homework/revision (submodules), one commit per unit, on the correct per-repo branch; [lc]/[problem] flags also publish those branches as auto-merge PRs
-argument-hint: "[optional flags: [lc] [problem] to rebase+push+PR those targets] [optional: paths/names to restrict scope, e.g. 2026_07_06 | lesson-06-graph | 01-two-pointers-sliding-window; else all pending]"
+description: Commit study progress — daily LeetCode (main repo) + course lessons/homework/revision (submodules), one commit per unit, on the correct per-repo branch; the `push` mode also rebases+pushes every touched branch, and `pr` additionally opens PRs, waits for auto-merge, then rebase-sweeps the other local branches
+argument-hint: "[optional mode: push | pr — push rebases+pushes every touched branch, pr also opens PRs and waits for auto-merge then rebase-sweeps the rest; omit for local commits only] [optional: paths/names to restrict scope, e.g. 2026_07_06 | lesson-06-graph | 01-two-pointers-sliding-window; else all pending]"
 allowed-tools: Bash(git:*), Bash(ls:*), Bash(gh:*), Bash(pre-commit:*), Bash(g++:*), Read, Edit, WebFetch
 ---
 
@@ -17,7 +17,7 @@ The two `courses/*` folders are **git submodules** — commit *inside* the submo
 | C | `courses/fse13-faang` (submodule) | `NN-<topic>/{homework,livecoding,revision}/` | one **problem** file (+ any sibling input) |
 | D | `.` (main repo `dsa-journey`) | `src/leetcode/problems/<topic>/` | one **problem** file `NNNN. *.cpp` (+ any sibling input) — a self-study *review series* |
 
-- `$ARGUMENTS` may contain the publish flags `[lc]` / `[problem]` (see **Push & PR flags** below) — strip them first; the remaining tokens are scope filters.
+- `$ARGUMENTS` may contain a publish mode — the bare word `push` or `pr` (see **Publish modes** below) — strip it first; the remaining tokens are scope filters.
 - If the remaining `$ARGUMENTS` name specific date folders / lesson folders / topic folders, restrict to those; otherwise commit **every** pending unit found across all three targets.
 - Discover pending work per repo with:
   - `git status --porcelain src/leetcode/daily/` (Target A)
@@ -40,7 +40,7 @@ Each repo must be on the **correct feature branch** for the work. Never commit o
      3. If **no** review branch covers the topic, **create** `phuc-nguyen/review-<series>`, naming `<series>` from the topic slug(s) in the script's `TOPIC_ALIASES` (a short family name is fine, e.g. `review-trie`, `review-segtree`). Flag the created name. Only **ask** the user when it's genuinely ambiguous which existing series the problem belongs to.
      - **The branch is decided by the problem's `problems/<topic>/` folder, NEVER by whichever branch happens to be checked out.** The current branch counts only when it is *independently* the branch the folder resolves to. A new file in `problems/ad_hoc/` while HEAD sits on `phuc-nguyen/review-graph-sp-mst` must be committed on the ad-hoc series branch (creating it if needed) — **not** on `review-graph-sp-mst` just because you were already there. Before staging any Target D unit, re-derive the branch from its folder and compare it against `git rev-parse --abbrev-ref HEAD`; if they differ, check out (or create) the right one first.
      - Units from **different `problems/<topic>` folders that resolve to different series must go on different branches**, each in its own checkout — even when they were all written in the same sitting and show up in one `git status`. Never let convenience batch unrelated topics onto one branch.
-     - These review branches often sit **behind `master`** (an already-merged series) — commit the new problem on the branch as-is and note it's behind master; do **not** rebase/rewrite without asking. Exception: the `[problem]` flag authorizes exactly this rebase, as part of the publish flow (see **Push & PR flags**).
+     - These review branches often sit **behind `master`** (an already-merged series) — commit the new problem on the branch as-is and note it's behind master; do **not** rebase/rewrite without asking. Exception: the `push` / `pr` mode authorizes exactly this rebase, as part of the publish flow (see **Publish modes**).
 2. Check the repo's current branch (`git -C <repo> rev-parse --abbrev-ref HEAD`).
    - Already on the expected branch → proceed.
    - Expected branch exists locally → `git -C <repo> checkout <branch>` (new practice files are untracked and carry over safely).
@@ -95,7 +95,7 @@ Pick `[add]` for brand-new files (untracked / added), `[update]` for modificatio
 
 The main repo has pre-commit configured (`.pre-commit-config.yaml`: clang-format per
 `.clang-format`, `g++ -std=c++20 -fsyntax-only`, whitespace/EOF hygiene). CI runs the same hooks
-on every PR diff, so an unlinted commit will block auto-merge.
+on every PR diff, so an unlinted commit will block auto-merge in `pr` mode.
 
 - Before staging each Target A/D unit (after writing the annotation block):
   `pre-commit run --files <unit files>`. Fixer hooks modify files in place and report "failed" on
@@ -201,40 +201,119 @@ Rules for the annotation:
 - **Never** `git add -A`; stage only the unit's own files.
 - If a unit's solution is **empty/unsolved** or the code is broken, do NOT commit it silently — flag it and ask whether to skip, or wait for the user to finish it.
 - If a unit is genuinely ambiguous (can't tell the problem/technique from the code), ask rather than guess.
-- Committing inside a submodule leaves the **parent repo's submodule pointer** showing as modified — that's expected. Do **not** auto-commit the pointer bump in the parent; leave it for the user.
-- Do **not** push. Only push (or force-push) if the user explicitly asks — passing `[lc]` /
-  `[problem]` **is** that explicit ask, but only for the matching main-repo branches (see below).
-  Submodules are never pushed by this command.
+- Committing inside a submodule leaves the **parent repo's submodule pointer** showing as modified — that's expected. Do **not** auto-commit the pointer bump in the parent; leave it for the user. This stays true in `push` / `pr` mode: the submodule *branch* gets pushed, the parent's pointer bump does not.
+- **Pushing is authorized only by the mode word.** With no mode, nothing is pushed in any repo —
+  do not offer to push as a bonus, just report the local commits.
+- The only force-push you may ever run is `--force-with-lease`, and only on a branch you just
+  rebased yourself. Never `--force`, and never push directly to `master` / `main`.
+- `pr` mode may cause a merge into the base, but **only** via the `auto-merge` label + the CI bot.
+  Never merge a PR yourself, in either repo kind.
 
-## Push & PR flags — `[lc]` / `[problem]`
+## Publish modes — `push` / `pr`
 
-When `$ARGUMENTS` contains these flags, publishing happens **after** all local unit commits are
-done (local commits always happen regardless):
+`$ARGUMENTS` may contain exactly one publish mode. Publishing happens **after** all local unit
+commits are done (local commits always happen, whatever the mode).
 
-- `[lc]` → publish **Target A**: `phuc-nguyen/daily-lc-challenge`.
-- `[problem]` → publish **Target D**: **every** `phuc-nguyen/review-*` series branch that
-  received commits in this run (one PR per branch).
-- No flag → local commits only (the default; nothing is pushed).
+| mode | what happens |
+|---|---|
+| *(none)* | **Local commits only — the default.** Nothing is pushed anywhere. |
+| `push` | Rebase + push **every branch that received a commit in this run**, in all three repos. No PR is opened. |
+| `pr` | Everything `push` does, then open/refresh a PR per branch, wait for the auto-merge bot, then rebase-sweep every other local topic branch onto the updated base and re-push it. |
 
-Publish steps, per branch:
-1. Update the base: `git fetch origin`, then fast-forward local `master`
-   (`git checkout master && git merge --ff-only origin/master`).
-2. `git checkout <branch> && git rebase master`. On any conflict: `git rebase --abort`, report
-   that branch as **not published**, and continue with the remaining branches — never resolve
-   conflicts or force through.
-3. Push: `git push -u origin <branch>` if it has no upstream, else
-   `git push --force-with-lease origin <branch>` (history was just rebased).
-4. Ensure the opt-in label exists (idempotent):
+- The mode is a **bare word** (`push` / `pr`), matched case-insensitively. Strip it from
+  `$ARGUMENTS` first; the remaining tokens are scope filters exactly as before.
+- The old `[lc]` / `[problem]` flags are **gone**. Those selected *targets*; the mode now applies to
+  **every** branch this run touched, in **every** repo (submodules included). Unit→branch
+  resolution by domain/topic is completely unchanged — see **Branch handling** above.
+- If both words appear, treat it as `pr` and say so in the summary.
+
+### Per-repo facts the publish flow needs
+
+**Never hardcode `origin`** — `courses/fse13-faang` pushes to a remote named **`fseorg`**. Resolve
+the base branch and remote per repo before pushing:
+
+| repo | base branch | remote |
+|---|---|---|
+| `.` (main repo) | `master` | `origin` |
+| `courses/dsa-mentorship` | `main` | `origin` |
+| `courses/fse13-faang` | `main` | `fseorg` |
+
+Derive the remote from the base branch's upstream rather than trusting the table:
+`git -C <repo> rev-parse --abbrev-ref <base>@{upstream}` → e.g. `fseorg/main`, so the remote is the
+part before the `/`.
+
+### Step 1 — rebase + push (both `push` and `pr`)
+
+Group the branches that received commits by repo; for each repo, then each branch:
+
+1. Update the base: `git -C <repo> fetch <remote>`, then
+   `git -C <repo> checkout <base> && git -C <repo> merge --ff-only <remote>/<base>`.
+   If the ff-only merge fails the local base has diverged → **stop for that repo**, publish nothing
+   there, and report it.
+2. `git -C <repo> checkout <branch> && git -C <repo> rebase <base>`. On any conflict:
+   `git -C <repo> rebase --abort`, report that branch as **not published**, and continue with the
+   remaining branches. Never resolve conflicts, never force through.
+3. Push: `git -C <repo> push -u <remote> <branch>` when the branch has no upstream, else
+   `git -C <repo> push --force-with-lease <remote> <branch>` (the rebase rewrote history). If
+   `--force-with-lease` is rejected the remote branch moved underneath you → report it, do **not**
+   retry with `--force`.
+
+`push` mode stops here. Report the pushed branches and move on to **After committing**.
+
+### Step 2 — open the PRs (`pr` mode only)
+
+Only the **main repo** has the auto-merge bot (`.github/workflows/ci.yml`); the submodules have no
+CI at all.
+
+4. Main repo — ensure the opt-in label exists (idempotent):
    `gh label create auto-merge --color 0E8A16 --description "CI merges this PR when lint passes and there are no conflicts" 2>/dev/null || true`
-5. PR: if `gh pr list --head <branch> --state open` is empty →
-   `gh pr create --base master --head <branch> --fill --label auto-merge`.
-   Otherwise the push already updated the open PR — just ensure it carries the label
+5. Main repo, per branch: if `gh pr list --head <branch> --state open` is empty →
+   `gh pr create --base master --head <branch> --fill --label auto-merge`. Otherwise the push in
+   step 3 already updated the open PR — just ensure the label
    (`gh pr edit <number> --add-label auto-merge`).
-6. From here CI takes over (`.github/workflows/ci.yml`): the `lint` job re-checks the PR diff and
-   the `automerge` job merges the PR once lint is green **and** the PR is conflict-free; a
-   conflicting PR gets a bot comment and stays open for the user to merge manually.
+6. Submodules, per branch: `gh pr create -R <owner>/<repo> --base main --head <branch> --fill`, with
+   **no** `auto-merge` label — there is no CI there to honour it. Report the URL and state plainly
+   that it waits for a **manual** merge by the user.
+
+### Step 3 — wait for the auto-merge bot (`pr` mode, main repo only)
+
+7. Poll each main-repo PR until it merges: `gh pr view <number> --json state,mergedAt,mergeStateStatus`,
+   about every 20s for up to ~10 minutes total across all PRs.
+   - `MERGED` → good, the base advanced.
+   - Still `OPEN` at the deadline, or `CLOSED` without a merge, or the bot commented that the PR
+     conflicts with `master` → record that branch as **published but not merged** and move on.
+     **Never merge the PR yourself.**
+8. Never wait on a submodule PR — nothing will merge it automatically.
+
+### Step 4 — rebase sweep (`pr` mode only, and only after something actually merged)
+
+A merge advances the base, so every other local topic branch now sits on stale history. That is what
+this sweep fixes.
+
+9. `git -C <repo> fetch <remote>` and fast-forward the base again as in step 1. **If the base did not
+   move, skip the sweep entirely** and say so — there is nothing to rebase onto.
+10. Eligible branches are **only** `phuc-nguyen/*` local branches. Never rewrite the base itself, and
+    never touch a branch whose upstream *is* the base — the main repo has a `cheatsheet` branch
+    tracking `origin/master`, and force-pushing that would rewrite master's remote ref.
+11. For each eligible branch (including the ones just merged in this run):
+    - `git rev-list --count <base>..<branch>` is `0` → the series is fully merged; bring it level with
+      `git merge --ff-only <base>` and push it with a **plain** push (no force needed) if it has an
+      upstream.
+    - otherwise `git checkout <branch> && git rebase <base>`, then re-push as in step 3
+      (`--force-with-lease`, since the rebase rewrote history). On conflict: `git rebase --abort`,
+      leave that branch exactly as it was, report it, and continue with the next.
+12. A branch with **no** upstream is rebased locally and **not** pushed — the sweep never publishes
+    work that was never published before.
+13. Run the sweep in the submodules too, but only when step 9 shows their base actually advanced
+    (i.e. the user merged an earlier submodule PR themselves). Submodule PRs opened in this run never
+    merge on their own, so normally the submodule sweep is a no-op.
 
 ## After committing
-For each repo you committed in, print its `git log --oneline` for the new commits and the branch it's on, then a combined table of `repo | branch | unit | number | technique`, plus any flagged/skipped units and any branches you created (with their base). When `[lc]`/`[problem]` was passed, also list each published branch's PR URL and whether auto-merge is expected (or why publishing was skipped, e.g. rebase conflict).
+For each repo you committed in, print its `git log --oneline` for the new commits and the branch it's on, then a combined table of `repo | branch | unit | number | technique`, plus any flagged/skipped units and any branches you created (with their base).
+
+Then, when a mode was passed:
+- **`push` and `pr`** — a publish table `repo | branch | pushed? | how (new upstream / force-with-lease)`, and for anything not pushed, the reason (rebase conflict, diverged base, rejected lease).
+- **`pr` only** — add `PR URL | merged?` per branch, marking submodule PRs as *manual merge, no CI*; then a sweep table `repo | branch | rebased or ff | re-pushed? | conflict?`, or an explicit line saying the sweep was skipped because the base never moved.
+- **No mode** — say plainly that nothing was pushed and name the mode word (`push` / `pr`) that would publish it.
 
 Arguments: $ARGUMENTS

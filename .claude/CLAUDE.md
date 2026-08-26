@@ -38,20 +38,31 @@ This repo is a personal DSA study journal (main repo `dsa-journey` + two git sub
 
 4. Submodules are independent repos — commit inside them with `git -C courses/<name> …` on their
    own topic branches. Committing in a submodule leaves the parent repo's submodule pointer showing
-   as modified; **leave that pointer bump for the user** (do not auto-commit it).
+   as modified; **leave that pointer bump for the user** (do not auto-commit it) — this holds even
+   when the submodule branch itself gets pushed. **Their remote is not always `origin`:**
+   `courses/dsa-mentorship` → `origin`, `courses/fse13-faang` → **`fseorg`**. Resolve the remote
+   from `<base>@{upstream}` instead of assuming.
 
 5. **Never push or merge to the base branch without an explicit request.** The user merges all PRs.
-   Exception: `/commit-progress` invoked with the `[lc]` / `[problem]` flags **is** that explicit
-   request for the matching main-repo branches — rebase the branch onto the up-to-date base, push
-   it, and open a PR labeled `auto-merge`; CI (`.github/workflows/ci.yml`) then merges the PR
-   automatically once lint is green, provided it has no conflicts (a conflicting PR is left open
-   for the user). Submodule branches are still never pushed automatically.
+   Exception: `/commit-progress` invoked with the mode word `push` or `pr` **is** that explicit
+   request, and it now covers **every** branch the run touched in **all three** repos (submodules
+   included):
+   - `push` → rebase each touched branch onto its up-to-date base and push it
+     (`--force-with-lease` after the rebase). No PR.
+   - `pr` → the same, then open a PR per branch. Main-repo PRs get the `auto-merge` label and CI
+     (`.github/workflows/ci.yml`) merges them once lint is green and they are conflict-free (a
+     conflicting PR is left open for the user). Submodule PRs get **no** label — those repos have no
+     CI, so they wait for a manual merge. After the main-repo merges land, rebase every other local
+     `phuc-nguyen/*` branch onto the advanced base and re-push it, so no branch keeps stale history.
+   - No mode word → local commits only, nothing is pushed anywhere.
+   Only ever `--force-with-lease`, only on a branch just rebased, and never on a branch whose
+   upstream is the base (e.g. `cheatsheet` tracks `origin/master`). Never merge a PR yourself.
 
 ## Lint
 
 The main repo uses **pre-commit** (`.pre-commit-config.yaml`: clang-format per `.clang-format`,
 `g++ -std=c++20 -fsyntax-only`, whitespace/EOF hygiene). CI runs the same hooks on every PR diff,
-so unlinted commits block auto-merge. Lint main-repo solution files **before staging them**
+so unlinted commits block auto-merge in `pr` mode. Lint main-repo solution files **before staging them**
 (`pre-commit run --files <files>`, re-run until clean — fixer hooks modify in place);
 `/commit-progress` does this automatically. The submodules have no pre-commit config yet — commit
 their units as-is.
