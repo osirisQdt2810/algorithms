@@ -47,9 +47,13 @@ This repo is a personal DSA study journal (main repo `dsa-journey` + two git sub
    Exception: `/commit-progress` invoked with the mode word `push` or `pr` **is** that explicit
    request, and it now covers **every** branch the run touched in **all three** repos (submodules
    included):
-   - `push` → rebase each touched branch onto its up-to-date base and push it
-     (`--force-with-lease` after the rebase). No PR.
-   - `pr` → the same, then open a PR per branch. Main-repo PRs get the `auto-merge` label and CI
+   - `push` → **get the branches onto the remote, nothing more.** Rebase each touched branch onto
+     its up-to-date base and push it (`--force-with-lease` after the rebase). No PR.
+   - `pr` → **get the work merged.** Its branch set is wider than `push`: **every** local
+     `phuc-nguyen/*` branch with `rev-list --count <base>..<branch> > 0`, whether or not this run
+     committed to it. Rebase + push each, then open a PR per branch. A push reporting
+     `Everything up-to-date` is **not** a stop condition — always still query the remote for an open
+     PR and open one if missing (a *merged* PR from an earlier run does not count). Main-repo PRs get the `auto-merge` label and CI
      (`.github/workflows/ci.yml`) merges them once lint is green and they are conflict-free (a
      conflicting PR is left open for the user). Submodule PRs get **no** label — those repos have no
      CI, so they wait for a manual merge. After the main-repo merges land, rebase every other local

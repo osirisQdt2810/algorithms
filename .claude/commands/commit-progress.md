@@ -217,8 +217,8 @@ commits are done (local commits always happen, whatever the mode).
 | mode | what happens |
 |---|---|
 | *(none)* | **Local commits only — the default.** Nothing is pushed anywhere. |
-| `push` | Rebase + push **every branch that received a commit in this run**, in all three repos. No PR is opened. |
-| `pr` | Everything `push` does, then open/refresh a PR per branch, wait for the auto-merge bot, then rebase-sweep every other local topic branch onto the updated base and re-push it. |
+| `push` | **Get the branches onto the remote, nothing more.** Rebase + push **every branch that received a commit in this run**, in all three repos. No PR is opened. |
+| `pr` | **Get the work merged.** Rebase + push, then open/refresh a PR, wait for the auto-merge bot, then rebase-sweep the remaining local topic branches onto the updated base and re-push them. Its branch set is **wider** than `push` — see below. |
 
 - The mode is a **bare word** (`push` / `pr`), matched case-insensitively. Strip it from
   `$ARGUMENTS` first; the remaining tokens are scope filters exactly as before.
@@ -226,6 +226,24 @@ commits are done (local commits always happen, whatever the mode).
   **every** branch this run touched, in **every** repo (submodules included). Unit→branch
   resolution by domain/topic is completely unchanged — see **Branch handling** above.
 - If both words appear, treat it as `pr` and say so in the summary.
+
+#### Which branches each mode acts on (`pr` is wider than `push`)
+
+- **`push`** acts on the branches that **received a commit in this run**. A branch with nothing new
+  to push is simply not its business.
+- **`pr`** acts on **every eligible branch whose work is not yet in the base** — that is, each local
+  `phuc-nguyen/*` branch (per repo) where `git -C <repo> rev-list --count <base>..<branch>` is
+  **greater than 0** — *whether or not this run committed to it*. `pr` means "get the work merged",
+  so a branch carrying unmerged commits from an **earlier** run is still in scope. Compute this set
+  explicitly at the start of the publish flow; never assume it equals the set of branches this run
+  touched.
+- **`Everything up-to-date` is NOT a stop condition in `pr` mode.** A branch pushed by an earlier run
+  has nothing left to push, but it may still have **no open PR** — which is exactly how work gets
+  stranded on the remote for weeks. After every push attempt in `pr` mode, **always** go on to query
+  the remote (`gh pr list --head <branch> --state open`) and open a PR if there is none. Treat the
+  push result as irrelevant to whether step 2 runs.
+  - A **merged** PR for that branch from an earlier run does not count as an open PR — new commits
+    landed on the branch after that merge need a **new** PR.
 
 ### Per-repo facts the publish flow needs
 
@@ -244,7 +262,9 @@ part before the `/`.
 
 ### Step 1 — rebase + push (both `push` and `pr`)
 
-Group the branches that received commits by repo; for each repo, then each branch:
+Resolve the mode's branch set first (see **Which branches each mode acts on** above): for `push`
+the branches that received commits this run; for `pr` every local `phuc-nguyen/*` branch with
+`rev-list --count <base>..<branch> > 0`. Group them by repo; for each repo, then each branch:
 
 1. Update the base: `git -C <repo> fetch <remote>`, then
    `git -C <repo> checkout <base> && git -C <repo> merge --ff-only <remote>/<base>`.
@@ -256,21 +276,24 @@ Group the branches that received commits by repo; for each repo, then each branc
 3. Push: `git -C <repo> push -u <remote> <branch>` when the branch has no upstream, else
    `git -C <repo> push --force-with-lease <remote> <branch>` (the rebase rewrote history). If
    `--force-with-lease` is rejected the remote branch moved underneath you → report it, do **not**
-   retry with `--force`.
+   retry with `--force`. `Everything up-to-date` is a **success**, not a skip — the branch stays in
+   scope for step 2.
 
 `push` mode stops here. Report the pushed branches and move on to **After committing**.
 
 ### Step 2 — open the PRs (`pr` mode only)
 
-Only the **main repo** has the auto-merge bot (`.github/workflows/ci.yml`); the submodules have no
-CI at all.
+Run this for **every branch in the `pr` branch set**, including branches that step 3 reported as
+`Everything up-to-date`. Only the **main repo** has the auto-merge bot (`.github/workflows/ci.yml`);
+the submodules have no CI at all.
 
 4. Main repo — ensure the opt-in label exists (idempotent):
    `gh label create auto-merge --color 0E8A16 --description "CI merges this PR when lint passes and there are no conflicts" 2>/dev/null || true`
-5. Main repo, per branch: if `gh pr list --head <branch> --state open` is empty →
-   `gh pr create --base master --head <branch> --fill --label auto-merge`. Otherwise the push in
-   step 3 already updated the open PR — just ensure the label
-   (`gh pr edit <number> --add-label auto-merge`).
+5. Main repo, per branch: query `gh pr list --head <branch> --state open`. If it is empty →
+   `gh pr create --base master --head <branch> --fill --label auto-merge`. **Query this for every
+   branch in the set** — a branch that pushed clean, and a branch that was already up-to-date, are
+   treated identically here. Otherwise the push in step 3 already updated the open PR — just ensure
+   the label (`gh pr edit <number> --add-label auto-merge`).
 6. Submodules, per branch: `gh pr create -R <owner>/<repo> --base main --head <branch> --fill`, with
    **no** `auto-merge` label — there is no CI there to honour it. Report the URL and state plainly
    that it waits for a **manual** merge by the user.
@@ -315,5 +338,11 @@ Then, when a mode was passed:
 - **`push` and `pr`** — a publish table `repo | branch | pushed? | how (new upstream / force-with-lease)`, and for anything not pushed, the reason (rebase conflict, diverged base, rejected lease).
 - **`pr` only** — add `PR URL | merged?` per branch, marking submodule PRs as *manual merge, no CI*; then a sweep table `repo | branch | rebased or ff | re-pushed? | conflict?`, or an explicit line saying the sweep was skipped because the base never moved.
 - **No mode** — say plainly that nothing was pushed and name the mode word (`push` / `pr`) that would publish it.
+
+**Stranded-work check (every run, every mode).** Before finishing, list each local `phuc-nguyen/*`
+branch per repo with `git -C <repo> rev-list --count <base>..<branch>` > 0 **and no open PR**. Report
+them explicitly as *unmerged work with no PR*, with the commit count. `ahead > 0` is never "fine" —
+it means committed study work that is not in the base yet. Never report such a branch as merely
+"already rebased onto the latest base" and leave it at that.
 
 Arguments: $ARGUMENTS
